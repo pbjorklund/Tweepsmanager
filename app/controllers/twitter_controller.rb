@@ -11,13 +11,8 @@ class TwitterController < ApplicationController
     not_following_user = following.ids.to_set - followers.ids.to_set
     stalkers = followers.ids.to_set - following.ids.to_set 
 
-    @following = not_following_user.count
-    @followers =  stalkers.count
-
-    #not_following_user.first(10).each { |user_id| ap Twitter.user(user_id).screen_name }
-    #stalkers.first(10).each { |user_id| ap Twitter.user(user_id).screen_name }
-
-    #ap Twitter.users(following.ids.first)
+    @not_following_user = twitter.users(not_following_user.first(100))
+    @stalkers = twitter.users(stalkers.first(100))
 
     @api_calls_left = twitter.rate_limit_status.remaining_hits
   end
