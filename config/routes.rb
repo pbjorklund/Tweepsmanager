@@ -1,4 +1,14 @@
 Tweepsmanager::Application.routes.draw do
+  get "twitter/followers"
+
+  get "twitter/following"
+
+  get "twitter/friends"
+
+  get "twitter/stalkers"
+
+  get "twitter/only_following"
+
   get "home/index"  
   
   match '/auth/:provider/callback', to: 'sessions#create'
