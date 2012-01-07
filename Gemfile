@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0.rc1'
 gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'json_pure'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
