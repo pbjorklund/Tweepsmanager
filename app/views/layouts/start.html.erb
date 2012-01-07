@@ -50,7 +50,7 @@
 	
 	<div class="container">
 		<% if flash[:notice] %>
-			<div class="alert-message info"><%= flash[:notice] %></div>
+			<div class="alert-message default"><%= flash[:notice] %></div>
 		<% end %>
 		<% if flash[:success] %>
 			<div class="alert-message success"><%= flash[:success] %></div>
@@ -67,7 +67,7 @@
 	<div class="container">
 	
 		<div id="footer" class="span16 footer">	
-			<p>Copyright &copy; Patrik Bjorklund & Erik Skoglund 2012 - <%= Time.new.year %></p>
+			<p>Copyright &copy; Patrik Björklund &amp; Erik Skoglund 2012 - <%= Time.new.year %></p>
 		</div>
 	</div>
 		
