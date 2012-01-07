@@ -1,5 +1,6 @@
 class TwitterController < ApplicationController
   def followers
+    @user = current_user
   end
 
   def following

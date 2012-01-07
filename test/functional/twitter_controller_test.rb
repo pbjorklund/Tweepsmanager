@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class TwitterControllerTest < ActionController::TestCase
+
   test "should get followers" do
     get :followers
     assert_response :success
