@@ -1,4 +1,6 @@
 Tweepsmanager::Application.routes.draw do
+  get "home/index"  root :to => 'home#index'
+  
   match '/auth/:provider/callback', to: 'sessions#create'
   match '/signout', to: "sessions#destroy", as: :signout
   # The priority is based upon order of creation:
