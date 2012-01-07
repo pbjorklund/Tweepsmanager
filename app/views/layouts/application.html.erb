@@ -2,13 +2,37 @@
 <html>
 <head>
   <title>Tweepsmanager</title>
+  <%= stylesheet_link_tag    "blueprint/screen", :media => "all" %>
+  <%= stylesheet_link_tag    "blueprint/plugins/buttons/screen", :media => "all" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div class="container">
+	<div id="header" class="span-24">
+		<h1 class="span-20"><a href="/">Tweepsmanager</a></h1>
+	</div>
+		<div class="sign-in">gdsgfdwgegrwgrw</div>
+	<hr />
+	<% if flash[:notice] %>
+		<div class="span-20 notice"><%= flash[:notice] %></div>
+	<% end %>
+	<% if flash[:success] %>
+		<div class="span-20 success"><%= flash[:success] %></div>
+	<% end %>
+	<% if flash[:error] %>
+		<div class="span-20 error"><%= flash[:error] %></div>
+	<% end %>	
+	<div class="span-24 last"/>
+	
+	<%= yield %>
+	
+	<hr />	
+	<div id="footer" class="span-24 last">	
+		<p>Copyright &copy; Patrik Bjorklund & Erik Skoglund 2012 - <%= Time.new.year %></p>
+	</div>
+</div>
 
 </body>
 </html>
