@@ -1,3 +1,12 @@
 .sign-in{
-	background:url('../images/signin_twitter.png');/* 0 0 22 149;*/
+	background-image:url('/assets/signin_twitter.png');
+	width:150px;
+	height:22px;
+	margin:10px;
+}
+.sign-in:hover{
+	background-position:0px 22px;
+}
+.sign-in:active{
+	background-position:0px 46px;
 }
