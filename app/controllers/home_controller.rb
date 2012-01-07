@@ -6,4 +6,8 @@ class HomeController < ApplicationController
 		render layout: "start", action: "start"
 	end
   end
+
+  def login
+    
+  end
 end
