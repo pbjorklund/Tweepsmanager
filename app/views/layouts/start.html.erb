@@ -6,6 +6,7 @@
   <%= javascript_include_tag "less-1.1.4.min" %>
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link rel="shortcut icon" href="<%= image_path('bird_small.png') %>" type="image/x-icon"></link>
  
   <%= csrf_meta_tags %>
 </head>
@@ -15,11 +16,6 @@
         <div class="container">
 		  <a class="brand" href="/">Tweepsmanager</a>
 		  <ul class="nav">
-			<li><a href="twitter/followers">Followers</a></li>            
-			<li><a href="twitter/following">Following</a></li>			
-			<li><a href="twitter/friends">Friends</a></li>
-			<li><a href="twitter/stalkers">Stalkers</a></li>
-			<li><a href="twitter/onlyfollowing">Only following</a></li>			
 		  </ul>
 		  <ul class="nav secondary-nav">
 			<% if current_user %>				

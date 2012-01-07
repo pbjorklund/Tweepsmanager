@@ -22,10 +22,10 @@ class TwitterController < ApplicationController
     #ap Twitter.users(following.ids.first)
 
     puts twitter.rate_limit_status.remaining_hits.to_s + " Twitter API request(s) remaining this hour"
-
   end
 
   def following
+	@users = ["Pelle", "Lisa", "Nisse", "Kalle", "Stina"]
   end
 
   def friends
