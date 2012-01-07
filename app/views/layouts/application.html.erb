@@ -6,20 +6,21 @@
   <%= javascript_include_tag "less-1.1.4.min" %>
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
- 
+  <link rel="shortcut icon" href="<%= image_path('bird_small.png') %>" type="image/x-icon"></link>
   <%= csrf_meta_tags %>
 </head>
 <body>
     <div class="topbar" data-dropdown="dropdown">
       <div class="fill">
         <div class="container">
-		  <a class="brand" href="/">Tweepsmanager</a>
+			<a class="brand" href="/">Tweepsmanager</a>
 		  <ul class="nav">
-			<li><a href="twitter/followers">Followers</a></li>            
-			<li><a href="twitter/following">Following</a></li>			
-			<li><a href="twitter/friends">Friends</a></li>
-			<li><a href="twitter/stalkers">Stalkers</a></li>
-			<li><a href="twitter/onlyfollowing">Only following</a></li>			
+			<li><%= link_to "Followers", controller: "twitter", action: "followers" %></li>
+			<li><%= link_to "Following", controller: "twitter", action: "following" %></li>
+			<li><%= link_to "Friends", controller: "twitter", action: "friends" %></li>
+			<li><%= link_to "Stalkers", controller: "twitter", action: "stalkers" %></li>
+			<li><%= link_to "Only following", controller: "twitter", action: "onlyfollowing" %></li>
+			<li><a data-controls-modal="tweet-dialog" data-backdrop="true" >Tweet</a></li>
 		  </ul>
 		  <ul class="nav secondary-nav">
 			<% if current_user %>				
@@ -48,7 +49,21 @@
       </div>
     </div>
 	
+	<div id="tweet-dialog" class="modal hide fade" style="display:none;">
+		<div class="modal-header">
+			<a href="#" class="close">×</a>
+			<h3>What’s happening?</h3>
+		</div>
+		<div class="modal-body">
+			<textarea class="span9 xlarge" rows="5"  name="tweet"></textarea>
+		</div>
+		<div class="modal-footer">
+			<button class="btn primary" >Tweet</button>
+		</div>
+	</div>
+	
 	<div class="container">
+		
 		<% if flash[:notice] %>
 			<div class="alert-message default"><%= flash[:notice] %></div>
 		<% end %>
