@@ -10,12 +10,11 @@
 </head>
 <body>
 <div class="container">
-	<div id="header" class="span-24">
+	<div id="header" class="span-24 header">
 		<h1 class="span-19"><a href="/">Tweepsmanager</a></h1>
 		<a class="span-4" href="/auth/twitter/"><div class="sign-in"></div></a>
 	</div>
-	
-	
+		
 	<hr />
 	<% if flash[:notice] %>
 		<div class="span-20 notice"><%= flash[:notice] %></div>
@@ -31,7 +30,7 @@
 	<%= yield %>
 	
 	<hr />	
-	<div id="footer" class="span-24 last">	
+	<div id="footer" class="span-24 last footer">	
 		<p>Copyright &copy; Patrik Bjorklund & Erik Skoglund 2012 - <%= Time.new.year %></p>
 	</div>
 </div>

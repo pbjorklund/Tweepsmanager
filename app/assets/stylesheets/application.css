@@ -1,3 +1,14 @@
+body{
+	background-color:#B3DADB;
+}
+
+.container{
+	background-color:white;
+	padding:25px;
+	border-radius:5px;
+	margin-top:10px;
+}
+
 .sign-in{
 	background-image:url('/assets/signin_twitter.png');
 	width:150px;
@@ -9,4 +20,13 @@
 }
 .sign-in:active{
 	background-position:0px 46px;
+}
+
+.header{
+}
+.footer{
+}
+
+h1 a{
+	text-decoration:none;
 }
