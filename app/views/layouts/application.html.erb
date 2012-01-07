@@ -2,38 +2,44 @@
 <html>
 <head>
   <title>Tweepsmanager</title>
-  <%= stylesheet_link_tag    "blueprint/screen", :media => "all" %>
-  <%= stylesheet_link_tag    "blueprint/plugins/buttons/screen", :media => "all" %>
+  <%= stylesheet_link_tag    "less/bootstrap.less", :media => "all" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "less-1.1.4.min" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-	<div id="header" class="span-24 header">
-		<h1 class="span-19"><a href="/">Tweepsmanager</a></h1>
-		<a class="span-4" href="/auth/twitter/"><div class="sign-in"></div></a>
+	
+	<div id="header" class="row header">
+		<div class="span16">
+			<h1 class="span10"><a href="/">Tweepsmanager</a></h1>
+			
+			<% if current_user %>
+				<p><%= current_user.name %> - <a href="/signout/">Sign out</a></p>
+			<% else %>
+				<a class="span4" href="/auth/twitter/"><div class="sign-in"></div></a>
+			<% end %>
+		</div>
 	</div>
 		
-	<hr />
-	<% if flash[:notice] %>
-		<div class="span-20 notice"><%= flash[:notice] %></div>
-	<% end %>
-	<% if flash[:success] %>
-		<div class="span-20 success"><%= flash[:success] %></div>
-	<% end %>
-	<% if flash[:error] %>
-		<div class="span-20 error"><%= flash[:error] %></div>
-	<% end %>	
-	<div class="span-24 last"/>
+	<div class="row">
+		<% if flash[:notice] %>
+			<div class="span16 notice"><%= flash[:notice] %></div>
+		<% end %>
+		<% if flash[:success] %>
+			<div class="span16 success"><%= flash[:success] %></div>
+		<% end %>
+		<% if flash[:error] %>
+			<div class="span16 error"><%= flash[:error] %></div>
+		<% end %>	
+		<div class="span16 last"/>
+	</div>
 	
 	<%= yield %>
 	
-	<hr />	
-	<div id="footer" class="span-24 last footer">	
-		<p>Copyright &copy; Patrik Bjorklund & Erik Skoglund 2012 - <%= Time.new.year %></p>
+	<div class="row">
+		<div id="footer" class="span16 last footer">	
+			<p>Copyright &copy; Patrik Bjorklund & Erik Skoglund 2012 - <%= Time.new.year %></p>
+		</div>
 	</div>
-</div>
-
 </body>
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tweepsmanager</title>
+  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  <%= javascript_include_tag "less-1.1.4.min" %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+ 
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="topbar" data-dropdown="dropdown">
+      <div class="fill">
+        <div class="container">
+		  <a class="brand" href="/">Tweepsmanager</a>
+		  <ul class="nav">
+			<li><a href="twitter/followers">Followers</a></li>            
+			<li><a href="twitter/following">Following</a></li>			
+			<li><a href="twitter/friends">Friends</a></li>
+			<li><a href="twitter/stalkers">Stalkers</a></li>
+			<li><a href="twitter/onlyfollowing">Only following</a></li>			
+		  </ul>
+		  <ul class="nav secondary-nav">
+			<% if current_user %>				
+				<li>
+					<a href="/"><img class="img-icon" src="http://bit.ly/wgdjrR"></img></a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle"><%= current_user.name %></a>
+					<ul class="dropdown-menu">	
+						<li>
+							<a href="user/settings">Settings</a>
+						</li>
+						<li class="divider"></li>
+						<li>		
+							<a href="/signout/">Sign out</a>
+						</li>
+					</ul>
+				</li>
+			<% else %>
+				<li>			
+					<a href="/auth/twitter/">Sign in</a>
+				</li>
+			<% end %>
+			</ul>
+        </div>
+      </div>
+    </div>
+	
+	<div class="container">
+		<% if flash[:notice] %>
+			<div class="alert-message info"><%= flash[:notice] %></div>
+		<% end %>
+		<% if flash[:success] %>
+			<div class="alert-message success"><%= flash[:success] %></div>
+		<% end %>
+		<% if flash[:error] %>
+			<div class="alert-message error"><%= flash[:error] %></div>
+		<% end %>	
+
+		
+		<%= yield %>
+		
+	</div>
+	
+	<div class="container">
+	
+		<div id="footer" class="span16 footer">	
+			<p>Copyright &copy; Patrik Bjorklund & Erik Skoglund 2012 - <%= Time.new.year %></p>
+		</div>
+	</div>
+		
+</body>
+</html>
