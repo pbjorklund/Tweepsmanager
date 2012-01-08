@@ -11,11 +11,10 @@
 			</tr>
 		</thead>
 		<tbody>
-		<% @users.each do |user| %>	
+		<% @following.each do |user| %>	
 			<tr>
+        <td> <%= user.name %> </td>
 				<td><img src="http://bit.ly/wgdjrR" class="img-icon"></img></td>
-				<td><%= link_to user, controller:"user", action:"show", id:"" %></td>
-				<td><%= link_to user, controller:"user", action:"show", id:"" %></td>
 				<td><%= link_to "Unfollow", {controller:"twitter", action:"unfollow", id:"0"}, class:"btn small danger" %></td>
 			</tr>
 		<% end %>
