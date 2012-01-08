@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+    name: MyString
+
+two:
+    name: MyString
+
+pbjorklund:
+    name: Patrik Bjorklund,
+    provider: twitter,
+    uid: 19505451,
+    nickname: pbjorklund,
+    token: 19505451-zy5HvA6zWXPSlozaAl0l7UOB3cWQmYCr4jqDTJAB2,
+    secret: 1KHHU7LO3UsEhQmbLyhmvXyU4q6dSkuCaWmr6Skqy8
