@@ -3,7 +3,6 @@ class TwitterController < ApplicationController
     @user = current_user
 
     #twitter = Twitter::Client.new(:oauth_token => "current_user.token", :oauth_token_secret => "current_user.secret")
-    twitter = Twitter::Client.new()
 
     following = twitter.friend_ids(@user.nickname)
     followers = twitter.follower_ids(@user.nickname)
