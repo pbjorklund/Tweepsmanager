@@ -37,6 +37,7 @@ class TwitterController < ApplicationController
   end
   
   def settings
-	@user = current_user
+	twitter = Twitter::Client.new()
+	@user = twitter.user(current_user.nickname)
   end
 end
