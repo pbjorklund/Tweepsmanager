@@ -4,17 +4,18 @@
 	<table class="zebra-striped span4" id="sortTableExample">
 		<thead>
 			<tr>
-			<th class="header"></th>
-			<th class="header">User</th>
-			<th class="header">Name</th>
-			<th class="header"></th>
+				<th class="header"></th>
+				<th class="header">User</th>
+				<th class="header">Name</th>
+				<th class="header"></th>
 			</tr>
 		</thead>
 		<tbody>
 		<% @following.each do |user| %>	
 			<tr>
-        <td> <%= user.name %> </td>
-				<td><img src="http://bit.ly/wgdjrR" class="img-icon"></img></td>
+				<td><img style="width:32px;" src="<%= user.profile_image_url %>"></img></td>
+				<td><%= user.screen_name %></td>
+				<td><%= user.name %></td>
 				<td><%= link_to "Unfollow", {controller:"twitter", action:"unfollow", id:"0"}, class:"btn small danger" %></td>
 			</tr>
 		<% end %>

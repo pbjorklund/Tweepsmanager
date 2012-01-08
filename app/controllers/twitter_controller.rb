@@ -24,6 +24,7 @@ class TwitterController < ApplicationController
     else 
       friends = twitter.friend_ids
       @following = twitter.users(friends.ids.first(100))
+	  @following.sort!{ |a,b| a.screen_name.downcase <=> b.screen_name.downcase }
     end
   end
 
