@@ -2,24 +2,29 @@ class TwitterController < ApplicationController
   def followers
     @user = current_user
 
-    #twitter = Twitter::Client.new(:oauth_token => "current_user.token", :oauth_token_secret => "current_user.secret")
 
-    following = twitter.friend_ids(@user.nickname)
-    followers = twitter.follower_ids(@user.nickname)
+    unless Rails.env.test?
+      following = twitter.friend_ids(@user.nickname)
+      followers = twitter.follower_ids(@user.nickname)
 
-    not_following_user = following.ids.to_set - followers.ids.to_set
-    stalkers = followers.ids.to_set - following.ids.to_set 
+      not_following_user = following.ids.to_set - followers.ids.to_set
+      stalkers = followers.ids.to_set - following.ids.to_set 
 
-    @not_following_user = twitter.users(not_following_user.first(100))
-    @stalkers = twitter.users(stalkers.first(100))
+      @not_following_user = twitter.users(not_following_user.first(100))
+      @stalkers = twitter.users(stalkers.first(100))
 
-    @api_calls_left = twitter.rate_limit_status.remaining_hits
+      @api_calls_left = twitter.rate_limit_status.remaining_hits
+    end
   end
 
   def following
     @user = current_user
-    twitter = Twitter::Client.new()
-    twitter.friend_ids(@user.nickname)
+    if Rails.env.test?
+      @following = []
+    else 
+      friends = twitter.friend_ids
+      @following = twitter.users(friends.ids.first(100))
+    end
   end
 
   def friends
