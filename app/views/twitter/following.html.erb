@@ -13,10 +13,22 @@
 		<tbody>
 		<% @following.each do |user| %>	
 			<tr>
-				<td><img style="width:32px;" src="<%= user.profile_image_url %>"></img></td>
-				<td><%= user.screen_name %></td>
-				<td><%= user.name %></td>
-				<td><%= link_to "Unfollow", {controller:"twitter", action:"unfollow", id:"0"}, class:"btn small danger" %></td>
+				<td>	
+					<img style="width:32px;" src="<%= user.profile_image_url %>"></img>
+				</td>
+				<td>
+					<%= user.screen_name %>				
+					<% if user.verified? %>
+						<br />	
+						<span class="label">verified</span>
+					<% end %>
+				</td>
+				<td>
+					<%= user.name %>
+				</td>
+				<td>
+					<%= link_to "Unfollow", {controller:"twitter", action:"unfollow", id:"0"}, class:"btn small danger" %>
+				</td>
 			</tr>
 		<% end %>
 		</tbody>
