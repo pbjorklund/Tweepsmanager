@@ -7,12 +7,17 @@
 				<th class="header"></th>
 				<th class="header">User</th>
 				<th class="header">Name</th>
+				<th class="header "></th>
+				<th class="header"></th>
+				<th class="header">User</th>
+				<th class="header">Name</th>
 				<th class="header"></th>
 			</tr>
 		</thead>
 		<tbody>
-		<% @following.each do |user| %>	
-			<tr>
+		<% @following.in_groups_of(2){ |group| %>		
+			<tr class="">
+				<% group.each do |user| %>
 				<td>	
 					<img style="width:32px;" src="<%= user.profile_image_url %>"></img>
 				</td>
@@ -29,8 +34,9 @@
 				<td>
 					<%= link_to "Unfollow", {controller:"twitter", action:"unfollow", id:"0"}, class:"btn small danger" %>
 				</td>
+				<% end %>
 			</tr>
-		<% end %>
+		<% } %>
 		</tbody>
 	</table>
 </div>
