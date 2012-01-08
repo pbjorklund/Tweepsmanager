@@ -9,6 +9,8 @@ Tweepsmanager::Application.routes.draw do
 
   get "twitter/only_following"
 
+  get "twitter/settings"
+
   get "home/index"  
   
   match '/auth/:provider/callback', to: 'sessions#create'

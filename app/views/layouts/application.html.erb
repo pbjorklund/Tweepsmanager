@@ -31,7 +31,7 @@
 					<a href="#" class="dropdown-toggle"><%= current_user.name %></a>
 					<ul class="dropdown-menu">	
 						<li>
-							<a href="user/settings">Settings</a>
+							<%= link_to "Settings", controller: "twitter", action:"settings" %>
 						</li>
 						<li class="divider"></li>
 						<li>		

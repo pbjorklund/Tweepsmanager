@@ -31,4 +31,8 @@ class TwitterController < ApplicationController
 
   def only_following
   end
+  
+  def settings
+	@user = current_user
+  end
 end
