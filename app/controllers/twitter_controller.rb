@@ -35,4 +35,12 @@ class TwitterController < ApplicationController
 	twitter = Twitter::Client.new()
 	@user = twitter.user(current_user.nickname)
   end
+  
+  def tweet
+	tweet = params[:tweet]
+	twitter = Twitter::Client.new()
+	#twitter.update(tweet)
+	@message = "Success"
+	render :partial => "SuccessPartial"
+  end
 end

@@ -6,7 +6,7 @@
   <%= javascript_include_tag "less-1.1.4.min" %>
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <link rel="shortcut icon" href="<%= image_path('bird_small.png') %>" type="image/x-icon"></link>
+  <link rel="shortcut icon" href="<%= image_path('hawk.png') %>" type="image/x-icon"></link>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -58,9 +58,21 @@
 			<textarea class="span9 xlarge" rows="5"  name="tweet"></textarea>
 		</div>
 		<div class="modal-footer">
-			<button class="btn primary" >Tweet</button>
+			<%= link_to "Tweet", {controller:"twitter", action: "tweet"}, remote:true, class:"btn primary", id:"tweet-button" %>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		$("#tweet-button").bind('ajax:complete', function(evt, data, status, xhr){
+			alert(xhr.responseText);
+		});
+		$("#tweet-button").bind('ajax:success', function(){
+			alert("Complete!");
+		});
+		$("#tweet-button").bind('ajax:failure', function(){
+			alert("Fail!");
+		});
+	</script>
 	
 	<div class="container">
 		<% if flash[:notice] %>

@@ -13,6 +13,8 @@ Tweepsmanager::Application.routes.draw do
 
   get "home/index"  
   
+  get "twitter/tweet"
+  
   match '/auth/:provider/callback', to: 'sessions#create'
   match '/login', to: "home#login", as: :login
   match '/signout', to: "sessions#destroy", as: :signout
