@@ -2,8 +2,11 @@ class TwitterController < ApplicationController
   def followers
     @user = current_user
 
-
-    unless Rails.env.test?
+    if Rails.env.test?
+      @not_following_user = Array.new
+      @stalkers = Array.new
+      @api_calls_left = Array.new
+    else
       following = twitter.friend_ids(@user.nickname)
       followers = twitter.follower_ids(@user.nickname)
 
@@ -20,7 +23,7 @@ class TwitterController < ApplicationController
   def following
     @user = current_user
     if Rails.env.test?
-      @following = []
+      @following = Array.new
     else 
       friends = twitter.friend_ids
       @following = twitter.users(friends.ids.first(100))
@@ -35,9 +38,11 @@ class TwitterController < ApplicationController
 
   def only_following
   end
-  
+
   def settings
-	twitter = Twitter::Client.new()
-	@user = twitter.user(current_user.nickname)
+    if Rails.env.test?
+    else 
+      @user = twitter.user(current_user.nickname)
+    end
   end
 end
