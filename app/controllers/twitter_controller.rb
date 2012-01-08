@@ -27,6 +27,7 @@ class TwitterController < ApplicationController
     else 
       friends = twitter.friend_ids
       @following = twitter.users(friends.ids.first(100))
+	  @following.sort!{ |a,b| a.screen_name.downcase <=> b.screen_name.downcase }
     end
   end
 
@@ -44,5 +45,13 @@ class TwitterController < ApplicationController
     else 
       @user = twitter.user(current_user.nickname)
     end
+  end
+  
+  def tweet
+	tweet = params[:tweet]
+	twitter = Twitter::Client.new()
+	#twitter.update(tweet)
+	@message = "Success"
+	render :partial => "SuccessPartial"
   end
 end
