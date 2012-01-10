@@ -3,20 +3,12 @@ class TwitterController < ApplicationController
     @user = current_user
 
     if Rails.env.test?
-      @not_following_user = Array.new
-      @stalkers = Array.new
+      @followers = Array.new
       @api_calls_left = Array.new
     else
-      following = twitter.friend_ids(@user.nickname)
-      followers = twitter.follower_ids(@user.nickname)
 
-      not_following_user = following.ids.to_set - followers.ids.to_set
-      stalkers = followers.ids.to_set - following.ids.to_set 
-
-      @not_following_user = twitter.users(not_following_user.first(100))
-      @stalkers = twitter.users(stalkers.first(100))
-
-      @api_calls_left = twitter.rate_limit_status.remaining_hits
+      @followers = get_followers
+      @api_calls_left = get_api_calls_left
     end
   end
 
@@ -25,19 +17,21 @@ class TwitterController < ApplicationController
     if Rails.env.test?
       @following = Array.new
     else 
-      friends = twitter.friend_ids
-      @following = twitter.users(friends.ids.first(100))
-	  @following.sort!{ |a,b| a.screen_name.downcase <=> b.screen_name.downcase }
+      @following = get_following.sort!{ |a,b| a.screen_name.downcase <=> b.screen_name.downcase }
     end
   end
 
   def friends
+    #TODO
+    @friends = Array.new
   end
 
   def stalkers
+      @stalkers = get_stalkers
   end
 
   def only_following
+    @only_following = get_users_not_following_back
   end
 
   def settings

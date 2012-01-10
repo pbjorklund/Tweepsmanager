@@ -1,2 +1,45 @@
-<h1>Twitter#only_following</h1>
-<p>Find me in app/views/twitter/only_following.html.erb</p>
+<div class="hero-unit">
+	<p>These are the people that don't follow you back. Bastards!</p>
+
+	<table class="zebra-striped span4" id="sortTableExample">
+		<thead>
+			<tr>
+				<th class="header"></th>
+				<th class="header">User</th>
+				<th class="header">Name</th>
+				<th class="header "></th>
+				<th class="header"></th>
+				<th class="header">User</th>
+				<th class="header">Name</th>
+				<th class="header"></th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @only_following.in_groups_of(2){ |group| %>		
+			<tr class="">
+				<% group.each do |user| %>
+				<td>	
+					<img style="width:32px;" src="<%= user.profile_image_url %>"></img>
+				</td>
+				<td>
+					<%= user.screen_name %>				
+					<% if user.verified? %>
+						<br />	
+						<span class="label notice">verified</span>
+					<% end %>
+				</td>
+				<td>
+					<%= user.name %>
+				</td>
+				<td>
+					<%= link_to "Unfollow", {controller:"twitter", action:"unfollow", id:"0"}, class:"btn small danger" %>
+				</td>
+				<% end %>
+			</tr>
+		<% } %>
+		</tbody>
+	</table>
+</div>
+
+<%= @api_calls_left %> api calls left this hour
+<p>Find me in app/views/twitter/stalkers.html.erb</p>
