@@ -12,6 +12,7 @@ class TwitterController < ApplicationController
     end
   end
 
+  #TODO Mark the ones that you are following as following and the ones I don't follow as not following
   def following
     @user = current_user
     if Rails.env.test?
@@ -22,10 +23,11 @@ class TwitterController < ApplicationController
   end
 
   def friends
-    #TODO
-    @friends = Array.new
+    @friends = get_friends
+    @friends_count = get_friends_count
   end
 
+  #TODO This is people that you don't follow. Make sure that you follow them, not unfollow them ;)
   def stalkers
       @stalkers = get_stalkers
   end
@@ -40,12 +42,17 @@ class TwitterController < ApplicationController
       @user = twitter.user(current_user.nickname)
     end
   end
-  
+
   def tweet
-	tweet = params[:tweet]
-	twitter = Twitter::Client.new()
-	#twitter.update(tweet)
-	@message = "Success"
-	render :partial => "SuccessPartial"
+    tweet = params[:tweet]
+    twitter = Twitter::Client.new()
+    #twitter.update(tweet)
+    @message = "Success"
+    render :partial => "SuccessPartial"
+  end
+
+  def unfollow
+    twitter.unfollow(params[:id])
+    redirect_to :back, notice: "Stopped following #{params[:id]}"
   end
 end

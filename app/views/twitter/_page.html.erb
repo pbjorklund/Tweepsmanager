@@ -1,0 +1,26 @@
+	<table class="zebra-striped span4" id="sortTableExample">
+		<thead>
+			<tr>
+				<th class="header"></th>
+				<th class="header">User</th>
+				<th class="header">Name</th>
+				<th class="header "></th>
+				<th class="header"></th>
+				<th class="header">User</th>
+				<th class="header">Name</th>
+				<th class="header"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% collection.in_groups_of(2){ |group| %>		
+				<tr class="">
+					<% group.each do |user| %>
+            <%= render :partial => "user", :locals => { user: user }  %>
+					<% end %>
+				</tr>
+			<% } %>
+		</tbody>
+	</table>
+</div>
+
+<%= @api_calls_left %> api calls left this hour
