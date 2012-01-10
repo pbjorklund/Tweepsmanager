@@ -19,7 +19,7 @@
 			<li class="<%= request.fullpath.ends_with?("following")  ? "active" : "" %>"><%= link_to "Following", controller: "twitter", action: "following" %></li>
 			<li class="<%= request.fullpath.ends_with?("friends")  ? "active" : "" %>"><%= link_to "Friends", controller: "twitter", action: "friends" %></li>
 			<li class="<%= request.fullpath.ends_with?("stalkers")  ? "active" : "" %>"><%= link_to "Stalkers", controller: "twitter", action: "stalkers" %></li>
-			<li class="<%= request.fullpath.ends_with?("onlyfollowing")  ? "active" : "" %>"><%= link_to "Only following", controller: "twitter", action: "onlyfollowing" %></li>
+			<li class="<%= request.fullpath.ends_with?("only_following")  ? "active" : "" %>"><%= link_to "Only following", controller: "twitter", action: "only_following" %></li>
 			<li><a data-controls-modal="tweet-dialog" data-backdrop="true" >Tweet</a></li>
 		  </ul>
 		  <ul class="nav secondary-nav">
