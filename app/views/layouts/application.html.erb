@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <link rel="shortcut icon" href="<%= image_path('hawk.png') %>" type="image/x-icon"></link>
   <%= csrf_meta_tags %>
-</head>
+  </head>
 <body>
     <div class="topbar" data-dropdown="dropdown">
       <div class="fill">
@@ -88,8 +88,10 @@
 		<%= yield %>
 	</div>
 	
-	<div class="container">
-			<p>Copyright &copy; Patrik Björklund &amp; Erik Skoglund 2012 - <%= Time.new.year %></p>
-	</div>
+	<footer class="footer">
+		<div class="container">
+				<p>Copyright &copy; Patrik Björklund &amp; Erik Skoglund 2012 - <%= Time.new.year %></p>
+		</div>
+	</footer>
 </body>
 </html>
