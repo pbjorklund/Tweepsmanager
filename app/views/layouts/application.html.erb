@@ -15,11 +15,11 @@
         <div class="container">
 			<a class="brand" href="/">Tweepsmanager<img src="<%= image_path('hawk.png') %>" style="width:20px;padding:0;margin:0;" ></img></a>
 		  <ul class="nav">
-			<li class="<%= request.fullpath.ends_with?("followers")  ? "active" : "" %>"><%= link_to "Followers", controller: "twitter", action: "followers" %></li>
-			<li class="<%= request.fullpath.ends_with?("following")  ? "active" : "" %>"><%= link_to "Following", controller: "twitter", action: "following" %></li>
-			<li class="<%= request.fullpath.ends_with?("friends")  ? "active" : "" %>"><%= link_to "Friends", controller: "twitter", action: "friends" %></li>
-			<li class="<%= request.fullpath.ends_with?("stalkers")  ? "active" : "" %>"><%= link_to "Stalkers", controller: "twitter", action: "stalkers" %></li>
-			<li class="<%= request.fullpath.ends_with?("only_following")  ? "active" : "" %>"><%= link_to "Only following", controller: "twitter", action: "only_following" %></li>
+			<li class="<%= request.fullpath.starts_with?("/twitter/followers")  ? "active" : "" %>"><%= link_to "Followers", controller: "twitter", action: "followers" %></li>
+			<li class="<%= request.fullpath.starts_with?("/twitter/following")  ? "active" : "" %>"><%= link_to "Following", controller: "twitter", action: "following" %></li>
+			<li class="<%= request.fullpath.starts_with?("/twitter/friends")  ? "active" : "" %>"><%= link_to "Friends", controller: "twitter", action: "friends" %></li>
+			<li class="<%= request.fullpath.starts_with?("/twitter/stalkers")  ? "active" : "" %>"><%= link_to "Stalkers", controller: "twitter", action: "stalkers" %></li>
+			<li class="<%= request.fullpath.starts_with?("/twitter/only_following")  ? "active" : "" %>"><%= link_to "Only following", controller: "twitter", action: "only_following" %></li>
 			<li><a data-controls-modal="tweet-dialog" data-backdrop="true" >Tweet</a></li>
 		  </ul>
 		  <ul class="nav secondary-nav">
