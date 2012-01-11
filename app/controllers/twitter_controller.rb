@@ -19,7 +19,7 @@ class TwitterController < ApplicationController
     if Rails.env.test?
       @following = Array.new
     else 
-      @following = @twitter_service.get_following.sort!{ |a,b| a.screen_name.downcase <=> b.screen_name.downcase }
+      @following = @twitter_service.get_following.sort_by(&:screen_name)
     end
   end
 

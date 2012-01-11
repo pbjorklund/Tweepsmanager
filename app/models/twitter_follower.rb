@@ -6,6 +6,7 @@ class TwitterFollower
   attr :current_user
 
   #TODO Move this out to resque
+  #TODO Figure out how to use VCR
   def twitter
     @twitter ||= Twitter::Client.new(:oauth_token => current_user.token, :oauth_token_secret => current_user.secret)
   end
@@ -22,7 +23,7 @@ class TwitterFollower
 
   def get_following(limit = 100)
     following_ids = twitter.friend_ids(current_user.nickname).ids
-    twitter.users(following_ids.first(limit))
+    twitter.users(following_ids.first(limit)).sort_by(&:screen_name)
   end
 
   def get_stalkers(limit = 100)
