@@ -48,10 +48,11 @@ class TwitterController < ApplicationController
   end
   
   def tweet
-	tweet = params[:tweet]
-	twitter = Twitter::Client.new()
-	#twitter.update(tweet)
-	@message = "Success"
-	render :partial => "SuccessPartial"
+    if Rails.env.test?
+      #TODO Fix this mess... Get idea of how to test twitter integration
+    else 
+      twitter.update(params[:tweet])
+      render :partial => "SuccessPartial", notice: "Posted #{params[:tweet]} to twitter"
+    end
   end
 end

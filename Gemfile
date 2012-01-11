@@ -15,7 +15,13 @@ gem "rspec-rails", :group => [:test, :development]
 group :test do
   gem "factory_girl_rails"
   gem "capybara"
+  gem "guard"
   gem "guard-rspec"
+  gem "guard-bundler"
+  if RUBY_PLATFORM.downcase.include?("darwin")
+    gem 'rb-fsevent'
+    gem 'growl' # also install growlnotify from the Extras/growlnotify/growlnotify.pkg in Growl disk image
+  end
 end
 
 # Gems used only for assets and not required
