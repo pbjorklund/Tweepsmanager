@@ -1,18 +1,4 @@
-<h1>Not following you</h1>
-<% @not_following_user.each_with_index do |user, index| %>
-  <%= index %>
-  .
-  <%= user.name %>
-  <br />
-<% end -%>
+<div class="hero-unit">
+	<p>These are the people following you.</p>
 
-<h1>Stalkers</h1>
-
-<% @stalkers.each_with_index do |user, index| %>
-  <%= index %>
-  .
-  <%= user.name %>
-  <br />
-<% end -%>
-
-<%= @api_calls_left %> api calls left this hour
+  <%= render partial: "page", :locals => { collection: @followers } %>

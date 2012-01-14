@@ -1,2 +1,5 @@
-<h1>Twitter#only_following</h1>
-<p>Find me in app/views/twitter/only_following.html.erb</p>
+<div class="hero-unit">
+	<p>These are the people that don't follow you back. Bastards!</p>
+
+  <%= render partial: "page", :locals => { collection: @only_following } %>
+

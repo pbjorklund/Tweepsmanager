@@ -1,13 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :twitter
+  helper_method :current_user, :twitter, :get_not_following_user, :get_followers, :get_following, :unfollow_user
 
   private
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def twitter
-    Twitter::Client.new(:oauth_token => current_user.token, :oauth_token_secret => current_user.secret)
-  end
 end

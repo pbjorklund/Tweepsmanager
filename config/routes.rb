@@ -14,6 +14,8 @@ Tweepsmanager::Application.routes.draw do
   get "home/index"  
   
   get "twitter/tweet"
+
+  delete "twitter/unfollow"
   
   match '/auth/:provider/callback', to: 'sessions#create'
   match '/login', to: "home#login", as: :login

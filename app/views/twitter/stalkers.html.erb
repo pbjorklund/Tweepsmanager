@@ -1,2 +1,4 @@
-<h1>Twitter#stalkers</h1>
-<p>Find me in app/views/twitter/stalkers.html.erb</p>
+<div class="hero-unit">
+	<p>These are your stalkers (the people only following you).</p>
+
+  <%= render partial: "page", :locals => { collection: @stalkers } %>
