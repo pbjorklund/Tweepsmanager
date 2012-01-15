@@ -4,23 +4,14 @@ class TwitterController < ApplicationController
   def followers
     @user = current_user
 
-    if Rails.env.test?
-      @followers = Array.new
-      @api_calls_left = Array.new
-    else
-      @followers = @twitter_service.get_followers
-      @api_calls_left = @twitter_service.get_api_calls_left
-    end
+    @followers = @twitter_service.get_followers
+    @api_calls_left = @twitter_service.get_api_calls_left
   end
 
   #TODO Mark the ones that you are following as following and the ones I don't follow as not following
   def following
     @user = current_user
-    if Rails.env.test?
-      @following = Array.new
-    else 
-      @following = @twitter_service.get_following.sort_by(&:screen_name)
-    end
+    @following = @twitter_service.get_following.sort_by(&:screen_name)
   end
 
   def friends
@@ -38,18 +29,12 @@ class TwitterController < ApplicationController
   end
 
   def settings
-    if Rails.env.test?
-    else 
-      @user = @twitter_service.twitter.user(current_user.nickname)
-    end
+    @user = @twitter_service.twitter.user(current_user.nickname)
   end
 
   def tweet
-    #tweet = params[:tweet]
-    #twitter = Twitter::Client.new()
-    ##twitter.update(tweet)
-    #@message = "Success"
-    #render :partial => "SuccessPartial"
+    twitter.update(params[:tweet])
+    redirect_to back, notice: "Posted tweet"
   end
 
   def unfollow
