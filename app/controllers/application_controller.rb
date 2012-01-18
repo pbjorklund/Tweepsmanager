@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :twitter, :get_not_following_user, :get_followers, :get_following, :unfollow_user
+  helper_method :current_user
 
   private
   def current_user

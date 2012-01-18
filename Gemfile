@@ -11,7 +11,13 @@ gem 'twitter'
 
 gem 'sqlite3'
 
-gem "rspec-rails", :group => [:test, :development]
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'webrat'
+  gem 'database_cleaner'
+end
+
 group :test do
   gem "factory_girl_rails"
   gem "capybara"
