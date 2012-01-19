@@ -18,6 +18,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem "factory_girl_rails"
   gem "capybara"
+  gem "launchy"
   gem "guard"
   gem "guard-rspec"
   gem "guard-bundler"
