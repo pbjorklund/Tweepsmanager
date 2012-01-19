@@ -16,9 +16,6 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'webrat'
   gem 'database_cleaner'
-end
-
-group :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard"
@@ -27,6 +24,8 @@ group :test do
   if RUBY_PLATFORM.downcase.include?("darwin")
     gem 'rb-fsevent'
     gem 'growl' # also install growlnotify from the Extras/growlnotify/growlnotify.pkg in Growl disk image
+    gem 'pry'
+    gem 'pry-rails'
   end
 end
 
