@@ -1,11 +1,4 @@
-Given /^I am not logged in$/ do
-end
-
-When /^I go to the startpage$/ do
-  visit root_path
-end
-
-When /^I click the "([^"]*)" link$/ do |link|
+Before do
   OmniAuth.config.test_mode = true
   auth = OmniAuth.config.mock_auth[:twitter] = {
     provider: 'twitter',
@@ -13,25 +6,24 @@ When /^I click the "([^"]*)" link$/ do |link|
     :info => { name: 'Patrik Bjorklund', image_url: 'blank', nickname: 'pbjorklund' },
     :credentials => { token: 'blank', secret: 'blank' }
   }
+end
+
+Given /^I am not logged in$/ do
+end
+
+When /^I go to the startpage$/ do
+  visit root_path
+end
+
+When /^I click "([^"]*)"$/ do |link|
   click_link link
 end
 
-Then /^I should see "([^"]*)"$/ do |signed_in|
-  page.should have_content(signed_in)
+Then /^I should see "([^"]*)"$/ do |message|
+  page.should have_content(message)
 end
 
 Given /^I am signed in$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I visit the startpage$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I should see my full name$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I click "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+  visit root_path
+  click_link "Sign in"
 end
