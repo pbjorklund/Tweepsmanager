@@ -14,7 +14,7 @@ gem 'sqlite3'
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
-  gem 'webrat'
+  #gem 'webrat'
   gem 'database_cleaner'
   gem "factory_girl_rails"
   gem "capybara"
