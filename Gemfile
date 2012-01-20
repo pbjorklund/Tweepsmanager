@@ -15,7 +15,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'vcr'
-  gem 'vcr-remote-controller'
   gem 'fakeweb'
   #gem 'webrat'
   gem 'database_cleaner'
@@ -24,6 +23,7 @@ group :development, :test do
   gem "launchy"
   gem "guard"
   gem "guard-rspec"
+  gem "guard-cucumber"
   gem "guard-bundler"
   if RUBY_PLATFORM.downcase.include?("darwin")
     gem 'rb-fsevent'
