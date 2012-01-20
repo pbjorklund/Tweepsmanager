@@ -14,6 +14,9 @@ gem 'sqlite3'
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
+  gem 'vcr'
+  gem 'vcr-remote-controller'
+  gem 'fakeweb'
   #gem 'webrat'
   gem 'database_cleaner'
   gem "factory_girl_rails"
