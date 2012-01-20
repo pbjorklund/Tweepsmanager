@@ -35,3 +35,16 @@ Tweepsmanager::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 end
+
+# Vcr development, use this to record cassettes for interactions in development
+#VCR.config do |c|
+#  c.cassette_library_dir = File.expand_path("vcr_cassette", Rails.root)
+#  c.stub_with :fakeweb
+#  c.default_cassette_options = { :record => :all }
+#end
+#
+#VCR.insert_cassette ("development")
+#
+#at_exit {
+#  VCR.eject_cassette
+#}

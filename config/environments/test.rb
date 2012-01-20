@@ -35,3 +35,9 @@ Tweepsmanager::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end
+
+VCR.config do |c|
+  c.cassette_library_dir = Rails.root.join("features", "vcr")
+  c.stub_with :fakeweb
+  c.default_cassette_options = { :record => :once }
+end

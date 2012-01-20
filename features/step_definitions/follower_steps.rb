@@ -1,7 +1,9 @@
 When /^I go to the followers page$/ do
-  visit "/twitter/followers"
+  VCR.use_cassette('followers') do
+    visit "/twitter/followers"
+  end
 end
 
 Then /^I should see a list of my followers$/ do
-  save_and_open_page
+  page.should have_xpath('//table/tbody/tr/td/a')
 end
