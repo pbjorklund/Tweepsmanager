@@ -4,6 +4,7 @@ Feature: Followers
 	As a user
 	I want to display a list of my followers
 
+	@logged_in
 	Scenario:
 		Given I am signed in
 		When I go to the followers page

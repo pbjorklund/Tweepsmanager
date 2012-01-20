@@ -14,6 +14,4 @@ Then /^I should see "([^"]*)"$/ do |message|
 end
 
 Given /^I am signed in$/ do
-  visit root_path
-  click_link "Sign in"
 end

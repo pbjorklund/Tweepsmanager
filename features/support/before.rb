@@ -5,3 +5,7 @@ auth = OmniAuth.config.mock_auth[:twitter] = {
   :info => { name: 'Patrik Bjorklund', image_url: 'blank', nickname: 'pbjorklund' },
   :credentials => { token: 'blank', secret: 'blank' }
 }
+
+Before('@logged_in') do
+  visit "/auth/twitter"
+end

@@ -10,6 +10,7 @@ Feature: Signup with omniauth-twitter
 		And I click "Sign in"
 		Then I should see "Signed in!"
 
+		@logged_in
 	Scenario: Logout
 		Given I am signed in
 		When I go to the startpage
