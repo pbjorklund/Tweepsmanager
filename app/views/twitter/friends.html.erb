@@ -1,5 +1,4 @@
 <div class="hero-unit">
-	<p>These are your friends (following you, following back)</p>
-  <p><%= @friends_count %>
+	<p>These are your <%= @friends_count %> friends (following you, following back)</p>
 
   <%= render partial: "page", :locals => { collection: @friends } %>

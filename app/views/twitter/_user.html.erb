@@ -1,16 +1,25 @@
-<td>	
-  <img style="width:32px;" src="<%= user.profile_image_url %>"></img>
-</td>
-<td>
-  <a href="http://www.twitter.com/<%= user.screen_name %>"><%= user.screen_name %></a>
-  <% if user.verified? %>
-    <br />	
-    <span class="label notice">verified</span>
-  <% end %>
-</td>
-<td>
-  <%= user.name %>
-</td>
-<td>
-  <%= button_to "Unfollow", { action: "unfollow", id: user.screen_name }, method: :delete, class:"btn small danger" %>
-</td>
+<tr class="">
+  <td> <img style="width:32px;" src="<%= user.profile_image_url %>"></img> </td>
+
+  <td>
+    <a href="http://www.twitter.com/<%= user.screen_name %>"><%= user.screen_name %></a>
+    <br />
+    (<%= user.name %>)
+    <br /> <br />
+    <% if user.verified? %>
+      <br />
+      <span class="label notice">verified</span>
+    <% end %>
+  </td>
+
+  <td> <%= user.description %> </td>
+  <td> <%= user.status.text unless user.status == nil %> </td>
+
+  <td>
+    <% if user.following %>
+      <%= button_to "Unfollow", { action: "unfollow", id: user.screen_name }, method: :delete, class:"btn small danger" %>
+    <% else %>
+      <%= button_to "Follow", { action: "follow", id: user.screen_name }, method: :delete, class:"btn small primary" %>
+    <% end %>
+  </td>
+</tr>

@@ -12,11 +12,11 @@
 
 		<% if current_user %>
 			<%= render :partial => "shared/navigation" %>
+			<%= render :partial => "shared/tweetdialog" %>
 		<% else %>
 			<%= render :partial => "shared/blank_navigation" %>
 		<% end -%>
 
-		<%= render :partial => "shared/tweetdialog" %>
 		<div class="container">
 
 			<%= render :partial => "shared/flash", :locals => { flash: flash } %>
