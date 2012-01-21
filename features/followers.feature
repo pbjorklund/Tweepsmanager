@@ -10,7 +10,14 @@ Feature: Followers
 		When I go to the followers page
 		Then I should see a list of my followers
 
+	@logged_in
 	Scenario:
 		Given I am on the followers page
 		When I click the button "unfollow" for a user
 		Then I should see a message with 'Unfollowed "user"'
+
+	@logged_in
+	Scenario:
+		Given I am on the followers page
+		When I click the button "follow" for a user
+		Then I should see a message with 'Followed "user"'

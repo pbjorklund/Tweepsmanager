@@ -12,25 +12,28 @@ gem 'twitter'
 gem 'sqlite3'
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'cucumber-rails'
   gem 'vcr'
   gem 'fakeweb'
-  #gem 'webrat'
   gem 'database_cleaner'
-  gem "factory_girl_rails"
-  gem "capybara"
   gem "launchy"
-  gem "guard"
-  gem "guard-rspec"
-  gem "guard-cucumber"
-  gem "guard-bundler"
   if RUBY_PLATFORM.downcase.include?("darwin")
     gem 'rb-fsevent'
     gem 'growl' # also install growlnotify from the Extras/growlnotify/growlnotify.pkg in Growl disk image
     gem 'pry'
     gem 'pry-rails'
   end
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard"
+  gem "guard-rspec"
+  gem "guard-cucumber"
+  gem "guard-bundler"
+  gem 'spork', '~> 0.9.0.rc'
 end
 
 # Gems used only for assets and not required
