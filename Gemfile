@@ -16,15 +16,6 @@ group :development, :test do
   gem 'fakeweb'
   gem 'database_cleaner'
   gem "launchy"
-  if RUBY_PLATFORM.downcase.include?("darwin")
-    gem 'rb-fsevent'
-    gem 'growl' # also install growlnotify from the Extras/growlnotify/growlnotify.pkg in Growl disk image
-    gem 'pry'
-    gem 'pry-rails'
-  end
-end
-
-group :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem "factory_girl_rails"
@@ -33,7 +24,14 @@ group :test do
   gem "guard-rspec"
   gem "guard-cucumber"
   gem "guard-bundler"
+  gem "guard-spork"
   gem 'spork', '~> 0.9.0.rc'
+  if RUBY_PLATFORM.downcase.include?("darwin")
+    gem 'rb-fsevent'
+    gem 'growl' # also install growlnotify from the Extras/growlnotify/growlnotify.pkg in Growl disk image
+    gem 'pry'
+    gem 'pry-rails'
+  end
 end
 
 # Gems used only for assets and not required
