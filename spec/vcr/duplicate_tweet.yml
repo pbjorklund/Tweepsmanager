@@ -1,0 +1,70 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://api.twitter.com:443/1/statuses/update.json
+    body: 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.0.2
+      authorization:
+      - OAuth oauth_consumer_key="SYxcRw70lHqqHplj4DLRZA", oauth_nonce="687a9806bf5a09b95767d00b315d0533",
+        oauth_signature="UcNKMKVO0iC9RgHU0c4WrUEscHY%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1327152833", oauth_token="19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV",
+        oauth_version="1.0"
+      content-type:
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 403
+      message: Forbidden
+    headers:
+      date:
+      - Sat, 21 Jan 2012 13:33:56 GMT
+      status:
+      - 403 Forbidden
+      x-transaction:
+      - f73a47dad2ad7253
+      x-frame-options:
+      - SAMEORIGIN
+      last-modified:
+      - Sat, 21 Jan 2012 13:33:56 GMT
+      x-runtime:
+      - '0.04103'
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef1145dd8e914
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '73'
+      pragma:
+      - no-cache
+      x-access-level:
+      - read-write
+      x-revision:
+      - DEV
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-mid:
+      - 5656925c155ba1e77440c38b0e7a165abf428367
+      set-cookie:
+      - k=10.34.231.133.1327152836342978; path=/; expires=Sat, 28-Jan-12 13:33:56
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A132715283634650910; domain=.twitter.com; path=/; expires=Tue,
+        21-Jan-2014 01:33:56 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=en; path=/
+      - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
+        path=/
+      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsIBi95ADUBOgxjc3JmX2lkIiVmYTFi%250AYzU1ZjM3MGVmZTY3OGU3MjY2NTkxMzkxMDI4ZDoHaWQiJWVmYWM5YThiNDIz%250AZmMxZjUwZGJmZjcwMThhMmM1MzNlIgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--f5df6ad2e7f995be65a6eaad403f4f0f4785eb58;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      server:
+      - tfe
+    body: ! '{"error":"Status is a duplicate.","request":"\/1\/statuses\/update.json"}'
+    http_version: '1.1'
