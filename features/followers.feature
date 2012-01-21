@@ -9,3 +9,8 @@ Feature: Followers
 		Given I am signed in
 		When I go to the followers page
 		Then I should see a list of my followers
+
+	Scenario:
+		Given I am on the followers page
+		When I click the button "unfollow" for a user
+		Then I should see a message with 'Unfollowed "user"'

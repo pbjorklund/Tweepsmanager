@@ -46,6 +46,14 @@ class TwitterFollower
     twitter.rate_limit_status.remaining_hits
   end
 
+  def follow(nickname)
+    twitter.follow(nickname)
+  end
+
+  def unfollow(nickname)
+    twitter.unfollow(nickname)
+  end
+
   def update(tweet)
     twitter.update(tweet)
   end

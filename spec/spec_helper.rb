@@ -34,7 +34,7 @@ end
 VCR.config do |c|
   c.cassette_library_dir = Rails.root.join("spec", "vcr")
   c.stub_with :fakeweb
-  c.default_cassette_options = { :record => :once }
+  c.default_cassette_options = { :record => :new_episodes }
   #TODO
   #c.filter_sensitive_data('<secret>') { 'key' }
 end
