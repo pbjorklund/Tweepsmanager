@@ -1,0 +1,39 @@
+
+    <div class="topbar" data-dropdown="dropdown">
+      <div class="fill">
+        <div class="container">
+			<a class="brand" href="/">Tweepsmanager<img src="<%= image_path('hawk.png') %>" style="width:20px;padding:0;margin:0;" ></img></a>
+		  <ul class="nav">
+			<li class="<%= request.fullpath.starts_with?("/twitter/followers")  ? "active" : "" %>"><%= link_to "Followers", controller: "twitter", action: "followers" %></li>
+			<li class="<%= request.fullpath.starts_with?("/twitter/following")  ? "active" : "" %>"><%= link_to "Following", controller: "twitter", action: "following" %></li>
+			<li class="<%= request.fullpath.starts_with?("/twitter/friends")  ? "active" : "" %>"><%= link_to "Friends", controller: "twitter", action: "friends" %></li>
+			<li class="<%= request.fullpath.starts_with?("/twitter/stalkers")  ? "active" : "" %>"><%= link_to "Stalkers", controller: "twitter", action: "stalkers" %></li>
+			<li class="<%= request.fullpath.starts_with?("/twitter/only_following")  ? "active" : "" %>"><%= link_to "Only following", controller: "twitter", action: "only_following" %></li>
+			<li><a data-controls-modal="tweet-dialog" data-backdrop="true" >Tweet</a></li>
+		  </ul>
+		  <ul class="nav secondary-nav">
+			<% if current_user %>
+				<li>
+					<a href="/"><img class="img-icon" src="<%= current_user.image_url %>"></img></a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle"><%= current_user.name %></a>
+					<ul class="dropdown-menu">
+						<li>
+							<%= link_to "Settings", controller: "twitter", action:"settings" %>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="/signout/">Sign out</a>
+						</li>
+					</ul>
+				</li>
+			<% else %>
+				<li>
+					<a href="/auth/twitter/">Sign in</a>
+				</li>
+			<% end %>
+			</ul>
+        </div>
+      </div>
+    </div>

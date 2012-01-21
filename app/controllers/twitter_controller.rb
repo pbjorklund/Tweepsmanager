@@ -1,5 +1,6 @@
 class TwitterController < ApplicationController
   before_filter :setup_twitter_service
+  before_filter :signed_in?
 
   def followers
     @followers = twitter.get_followers
@@ -67,5 +68,12 @@ class TwitterController < ApplicationController
 
   def setup_twitter_service
     @twitter_service = TwitterFollower.new(current_user)
+  end
+
+  def signed_in?
+    unless current_user
+      redirect_to "/auth/twitter", notice: "Please sign in!"
+    end
+
   end
 end
