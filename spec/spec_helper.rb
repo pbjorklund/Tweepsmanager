@@ -30,3 +30,21 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 end
+
+VCR.config do |c|
+  c.cassette_library_dir = Rails.root.join("spec", "vcr")
+  c.stub_with :fakeweb
+  c.default_cassette_options = { :record => :once }
+  #TODO
+  #c.filter_sensitive_data('<secret>') { 'key' }
+end
+
+OmniAuth.config.test_mode = true
+#Should I perhaps set up a test twitter account?
+auth = OmniAuth.config.mock_auth[:twitter] = {
+  provider: 'twitter',
+  uid: '19505451',
+  :info => { name: 'Patrik Bjorklund', image_url: 'blank', nickname: 'pbjorklund' },
+  :credentials => { token: '19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV', secret: 'PaFSjUhN6meYmyiDlKJmuXjMEHWng8UO6SYaZO52Y' }
+}
+

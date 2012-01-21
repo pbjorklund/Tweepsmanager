@@ -1,6 +1,6 @@
-Feature: Signup with omniauth-twitter
+Feature: Authorization with omniauth-twitter
 
-	So that a user can access the sites functionality
+	So that I can authorize
 	As a user
 	I want to sign in with omniauth-twitter
 

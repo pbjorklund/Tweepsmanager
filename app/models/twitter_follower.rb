@@ -45,4 +45,8 @@ class TwitterFollower
   def get_api_calls_left
     twitter.rate_limit_status.remaining_hits
   end
+
+  def update(tweet)
+    twitter.update(tweet)
+  end
 end

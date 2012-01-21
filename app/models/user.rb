@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates_presence_of :provider, :uid, :name
+  validates_presence_of :provider, :uid, :name, :token, :secret
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth[:provider]

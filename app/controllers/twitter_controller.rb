@@ -34,7 +34,7 @@ class TwitterController < ApplicationController
 
   def tweet
     twitter.update(params[:tweet])
-    redirect_to back, notice: "Posted tweet"
+    redirect_to :back, notice: "Posted tweet"
   end
 
   def unfollow
