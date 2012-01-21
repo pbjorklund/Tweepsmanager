@@ -1,98 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tweepsmanager</title>
-  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
-  <%= javascript_include_tag "less-1.1.4.min" %>
-  <%= javascript_include_tag "application" %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <link rel="shortcut icon" href="<%= image_path('hawk.png') %>" type="image/x-icon"></link>
-  <%= csrf_meta_tags %>
-  </head>
-<body>
-    <div class="topbar" data-dropdown="dropdown">
-      <div class="fill">
-        <div class="container">
-			<a class="brand" href="/">Tweepsmanager<img src="<%= image_path('hawk.png') %>" style="width:20px;padding:0;margin:0;" ></img></a>
-		  <ul class="nav">
-			<li class="<%= request.fullpath.starts_with?("/twitter/followers")  ? "active" : "" %>"><%= link_to "Followers", controller: "twitter", action: "followers" %></li>
-			<li class="<%= request.fullpath.starts_with?("/twitter/following")  ? "active" : "" %>"><%= link_to "Following", controller: "twitter", action: "following" %></li>
-			<li class="<%= request.fullpath.starts_with?("/twitter/friends")  ? "active" : "" %>"><%= link_to "Friends", controller: "twitter", action: "friends" %></li>
-			<li class="<%= request.fullpath.starts_with?("/twitter/stalkers")  ? "active" : "" %>"><%= link_to "Stalkers", controller: "twitter", action: "stalkers" %></li>
-			<li class="<%= request.fullpath.starts_with?("/twitter/only_following")  ? "active" : "" %>"><%= link_to "Only following", controller: "twitter", action: "only_following" %></li>
-			<li><a data-controls-modal="tweet-dialog" data-backdrop="true" >Tweet</a></li>
-		  </ul>
-		  <ul class="nav secondary-nav">
-			<% if current_user %>
-				<li>
-					<a href="/"><img class="img-icon" src="<%= current_user.image_url %>"></img></a>
-				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle"><%= current_user.name %></a>
-					<ul class="dropdown-menu">
-						<li>
-							<%= link_to "Settings", controller: "twitter", action:"settings" %>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="/signout/">Sign out</a>
-						</li>
-					</ul>
-				</li>
-			<% else %>
-				<li>
-					<a href="/auth/twitter/">Sign in</a>
-				</li>
-			<% end %>
-			</ul>
-        </div>
-      </div>
-    </div>
+	<head>
+		<title>Tweepsmanager</title>
+		<%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<link rel="shortcut icon" href="<%= image_path('hawk.png') %>" type="image/x-icon"></link>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
 
-	<div id="tweet-dialog" class="modal hide fade" style="display:none;">
-		<div class="modal-header">
-			<a href="#" class="close">×</a>
-			<h3>What’s happening?</h3>
-		</div>
-		<div class="modal-body">
-			<textarea class="span9 xlarge" rows="5"  name="tweet"></textarea>
-		</div>
-		<div class="modal-footer">
-			<% #TODO Not working %>
-			<%= link_to "Tweet", {controller:"twitter", action: "tweet"}, method: :post, remote: :true, class:"btn primary", id:"tweet-button" %>
-		</div>
-	</div>
+		<% if current_user %>
+			<%= render :partial => "shared/navigation" %>
+		<% else %>
+			<%= render :partial => "shared/blank_navigation" %>
+		<% end -%>
 
-	<script type="text/javascript">
-		$("#tweet-button").bind('ajax:complete', function(evt, data, status, xhr){
-			alert(xhr.responseText);
-		});
-		$("#tweet-button").bind('ajax:success', function(){
-			alert("Complete!");
-		});
-		$("#tweet-button").bind('ajax:failure', function(){
-			alert("Fail!");
-		});
-	</script>
-
-	<div class="container">
-		<% if flash[:notice] %>
-			<div class="alert-message default"><%= flash[:notice] %></div>
-		<% end %>
-		<% if flash[:success] %>
-			<div class="alert-message success"><%= flash[:success] %></div>
-		<% end %>
-		<% if flash[:error] %>
-			<div class="alert-message error"><%= flash[:error] %></div>
-		<% end %>
-
-		<%= yield %>
-	</div>
-
-	<footer class="footer">
+		<%= render :partial => "shared/tweetdialog" %>
 		<div class="container">
-				<p>Copyright &copy; Patrik Björklund &amp; Erik Skoglund 2012 - <%= Time.new.year %></p>
+
+			<%= render :partial => "shared/flash", :locals => { flash: flash } %>
+			<% if current_user %>
+				<%= yield %>
+			<% else %>
+				<%= render :partial => "shared/start" %>
+			<% end -%>
 		</div>
-	</footer>
-</body>
+
+		<footer class="footer">
+		<div class="container">
+			<p>Copyright &copy; Patrik Björklund &amp; Erik Skoglund 2012 - <%= Time.new.year %></p>
+		</div>
+		</footer>
+	</body>
 </html>
