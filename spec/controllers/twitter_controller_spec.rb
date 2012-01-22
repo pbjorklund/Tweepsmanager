@@ -15,6 +15,7 @@ describe TwitterController do
   end
 
   describe "GET 'followers'" do
+    #Perhaps not optimal, this get's run every time
     before(:each) do
       VCR.use_cassette('followers') do
         get 'followers'
@@ -174,8 +175,11 @@ describe TwitterController do
   end
 
   describe "POST 'follow'" do
-    it "follows a user when given a nickname" do
+    before(:each) do
       @request.env['HTTP_REFERER'] = '/twitter/followers'
+    end
+
+    it "follows a user when given a nickname" do
       VCR.use_cassette('follow') do
         post 'follow', id: "tweepsmanager"
       end
@@ -184,7 +188,6 @@ describe TwitterController do
     end
 
     it "does not follow a user that does not exist" do
-      @request.env['HTTP_REFERER'] = '/twitter/followers'
         VCR.use_cassette('follow_doesnt_exist') do
         post 'follow', id: "jiofewijfeiowjfeowfjew"
       end
