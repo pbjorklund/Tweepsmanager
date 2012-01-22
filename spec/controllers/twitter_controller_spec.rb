@@ -3,15 +3,7 @@ require 'spec_helper'
 describe TwitterController do
 
   before(:each) do
-    controller.stub(:current_user).and_return( User.create(
-      provider:   "twitter",
-      uid:        "123456",
-      name:       "Patrik Bjorklund",
-      image_url:  "http://www.twitter.com/image.jpg",
-      nickname:   "pbjorklund",
-      token:      "19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV",
-      secret:     "PaFSjUhN6meYmyiDlKJmuXjMEHWng8UO6SYaZO52Y"
-    ))
+    controller.stub(:current_user).and_return( FactoryGirl.create(:user))
   end
 
   describe "GET 'followers'" do

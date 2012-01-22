@@ -18,7 +18,7 @@ group :development, :test do
   gem "launchy"
   gem 'rspec-rails'
   gem 'cucumber-rails'
-  gem "factory_girl_rails"
+  gem "factory_girl_rails", "~> 1.2"
   gem "capybara"
   gem "guard"
   gem "guard-rspec"

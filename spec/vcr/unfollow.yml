@@ -10,9 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.0.2
       authorization:
-      - OAuth oauth_consumer_key="SYxcRw70lHqqHplj4DLRZA", oauth_nonce="26eb2afd9c717aaf3eb751c19e4a89d9",
-        oauth_signature="3ID9pmIBRfXju8Smg65ZtlQWRKo%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1327152836", oauth_token="19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV",
+      - OAuth oauth_consumer_key="SYxcRw70lHqqHplj4DLRZA", oauth_nonce="2c12582480375420a0a2ae2db83f5364",
+        oauth_signature="9hBbcqAAJ%2FHxfuVzM0NHD4NYk2Q%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1327234214", oauth_token="19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV",
         oauth_version="1.0"
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
@@ -20,23 +20,23 @@
       message: OK
     headers:
       date:
-      - Sat, 21 Jan 2012 13:33:58 GMT
+      - Sun, 22 Jan 2012 12:10:16 GMT
       status:
       - 200 OK
       x-transaction:
-      - bd40f95f97bca9fc
+      - 6c727fbd1687caa8
       x-ratelimit-limit:
       - '350'
       etag:
-      - ! '"979584c5318243dcf46ad8c1a35acc6c"'
+      - ! '"39249c28940a13aacc60b6288b15b62b"'
       x-frame-options:
       - SAMEORIGIN
       last-modified:
-      - Sat, 21 Jan 2012 13:33:57 GMT
+      - Sun, 22 Jan 2012 12:10:16 GMT
       x-ratelimit-remaining:
-      - '220'
+      - '323'
       x-runtime:
-      - '0.29341'
+      - '0.25776'
       x-transaction-mask:
       - a6183ffa5f8ca943ff1b53b5644ef1145dd8e914
       content-type:
@@ -56,26 +56,26 @@
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       x-mid:
-      - 8f9ffae33b98390925d8b41885f3dd1e518dd02f
+      - 2a29eb9c0d7c8ad98d19e1d23a0d265f163572cf
       x-ratelimit-reset:
-      - '1327153473'
+      - '1327237536'
       set-cookie:
-      - k=10.34.231.133.1327152837976208; path=/; expires=Sat, 28-Jan-12 13:33:57
-        GMT; domain=.twitter.com
-      - guest_id=v1%3A132715283798069957; domain=.twitter.com; path=/; expires=Tue,
-        21-Jan-2014 01:33:57 GMT
+      - k=10.35.53.113.1327234216471822; path=/; expires=Sun, 29-Jan-12 12:10:16 GMT;
+        domain=.twitter.com
+      - guest_id=v1%3A132723421647516650; domain=.twitter.com; path=/; expires=Wed,
+        22-Jan-2014 00:10:16 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=en; path=/
       - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
         path=/
-      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsIZzV5ADUBOgxjc3JmX2lkIiVlNjk4%250AMjYxNjAxNTY5Y2JkMDBiODRlOWUzOTliYTNjMzoHaWQiJWNjOTFmZjQ5YmQ4%250AYzNjN2RlMzI5MDA4M2Q3ZGMzNmJhIgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--cafa11adb496c11528f4bd58593cd6ecc6812837;
+      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsIKfJSBTUBOgxjc3JmX2lkIiUwN2Mz%250AZWFmNTgzYTgxMmVhNjU1NTYxNTYzZGNlYTU4NToHaWQiJThlMDRkYTRmZTNl%250AMjViMjAyNWE4NWQzNWE4NzI0YjdmIgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--3e40b09930cbf2f348ab087a7be60c3eb89f59aa;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
       server:
       - tfe
     body: ! '{"is_translator":false,"lang":"sv","profile_background_tile":false,"protected":false,"profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1741282608\/hawk_normal.png","geo_enabled":false,"profile_sidebar_fill_color":"DDEEF6","name":"Tweepsmanager","followers_count":3,"profile_image_url":"http:\/\/a2.twimg.com\/profile_images\/1741282608\/hawk_normal.png","show_all_inline_media":false,"listed_count":0,"follow_request_sent":false,"utc_offset":null,"created_at":"Sun
-      Jan 08 11:57:41 +0000 2012","profile_sidebar_border_color":"C0DEED","description":"","id_str":"458298205","statuses_count":3,"default_profile":true,"following":true,"notifications":false,"profile_use_background_image":true,"time_zone":null,"screen_name":"Tweepsmanager","status":{"geo":null,"place":null,"retweet_count":0,"favorited":false,"created_at":"Sat
+      Jan 08 11:57:41 +0000 2012","profile_sidebar_border_color":"C0DEED","description":"","id_str":"458298205","statuses_count":3,"default_profile":true,"following":true,"notifications":false,"profile_use_background_image":true,"time_zone":null,"screen_name":"Tweepsmanager","status":{"geo":null,"place":null,"retweet_count":1,"favorited":false,"created_at":"Sat
       Jan 21 12:41:29 +0000 2012","in_reply_to_status_id_str":null,"id_str":"160703563197190145","in_reply_to_screen_name":null,"in_reply_to_user_id_str":null,"in_reply_to_status_id":null,"retweeted":false,"coordinates":null,"truncated":false,"source":"\u003Ca
       href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E","contributors":null,"in_reply_to_user_id":null,"id":160703563197190145,"text":"The
       test suite is growing larger and larger and greener and greener! That means

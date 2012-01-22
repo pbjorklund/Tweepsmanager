@@ -241,7 +241,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.0)
   cucumber-rails
   database_cleaner
-  factory_girl_rails
+  factory_girl_rails (~> 1.2)
   fakeweb
   growl
   guard

@@ -10,9 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.0.2
       authorization:
-      - OAuth oauth_consumer_key="SYxcRw70lHqqHplj4DLRZA", oauth_nonce="3d34ea15f57de270eceb8ed76756e628",
-        oauth_signature="TGNo6ZLFiAdofBT9qa7RKrcRB0k%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1327152829", oauth_token="19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV",
+      - OAuth oauth_consumer_key="SYxcRw70lHqqHplj4DLRZA", oauth_nonce="5c1f08a5bb6305223994feaf3eb70866",
+        oauth_signature="efCLf5na76ZbJXBUUcM9XxW0w04%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1327234209", oauth_token="19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV",
         oauth_version="1.0"
       accept-encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -22,23 +22,23 @@
       message: OK
     headers:
       date:
-      - Sat, 21 Jan 2012 13:33:50 GMT
+      - Sun, 22 Jan 2012 12:10:10 GMT
       status:
       - 200 OK
       x-ratelimit-limit:
       - '350'
       x-transaction:
-      - 64e18f93f2b3173b
+      - d081ba0471c7e5d0
       etag:
-      - ! '"1beed68a074f7a625aa13108f91c0b99"-gzip'
+      - ! '"113d87c9695f5214c336a8aa6078cb8c"'
       x-frame-options:
       - SAMEORIGIN
       last-modified:
-      - Sat, 21 Jan 2012 13:33:50 GMT
+      - Sun, 22 Jan 2012 12:10:10 GMT
       x-ratelimit-remaining:
-      - '221'
+      - '324'
       x-runtime:
-      - '0.08525'
+      - '0.03518'
       x-transaction-mask:
       - a6183ffa5f8ca943ff1b53b5644ef1145dd8e914
       content-type:
@@ -56,48 +56,49 @@
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       x-ratelimit-reset:
-      - '1327153473'
+      - '1327237536'
       x-mid:
-      - 08e53e762925e9394bd20e50cb65d175d4a1432c
+      - 076333f9eead3ddebdeea3fba7addf7f23cca08b
       set-cookie:
-      - k=10.34.231.133.1327152830590416; path=/; expires=Sat, 28-Jan-12 13:33:50
-        GMT; domain=.twitter.com
-      - guest_id=v1%3A132715283059353440; domain=.twitter.com; path=/; expires=Tue,
-        21-Jan-2014 01:33:50 GMT
+      - k=10.35.53.113.1327234210956876; path=/; expires=Sun, 29-Jan-12 12:10:10 GMT;
+        domain=.twitter.com
+      - guest_id=v1%3A132723421096197392; domain=.twitter.com; path=/; expires=Wed,
+        22-Jan-2014 00:10:10 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=en; path=/
       - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
         path=/
-      - _twitter_sess=BAh7CToHdWEwOg9jcmVhdGVkX2F0bCsIjhh5ADUBOgdpZCIlNGI0OWRhNTMw%250AYWI5NmQ3MDdmMzA0YWY5ODVkM2IwNTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%250Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%253D--fd2f1336520de03f23417dc0f2896e6dd961f0ac;
+      - _twitter_sess=BAh7CToHdWEwOg9jcmVhdGVkX2F0bCsIn9xSBTUBOgdpZCIlMjNhODRmYjY3%250AYWUyMGZlZTNmZDg1MGY4ZjcyNzQxMmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%250Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%253D--2bbaf4d173cef865a74aa0db8b981b58aa1dfcc0;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
       content-encoding:
       - gzip
       content-length:
-      - '927'
+      - '955'
       server:
       - tfe
     body: !binary |-
-      H4sIAAAAAAAAA71VQY+jNhj9K5avnSZ2ICRB6mWrXVXtZdXpoYdIloEP8GBs
-      aptJp6v97/0cAsnMRNs9lRwCxp/93vP7Hl+o8iI4abyWwTqa11J7eKBamobm
-      FAx9oIOztdIgCll2jbOjqUTAZ5oHN8L5dYAyQLUUzwWqlw2I0WnRhjB4XO/8
-      nx/Xx7VXbBVOqm9Wpe2P61cl/rjmKT/whO3TDO8PWZomgjO+ZTzD4WSXbPg+
-      FTu+OWzxLhH7HduxPRfJLmWHRBhhrOulXj0NDRJowAowstB3MHpVQSGdwAct
-      SqujBhTq+MNKI3vkST/L4FRHPjwdR8bqzHUaRcDXtdXansB5rBxNoDlCu0P/
-      QvzMW/L/jbZv7UlIpKWMVgZED5WS1xNWHs9sBs7TmY1w8NcIPggP8cVl9hhK
-      YevaQySZMfZASwcyLiBxhD6OhvwqDdlsyYbn/JAnKfmB4UU2jB3oe7kL6ypw
-      V8HPF86rwJdODUFZE5c9IWTfksdWOvhslQmktMaPOki8Da0MRHlSS18qE8GQ
-      4oUgaYJ+bA0u3byQElG1oAcygB00kJN1HSkgBHAr8kerTKdMQ6S2Y0VkYcdw
-      U/xAUAIHgwMDo/OtGog0FQHEYHtV+hUCVpXwIVLghy3bplsehQ8yjB6urthv
-      skitlohcXKRYpJ1kV7HfLiPGBlWrUkYV/DvH4sq3rXi2ztyLQfUg/rEmmvYx
-      2LJrre4jIjwtQHtMdh6KJ7t4eAJL8y+xTWhuRq1xLy1LmB8chBNAmNng2dfy
-      2Tp12/Kv3YDncnYDJ4zlmy26a3ED30TRDLps0C8iWDHtL2Ydpy2vqmZsy/eb
-      3T5lLOGHdL+PZrLeqwLL0aJeBfV8FfPVyrekL+vevEYd3dtt7+F6I8MtaYsu
-      PjvPz5PwGEwpbyd5O7qoJY3ZkfwsSeug/ul4TYTT6bRCy9namikUjpQ40DjF
-      2Mkbx6n248dp1rQQRsk0SiMQ9KkqRkxw/w2qV3Wx4d8Ji+Dh73h8v396JIec
-      /IaJSH5BAC8nayvyI1kQB8R5XO8/dU3359DRr68BvIvaZ3Bo5zvZG/dbIiA5
-      X/c/N9+RpHOChhb65Z+nx3XRrBoVs7x2Cky1NGWaZde9MB+7BQkmFl5Yoe3U
-      gzj2wbqoNmz9A4mpdP4wvunouRVnK0aVL6HwbVb//Xn8DnbYkmPsyYVgdnfT
-      mSRnKEAMqzeqRjde8yHuTr/+C9IL/WAlCAAA
+      H4sIAAAAAAAAA71V0Y6jNhT9FcuP3VEGAyGAVLXaaqWqTyvNPkayHLiAJ8am
+      tpl0drX/3msIJJNJ230qeQgY2/ec43MP36h03FuhnRLeWFo2Qjl4oErolpYU
+      NH2ggzWNVMAPojq21oy65h6faentCNNrD5WHel28LJC9aIGPVvHO+8HhftN/
+      uX/cPzoZbfxJ9u2mMv3+8c0St39kKStYEuVphvdFlqYJZxHbRizD4WSXxCxP
+      +Y7FxRbvEp7vol2UM57s0qhIuOba2F6ozfPQIoEWDActDuoORidrOAjL8UHx
+      yqigAYUm/HClFj3ypJ+Ft/JIPj7vxyhqMntUKAK+boxS5gTW4cpRe1omSX6H
+      /pn4xFuw/42268yJC6QltZIaeA+1FJcTlg7PbAHO0oUNt/DnCM5zB+HFefbo
+      K26axkEgmUXRA60siLCBwBH6NGryh9Ak3pKYlawok5R8iPAicRQV9L3cB2Nr
+      sBfBpwvn1eAqKwcvjQ7bnhCy68hTJyx8NlJ7UhntRuUF3vpOeCIdaYSrpA5g
+      yOGVIGmCfuw0bt2+kgpRdaAGMoAZFJCTsUdyAO/BbsiXTuqj1C0Ryow1EQcz
+      +qvFDwQlsDBY0DBa18mBCF0TQAyml5XbIGBZc+cDBVZso226ZUF4L/zo4OKK
+      PCkCtUYgcn6WYpV2ll2GfjuPaONlIysRVHDvHIs7X7fiZJ2lF73sgX81Opj2
+      yZvq2BnVB0R4WoD2mO08HJ7N6uEZLC2/hTahpR6VwlpKVLA8WPAnAL+wwbNv
+      xIux8rrl77shJlFWRkXJ8tUNLA6iaXTZoF65N3yuzy86ZlGexElWoMl3GUsn
+      +1y/LbJdvI2zJM2SLM7z2+3eMP3SJfXXmxmon72Ui7FansXJP6HC1ngHaJXk
+      WgCDjp5c6Bbd8Eh0Ja4nOTPaoCsNOZL8Jkhnofl5f0mH0+m0QfuZxug5IPaU
+      WFA4RZvZJ/t57adP86x5I4yVeZQGIOhZeRgxzVckd+jTcmEe1J1Y3giLBOCv
+      cJy/TiqS3/ue1KEMbMn0l1pSgyd6HmuNJuKFBA1IqOGIMz3BxiXuaOWLxMZ6
+      HUhDPpDxJ5b9Qr+/hfouoF/AYhPcSeyAag2OZLruf6R+IH+X3PUd9Os/S/eP
+      h3bTyvAFaKwEXa+tnGa7Sy1M1eOKBHMOL1yhzNy5OPbR2Fkc90BClk2f05sc
+      WBr4zHI6i3OU/Dur//6o/gA7bOQxdPJKMLtbdCHJojTLQsTdqBp8e0mVUJ1+
+      /xtFomhrWwgAAA==
     http_version: '1.1'
