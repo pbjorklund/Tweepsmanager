@@ -48,11 +48,15 @@ Spork.prefork do
     c.stub_with :fakeweb
     c.default_cassette_options = { :record => :new_episodes }
     #TODO
-    #c.filter_sensitive_data('<secret>') { 'key' }
+    c.filter_sensitive_data('<TOKEN>') { '19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV' }
+    c.filter_sensitive_data('<SECRET>') { 'PaFSjUhN6meYmyiDlKJmuXjMEHWng8UO6SYaZO52Y' }
+    c.filter_sensitive_data('<CONSUMER_KEY>') { 'SYxcRw70lHqqHplj4DLRZA' }
+    c.filter_sensitive_data('<CONSUMER_SECRET>') { 'q3ybMrQQ7fqwOUv6X9XUJxKqWvF5RoL3FElcM2XQ' }
   end
 
   OmniAuth.config.test_mode = true
   #Should I perhaps set up a test twitter account?
+  #TODO Perhaps create a model for this?
   auth = OmniAuth.config.mock_auth[:twitter] = {
     provider: 'twitter',
     uid: '19505451',

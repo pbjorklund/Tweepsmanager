@@ -10,10 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.0.2
       authorization:
-      - OAuth oauth_consumer_key="SYxcRw70lHqqHplj4DLRZA", oauth_nonce="e26b42ee7700d8632fdd3026a9b445e7",
-        oauth_signature="%2BXOfDtzOw36TILTDH%2B2cG3f3lO8%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1327234211", oauth_token="19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="3ebbbc7530b845855eabfd8cb46d869d",
+        oauth_signature="L8OXq2B3Bxa4PrYXuz%2FfMqjrOjA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1327234677", oauth_token="<TOKEN>", oauth_version="1.0"
       content-type:
       - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
@@ -22,19 +21,19 @@
       message: OK
     headers:
       date:
-      - Sun, 22 Jan 2012 12:10:13 GMT
+      - Sun, 22 Jan 2012 12:17:59 GMT
       status:
       - 200 OK
       x-transaction:
-      - 62299488ac1a4625
+      - 6ed6e05cf2d81f7e
       etag:
-      - ! '"3d1736e592a6e04152eadfa507dee695"'
+      - ! '"32e7b7bd7338f0ae82bfced5e7f88ad0"'
       x-frame-options:
       - SAMEORIGIN
       last-modified:
-      - Sun, 22 Jan 2012 12:10:13 GMT
+      - Sun, 22 Jan 2012 12:17:58 GMT
       x-runtime:
-      - '0.13910'
+      - '0.28467'
       x-transaction-mask:
       - a6183ffa5f8ca943ff1b53b5644ef1145dd8e914
       content-type:
@@ -52,28 +51,28 @@
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       x-mid:
-      - 1bf07c34227fe3e7bf9fbb5d364502c9b0be93bf
+      - 592d0eb92e2bf4e2cb2f984607b24bba7187b1ea
       set-cookie:
-      - k=10.35.53.113.1327234212997169; path=/; expires=Sun, 29-Jan-12 12:10:12 GMT;
-        domain=.twitter.com
-      - guest_id=v1%3A132723421300183429; domain=.twitter.com; path=/; expires=Wed,
-        22-Jan-2014 00:10:13 GMT
+      - k=10.34.126.123.1327234678931000; path=/; expires=Sun, 29-Jan-12 12:17:58
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A13272346789347790; domain=.twitter.com; path=/; expires=Wed,
+        22-Jan-2014 00:17:58 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=en; path=/
       - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
         path=/
-      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsImORSBTUBOgxjc3JmX2lkIiU2ODkw%250AOTZlM2Y1ZTU0ZTQ1MzEyZTcxYWZkMjVkNTJlOToHaWQiJWVjNTEwNjg5YmFh%250AZTVkOGNhYjRmNjFmZTU3NmI2Nzg1IgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--596144f4423b9383e0b398fb1947065c8ef74353;
+      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsIoQBaBTUBOgxjc3JmX2lkIiUyMTcw%250AYzE4YWQ2MzU0NjhlY2UwNDAxNGVmODJjZGFjMzoHaWQiJWJlZjY3YjEwMzcz%250AZmRhZDcyNDI4ZTg3OGQyYmI1M2RjIgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--35919234759ae5e73384a166634536f3883c13d8;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
       server:
       - tfe
     body: ! '{"geo":null,"place":null,"retweet_count":0,"favorited":false,"created_at":"Sun
-      Jan 22 12:10:13 +0000 2012","in_reply_to_status_id_str":null,"id_str":"161058079142723585","user":{"is_translator":false,"lang":"en","profile_background_tile":true,"protected":false,"profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1419130846\/196443_10150169133732184_712952183_8707081_374093_n_normal.jpg","geo_enabled":false,"profile_sidebar_fill_color":"efefef","name":"Patrik
+      Jan 22 12:17:58 +0000 2012","in_reply_to_status_id_str":null,"id_str":"161060033470275584","user":{"is_translator":false,"lang":"en","profile_background_tile":true,"protected":false,"profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1419130846\/196443_10150169133732184_712952183_8707081_374093_n_normal.jpg","geo_enabled":false,"profile_sidebar_fill_color":"efefef","name":"Patrik
       Bj\u00f6rklund","followers_count":338,"profile_image_url":"http:\/\/a1.twimg.com\/profile_images\/1419130846\/196443_10150169133732184_712952183_8707081_374093_n_normal.jpg","show_all_inline_media":false,"listed_count":14,"follow_request_sent":false,"utc_offset":3600,"created_at":"Sun
       Jan 25 21:19:34 +0000 2009","profile_sidebar_border_color":"eeeeee","description":"Swedish
       SharePoint consultant that is fascinated by how technology can help people work
       better. Thinking aloud about technology, entrepreneurship and economics.","id_str":"19505451","statuses_count":3840,"default_profile":false,"following":false,"notifications":false,"profile_use_background_image":true,"time_zone":"Stockholm","screen_name":"pbjorklund","contributors_enabled":false,"verified":false,"profile_text_color":"333333","profile_background_image_url":"http:\/\/a1.twimg.com\/images\/themes\/theme14\/bg.gif","friends_count":467,"profile_link_color":"009999","location":"Bor\u00e5s,
       Sweden","default_profile_image":false,"id":19505451,"profile_background_image_url_https":"https:\/\/si0.twimg.com\/images\/themes\/theme14\/bg.gif","favourites_count":6,"profile_background_color":"104661","url":"http:\/\/www.pbjorklund.com"},"in_reply_to_screen_name":null,"in_reply_to_user_id_str":null,"in_reply_to_status_id":null,"retweeted":false,"coordinates":null,"truncated":false,"source":"\u003Ca
-      href=\"http:\/\/127.0.0.1:3000\" rel=\"nofollow\"\u003Etweepermanager\u003C\/a\u003E","contributors":null,"in_reply_to_user_id":null,"id":161058079142723585,"text":"Spam"}'
+      href=\"http:\/\/127.0.0.1:3000\" rel=\"nofollow\"\u003Etweepermanager\u003C\/a\u003E","contributors":null,"in_reply_to_user_id":null,"id":161060033470275584,"text":"Spam"}'
     http_version: '1.1'

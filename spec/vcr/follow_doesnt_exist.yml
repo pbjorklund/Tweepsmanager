@@ -10,10 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.0.2
       authorization:
-      - OAuth oauth_consumer_key="SYxcRw70lHqqHplj4DLRZA", oauth_nonce="a87e7e477c5c4959122e06cd1caca5dd",
-        oauth_signature="hGs6GI9asUZQeR58H%2B9Uoo1F8GA%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1327234220", oauth_token="19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="2d0515716f6c5c34079ea856fdd791e8",
+        oauth_signature="HO52piXl1LXFhGu5i5RdxiufEYE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1327234687", oauth_token="<TOKEN>", oauth_version="1.0"
       content-type:
       - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
@@ -22,15 +21,15 @@
       message: Not Found
     headers:
       date:
-      - Sun, 22 Jan 2012 12:10:22 GMT
+      - Sun, 22 Jan 2012 12:18:08 GMT
       status:
       - 404 Not Found
       x-transaction:
-      - b1c776defa1f71d8
+      - bf2e68bb88767632
       x-frame-options:
       - SAMEORIGIN
       last-modified:
-      - Sun, 22 Jan 2012 12:10:22 GMT
+      - Sun, 22 Jan 2012 12:18:08 GMT
       content-type:
       - application/json; charset=utf-8
       content-length:
@@ -46,15 +45,15 @@
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       x-mid:
-      - 58831a9127c96cda847c9a39753ef6267855d675
+      - b1d30c6bcae9bfeabb220fd67de7d5ef1a654133
       set-cookie:
-      - k=10.35.53.113.1327234222407475; path=/; expires=Sun, 29-Jan-12 12:10:22 GMT;
-        domain=.twitter.com
-      - guest_id=v1%3A132723422241014220; domain=.twitter.com; path=/; expires=Wed,
-        22-Jan-2014 00:10:22 GMT
+      - k=10.34.126.123.1327234688754375; path=/; expires=Sun, 29-Jan-12 12:18:08
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A1327234688757274; domain=.twitter.com; path=/; expires=Wed,
+        22-Jan-2014 00:18:08 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=en; path=/
-      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsIVwlTBTUBOgxjc3JmX2lkIiU2NjY1%250AMGRjYmU3NjA2MzI0Mzk3ZWFlMDVhNTAzY2JhNzoHaWQiJWFkMzBiNDcyMDFl%250ANjFmMmQwODQzODMyZTQwNjc2ZWRlIgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--3c4c35438993e45c30c641042a6fdd6d2209af6b;
+      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsIASdaBTUBOgxjc3JmX2lkIiVjYTRj%250AODAzNDRhNzhkMDYzZWM1OWI5MDgwOTcwMTI2OToHaWQiJWY3NjU2MmMwNjc2%250AMjA5ZDM1YWNmZjU4ZDFkYjIyNTQ2IgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--39d491e021dd51830a835932e748b5f327b4839f;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding

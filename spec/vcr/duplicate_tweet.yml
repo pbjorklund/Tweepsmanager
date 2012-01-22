@@ -10,10 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.0.2
       authorization:
-      - OAuth oauth_consumer_key="SYxcRw70lHqqHplj4DLRZA", oauth_nonce="33e668646a04a380f905b444a95f0e20",
-        oauth_signature="iCvQIzCD4ZIbx5KcG4y9Scs%2BpXs%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1327234213", oauth_token="19505451-wwZ9Qt28u4BGUCxadxncM0oUXL1O8bralOfyWFTYV",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="23fcebbe29169e50ec180c75245d2153",
+        oauth_signature="7P38TN2ZlmIRgrylmAwj3R956H0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1327234679", oauth_token="<TOKEN>", oauth_version="1.0"
       content-type:
       - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
@@ -22,17 +21,17 @@
       message: Forbidden
     headers:
       date:
-      - Sun, 22 Jan 2012 12:10:14 GMT
+      - Sun, 22 Jan 2012 12:18:01 GMT
       status:
       - 403 Forbidden
       x-transaction:
-      - 5b04494ffdf5af90
+      - 7c9a3b1b3801a31d
       x-frame-options:
       - SAMEORIGIN
       last-modified:
-      - Sun, 22 Jan 2012 12:10:14 GMT
+      - Sun, 22 Jan 2012 12:18:01 GMT
       x-runtime:
-      - '0.03074'
+      - '0.03036'
       x-transaction-mask:
       - a6183ffa5f8ca943ff1b53b5644ef1145dd8e914
       content-type:
@@ -50,17 +49,17 @@
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       x-mid:
-      - a53f729726a1ee373bfdac04930a2890c893ae7d
+      - b040f5cd552f324b32da21d94526dcb734f17c86
       set-cookie:
-      - k=10.35.53.113.1327234214830353; path=/; expires=Sun, 29-Jan-12 12:10:14 GMT;
-        domain=.twitter.com
-      - guest_id=v1%3A132723421483356; domain=.twitter.com; path=/; expires=Wed, 22-Jan-2014
-        00:10:14 GMT
+      - k=10.34.126.123.1327234681299909; path=/; expires=Sun, 29-Jan-12 12:18:01
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A132723468130221494; domain=.twitter.com; path=/; expires=Wed,
+        22-Jan-2014 00:18:01 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=en; path=/
       - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
         path=/
-      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsIu%252BtSBTUBOgxjc3JmX2lkIiU5NTVi%250ANjU3ZDEyMmVmMWJkODBhYmM1YWIxOWIxMjBkODoHaWQiJTVhYzU4ZTZhMDA1%250AY2Q3NTUzZDBkMzY1YmFlODRkZjEyIgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--36b0a332deb085b4a74b2bd79a0efdde7a0e68e5;
+      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsI4AlaBTUBOgxjc3JmX2lkIiUxYjZj%250AYzkzMTY1YzhiNTA2ZDdjZDU1YWYwNzczMmNjODoHaWQiJWMwMTkwODIzN2E0%250AOGQyMTFhNDliNjk0ZWI3NzM2NmIyIgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--1c182d1a4212d86c78e978cff5f37ff6f47970e0;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
