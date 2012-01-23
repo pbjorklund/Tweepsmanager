@@ -7,6 +7,7 @@ describe TwitterFollower do
 
   def returns_not_empty_user_list?(method)
     VCR.use_cassette("twitterfollower/#{method}") do
+      #TODO Safe? Wise?
       @client.send(method).count.should > 0
     end
   end
@@ -77,7 +78,7 @@ describe TwitterFollower do
   describe "#follow" do
     it "should follow a user" do
       VCR.use_cassette('twitterfollower/follow') do
-        #Interesting way of doing stuff, perhaps not useful
+        #TODO Interesting way of doing stuff, perhaps not useful
         followed_user = @client.follow("Tweepsmanager").instance_eval do
           self.should_not == nil
           screen_name.should == "Tweepsmanager"

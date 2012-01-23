@@ -12,6 +12,7 @@ gem 'twitter'
 gem 'sqlite3'
 
 group :development, :test do
+  gem 'thin'
   gem 'vcr'
   gem 'fakeweb'
   gem 'database_cleaner'
