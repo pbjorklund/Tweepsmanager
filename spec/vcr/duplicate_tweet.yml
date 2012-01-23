@@ -10,9 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.0.2
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="23fcebbe29169e50ec180c75245d2153",
-        oauth_signature="7P38TN2ZlmIRgrylmAwj3R956H0%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1327234679", oauth_token="<TOKEN>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="d009be5d392e0f511dc8712edb0a23fc",
+        oauth_signature="qZ9HkUxNzp0EfBlCy7diH9EPqE4%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1327338620", oauth_token="<TOKEN>", oauth_version="1.0"
       content-type:
       - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
@@ -21,17 +21,17 @@
       message: Forbidden
     headers:
       date:
-      - Sun, 22 Jan 2012 12:18:01 GMT
+      - Mon, 23 Jan 2012 17:10:22 GMT
       status:
       - 403 Forbidden
       x-transaction:
-      - 7c9a3b1b3801a31d
+      - 85d1f8b71b97fd92
       x-frame-options:
       - SAMEORIGIN
       last-modified:
-      - Sun, 22 Jan 2012 12:18:01 GMT
+      - Mon, 23 Jan 2012 17:10:21 GMT
       x-runtime:
-      - '0.03036'
+      - '0.61789'
       x-transaction-mask:
       - a6183ffa5f8ca943ff1b53b5644ef1145dd8e914
       content-type:
@@ -49,17 +49,17 @@
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       x-mid:
-      - b040f5cd552f324b32da21d94526dcb734f17c86
+      - 3ea58f6a538519c29943f65bdfb232262ff36289
       set-cookie:
-      - k=10.34.126.123.1327234681299909; path=/; expires=Sun, 29-Jan-12 12:18:01
+      - k=10.34.133.127.1327338621757099; path=/; expires=Mon, 30-Jan-12 17:10:21
         GMT; domain=.twitter.com
-      - guest_id=v1%3A132723468130221494; domain=.twitter.com; path=/; expires=Wed,
-        22-Jan-2014 00:18:01 GMT
+      - guest_id=v1%3A132733862176068514; domain=.twitter.com; path=/; expires=Thu,
+        23-Jan-2014 05:10:21 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=en; path=/
       - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
         path=/
-      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsI4AlaBTUBOgxjc3JmX2lkIiUxYjZj%250AYzkzMTY1YzhiNTA2ZDdjZDU1YWYwNzczMmNjODoHaWQiJWMwMTkwODIzN2E0%250AOGQyMTFhNDliNjk0ZWI3NzM2NmIyIgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--1c182d1a4212d86c78e978cff5f37ff6f47970e0;
+      - _twitter_sess=BAh7CjoHdWEwOg9jcmVhdGVkX2F0bCsITQuMCzUBOgxjc3JmX2lkIiU1YzE4%250ANWYxMDhmMTQ4OGU1MWJjY2NlMWQxODA2M2VmZToHaWQiJWVhYzQ3ZjNlZmIz%250AMTBlZjk3ZWFlNGFiOTc4YTJmYmRhIgpmbGFzaElDOidBY3Rpb25Db250cm9s%250AbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--b1371b3f4d51359ed244361044b092c84f8c65e6;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding

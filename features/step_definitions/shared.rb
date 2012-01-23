@@ -15,3 +15,7 @@ end
 
 Given /^I am signed in$/ do
 end
+
+Given /^I am on the startpage$/ do
+  visit root_path
+end
