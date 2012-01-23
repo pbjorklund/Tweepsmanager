@@ -13,9 +13,10 @@
   </td>
 
   <td> <%= user.description %> </td>
-  <td> <%= user.status.text unless user.status == nil %> </td>
+  <td> <%= user.status.text %> </td>
 
   <td>
+		<!-- #TODO Find out if this is ok -->
     <% if user.following %>
       <%= button_to "Unfollow", { action: "unfollow", id: user.screen_name }, method: :delete, class:"btn small danger" %>
     <% else %>

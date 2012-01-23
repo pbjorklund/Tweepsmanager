@@ -128,47 +128,47 @@ describe TwitterController do
   describe "POST 'tweet'" do
     #Now this assumes that is posts a tweet successfully in the "posts a tweet"
     it "posts a tweet" do
-      @request.env['HTTP_REFERER'] = '/twitter/followers'
+      @request.env['HTTP_REFERER'] = '/followers'
       VCR.use_cassette('tweet') do
         post 'tweet', tweet: "Spam"
       end
       flash[:notice].should_not be_nil
-      response.should redirect_to twitter_followers_path
+      response.should redirect_to followers_path
     end
 
     it "does not post a duplicate tweet" do
-      @request.env['HTTP_REFERER'] = '/twitter/followers'
+      @request.env['HTTP_REFERER'] = '/followers'
       VCR.use_cassette('duplicate_tweet') do
         post 'tweet', tweet: "Spam"
       end
       flash[:error].should_not be_nil
-      response.should redirect_to twitter_followers_path
+      response.should redirect_to followers_path
     end
   end
 
   describe "POST 'unfollow'" do
     it "unfollows a user when given a nickname" do
-      @request.env['HTTP_REFERER'] = '/twitter/followers'
+      @request.env['HTTP_REFERER'] = '/followers'
       VCR.use_cassette('unfollow') do
         post 'unfollow', id: "tweepsmanager"
       end
-      response.should redirect_to twitter_followers_path
+      response.should redirect_to followers_path
     end
 
     it "does not unfollow a user that does not exist" do
-      @request.env['HTTP_REFERER'] = '/twitter/followers'
+      @request.env['HTTP_REFERER'] = '/followers'
       VCR.use_cassette('unfollow_doesnt_exist') do
         post 'unfollow', id: "jiofewijfeiowjfeowfjew"
       end
       flash[:error].should_not be_nil
       flash[:error].should have_content("not found, could not unfollow")
-      response.should redirect_to twitter_followers_path
+      response.should redirect_to followers_path
     end
   end
 
   describe "POST 'follow'" do
     before(:each) do
-      @request.env['HTTP_REFERER'] = '/twitter/followers'
+      @request.env['HTTP_REFERER'] = '/followers'
     end
 
     it "follows a user when given a nickname" do
@@ -176,7 +176,7 @@ describe TwitterController do
         post 'follow', id: "tweepsmanager"
       end
       flash[:notice].should_not be_nil
-      response.should redirect_to twitter_followers_path
+      response.should redirect_to followers_path
     end
 
     it "does not follow a user that does not exist" do
@@ -185,7 +185,7 @@ describe TwitterController do
       end
       flash[:error].should_not be_nil
       flash[:error].should have_content("not found, could not follow")
-      response.should redirect_to twitter_followers_path
+      response.should redirect_to followers_path
     end
   end
 end

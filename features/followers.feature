@@ -1,4 +1,6 @@
-Feature: Followers
+Feature: Following / unfollowing of users
+
+	This feature tests the behaviour of following / unfollowing users
 
 	So that I can unfollow or follow tweeps
 	As a user
@@ -6,18 +8,19 @@ Feature: Followers
 
 	@logged_in
 	Scenario:
-		Given I am signed in
-		When I go to the followers page
+		Given I am on the startpage
+		When I go to the "followers" page
 		Then I should see a list of my followers
+		And I should see "api calls left this hour"
 
 	@logged_in
 	Scenario:
-		Given I am on the followers page
-		When I click the button "unfollow" for a user
-		Then I should see a message with 'Unfollowed "user"'
+		Given I am on the "followers" page
+		When I click the button "Unfollow" for a user
+		Then I should see "Stopped following"
 
 	@logged_in
 	Scenario:
-		Given I am on the followers page
-		When I click the button "follow" for a user
-		Then I should see a message with 'Followed "user"'
+		Given I am on the "followers" page
+		When I click the button "Follow" for a user
+		Then I should see "Followed"

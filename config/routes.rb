@@ -1,22 +1,22 @@
 Tweepsmanager::Application.routes.draw do
-  get "twitter/followers"
 
-  get "twitter/following"
+  get 'followers' => 'twitter#followers'
 
-  get "twitter/friends"
+  get "following" => 'twitter#following'
 
-  get "twitter/stalkers"
+  get "friends" => 'twitter#friends'
 
-  get "twitter/only_following"
+  get "stalkers" => 'twitter#stalkers'
 
-  get "twitter/settings"
+  get "only_following" => 'twitter#only_following'
 
-  get "home/index"
+  get "settings" => 'twitter#settings'
 
-  post "twitter/tweet"
+  post "tweet" => 'twitter#tweet'
 
-  delete "twitter/unfollow"
-  post "twitter/follow"
+  delete "unfollow" => 'twitter#unfollow'
+
+  post "follow" => 'twitter#follow'
 
   match '/auth/:provider/callback', to: 'sessions#create'
   match '/login', to: "home#login", as: :login

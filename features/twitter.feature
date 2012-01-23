@@ -2,7 +2,7 @@ Feature: Authorization with omniauth-twitter
 
 	So that I can authorize
 	As a user
-	I want to sign in with omniauth-twitter
+	I want to sign in with twitter
 
 	Scenario: Logging in
 		Given I am not logged in
