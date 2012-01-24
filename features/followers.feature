@@ -1,17 +1,14 @@
 Feature: Following / unfollowing of users
 
-	This feature tests the behaviour of following / unfollowing users
-
-	So that I can unfollow or follow tweeps
+	So that I can manage my twitter followers
 	As a user
-	I want to display a list of my followers
+	I want to be able to follow and unfollow users
 
 	@logged_in
 	Scenario:
 		Given I am on the startpage
 		When I go to the "followers" page
 		Then I should see a list of my followers
-		And I should see "api calls left this hour"
 
 	@logged_in
 	Scenario:

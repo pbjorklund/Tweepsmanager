@@ -9,7 +9,7 @@ describe TwitterController do
   describe "GET 'followers'" do
     #Perhaps not optimal, this get's run every time
     before(:each) do
-      VCR.use_cassette('followers') do
+      VCR.use_cassette('twitter_controller/followers') do
         get 'followers'
       end
     end
@@ -29,7 +29,7 @@ describe TwitterController do
 
   describe "GET 'following'" do
     before(:each) do
-      VCR.use_cassette('following') do
+      VCR.use_cassette('twitter_controller/following') do
         get 'following'
       end
     end
@@ -50,7 +50,7 @@ describe TwitterController do
 
   describe "GET 'friends'" do
     before(:each) do
-      VCR.use_cassette('friends') do
+      VCR.use_cassette('twitter_controller/friends') do
         get 'friends'
       end
     end
@@ -70,7 +70,7 @@ describe TwitterController do
 
   describe "GET 'stalkers'" do
     before(:each) do
-      VCR.use_cassette('stalkers') do
+      VCR.use_cassette('twitter_controller/stalkers') do
         get 'stalkers'
       end
     end
@@ -90,7 +90,7 @@ describe TwitterController do
 
   describe "GET 'only_following'" do
     before(:each) do
-      VCR.use_cassette('only_following') do
+      VCR.use_cassette('twitter_controller/only_following') do
         get 'only_following'
       end
     end
@@ -110,7 +110,7 @@ describe TwitterController do
 
   describe "GET 'settings'" do
     before(:each) do
-      VCR.use_cassette('seetings') do
+      VCR.use_cassette('twitter_controller/seetings') do
         get 'settings'
       end
     end
@@ -129,7 +129,7 @@ describe TwitterController do
     #Now this assumes that is posts a tweet successfully in the "posts a tweet"
     it "posts a tweet" do
       @request.env['HTTP_REFERER'] = '/followers'
-      VCR.use_cassette('tweet') do
+      VCR.use_cassette('twitter_controller/tweet') do
         post 'tweet', tweet: "Spam"
       end
       flash[:notice].should_not be_nil
@@ -138,7 +138,7 @@ describe TwitterController do
 
     it "does not post a duplicate tweet" do
       @request.env['HTTP_REFERER'] = '/followers'
-      VCR.use_cassette('duplicate_tweet') do
+      VCR.use_cassette('twitter_controller/duplicate_tweet') do
         post 'tweet', tweet: "Spam"
       end
       flash[:error].should_not be_nil
@@ -149,7 +149,7 @@ describe TwitterController do
   describe "POST 'unfollow'" do
     it "unfollows a user when given a nickname" do
       @request.env['HTTP_REFERER'] = '/followers'
-      VCR.use_cassette('unfollow') do
+      VCR.use_cassette('twitter_controller/unfollow') do
         post 'unfollow', id: "tweepsmanager"
       end
       response.should redirect_to followers_path
@@ -157,7 +157,7 @@ describe TwitterController do
 
     it "does not unfollow a user that does not exist" do
       @request.env['HTTP_REFERER'] = '/followers'
-      VCR.use_cassette('unfollow_doesnt_exist') do
+      VCR.use_cassette('twitter_controller/unfollow_doesnt_exist') do
         post 'unfollow', id: "jiofewijfeiowjfeowfjew"
       end
       flash[:error].should_not be_nil
@@ -172,7 +172,7 @@ describe TwitterController do
     end
 
     it "follows a user when given a nickname" do
-      VCR.use_cassette('follow') do
+      VCR.use_cassette('twitter_controller/follow') do
         post 'follow', id: "tweepsmanager"
       end
       flash[:notice].should_not be_nil
@@ -180,7 +180,7 @@ describe TwitterController do
     end
 
     it "does not follow a user that does not exist" do
-        VCR.use_cassette('follow_doesnt_exist') do
+        VCR.use_cassette('twitter_controller/follow_doesnt_exist') do
         post 'follow', id: "jiofewijfeiowjfeowfjew"
       end
       flash[:error].should_not be_nil
