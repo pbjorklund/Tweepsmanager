@@ -19,7 +19,7 @@ describe TwitterController do
     end
 
     it "assings follower" do
-      assigns(:followers).should_not be_nil
+      assigns(:twitter_users).should_not be_nil
     end
 
     it "assings api_calls_left" do
@@ -39,7 +39,7 @@ describe TwitterController do
     end
 
     it "assings following" do
-      assigns(:following).should_not be_nil
+      assigns(:twitter_users).should_not be_nil
     end
 
     it "assings api_calls_left" do
@@ -60,7 +60,7 @@ describe TwitterController do
     end
 
     it "assings friends" do
-      assigns(:friends).should_not be_nil
+      assigns(:twitter_users).should_not be_nil
     end
 
     it "assings api_calls_left" do
@@ -80,7 +80,7 @@ describe TwitterController do
     end
 
     it "assings stalkers" do
-      assigns(:stalkers).should_not be_nil
+      assigns(:twitter_users).should_not be_nil
     end
 
     it "assings api_calls_left" do
@@ -100,7 +100,7 @@ describe TwitterController do
     end
 
     it "assings only_following" do
-      assigns(:only_following).should_not be_nil
+      assigns(:twitter_users).should_not be_nil
     end
 
     it "assings api_calls_left" do

@@ -1,32 +1,31 @@
 class TwitterController < ApplicationController
-  before_filter :setup_twitter_service
   before_filter :signed_in?
 
   def followers
-    @followers = twitter.get_followers
+    @twitter_users = twitter.get_followers
     @api_calls_left = twitter.get_api_calls_left
   end
 
   #TODO Get users that I follow that follow me back, get users that I follow that don't follow me back
   def following
-    @following = twitter.get_following.sort_by(&:screen_name)
+    @twitter_users = twitter.get_following.sort_by(&:screen_name)
     @api_calls_left = twitter.get_api_calls_left
   end
 
   def friends
-    @friends = twitter.get_friends
+    @twitter_users = twitter.get_friends
     @friends_count = twitter.get_friends_count
     @api_calls_left = twitter.get_api_calls_left
   end
 
   #TODO This is people that you don't follow. Make sure that you follow them, not unfollow them ;)
   def stalkers
-    @stalkers = twitter.get_stalkers
+    @twitter_users = twitter.get_stalkers
     @api_calls_left = twitter.get_api_calls_left
   end
 
   def only_following
-    @only_following = twitter.get_users_not_following_back
+    @twitter_users = twitter.get_users_not_following_back
     @api_calls_left = twitter.get_api_calls_left
   end
 
@@ -67,11 +66,7 @@ class TwitterController < ApplicationController
 
   private
   def twitter
-    @twitter_service
-  end
-
-  def setup_twitter_service
-    @twitter_service = TwitterFollower.new(current_user)
+    @twitter_service ||= TwitterFollower.new(current_user)
   end
 
   def signed_in?
