@@ -7,7 +7,7 @@ class TwitterFollower
 
   #TODO Move this out to resque
   def twitter
-    @twitter ||= Twitter::Client.new(:oauth_token => current_user.token, :oauth_token_secret => current_user.secret)
+    @twitter ||= Twitter::Client.new(:oauth_token => current_user.auth.token, :oauth_token_secret => current_user.auth.secret)
   end
 
 

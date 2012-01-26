@@ -1,14 +1,21 @@
 class SessionsController < ApplicationController
   def create
-    auth = request.env["omniauth.auth"]
-
-    user = User.find_and_update(auth) || User.create_with_omniauth(auth)
-    session[:user_id] = user.id
-    redirect_to root_url, :notice => "Signed in!"
+    user = create_user(request.env["omniauth.auth"])
+    if user.nil?
+      redirect_to root_url, :notice => "Could not sign in"
+    else
+      session[:user_id] = user.id
+      redirect_to root_url, :notice => "Signed in!"
+    end
   end
 
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: "Signed out!"
+  end
+
+  private
+  def create_user(auth)
+     User.create_with_omniauth(auth)
   end
 end

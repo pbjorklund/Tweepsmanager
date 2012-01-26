@@ -6,7 +6,9 @@ When /^I go to the startpage$/ do
 end
 
 When /^I click "([^"]*)"$/ do |link|
-  click_link link
+  VCR.use_cassette("#{link}") do
+    click_link link
+  end
 end
 
 Then /^I should see "([^"]*)"$/ do |message|
