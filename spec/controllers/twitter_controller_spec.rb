@@ -4,6 +4,7 @@ describe TwitterController do
 
   before(:each) do
     controller.stub(:current_user).and_return( FactoryGirl.create(:user))
+    controller.stub(:twitter).and_return(FactoryGirl.build(:twitter_follower))
   end
 
   describe "GET 'followers'" do
