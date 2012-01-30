@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   validates_presence_of :name, :image_url, :nickname
   has_one :auth
+  has_many :followers, through: :relationships
   def self.create_with_omniauth(auth)
     if User.find_by_uid(auth[:uid]) == nil
       user = create! do |user|
@@ -36,4 +37,5 @@ class User < ActiveRecord::Base
     end
     user
   end
+
 end

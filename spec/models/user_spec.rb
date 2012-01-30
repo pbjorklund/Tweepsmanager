@@ -68,4 +68,13 @@ describe User do
       end
     end
   end
+
+  describe "with followers" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+    end
+      it "returns a list of followers" do
+        @user.followers.should_not be_nil
+      end
+  end
 end
