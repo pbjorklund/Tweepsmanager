@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe TwitterFollower do
   before(:each) do
-    @client = TwitterFollower.new(FactoryGirl.create(:user))
+    @client = TwitterFollower.new(FactoryGirl.create(:pbjorklund))
   end
 
   def returns_not_empty_user_list?(method)
@@ -48,7 +48,7 @@ describe TwitterFollower do
   end
 
   describe "#get_stalkers" do
-    it "should return a list of users", :focus do
+    it "should return a list of users" do
       returns_not_empty_user_list? :get_stalkers
     end
   end

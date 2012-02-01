@@ -3,7 +3,8 @@ require 'spec_helper'
 describe TwitterController do
 
   before(:each) do
-    controller.stub(:current_user).and_return( FactoryGirl.create(:user))
+    User.delete_all
+    controller.stub(:current_user).and_return( FactoryGirl.build(:pbjorklund))
     controller.stub(:twitter).and_return(FactoryGirl.build(:twitter_follower))
   end
 

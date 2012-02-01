@@ -69,12 +69,22 @@ describe User do
     end
   end
 
-  describe "with followers" do
+  describe "relationships" do
     before(:each) do
       @user = FactoryGirl.create(:user)
+      @follower = FactoryGirl.create(:user)
     end
-      it "returns a list of followers" do
-        @user.followers.should_not be_nil
-      end
+
+    it "should respond to #relationships" do
+      @user.should respond_to(:relationships)
+    end
+
+    it "creates a new relationship when given a user" do
+      @user.follow(@follower)
+    end
+
+    it "returns a list of followers" do
+      @user.followers.should_not be_nil
+    end
   end
 end

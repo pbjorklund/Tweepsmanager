@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   private
   def create_user(auth)
-     User.create_with_omniauth(auth)
+    user = User.create_with_omniauth(auth)
   end
 end
