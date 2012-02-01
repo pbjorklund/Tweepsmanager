@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   validates_presence_of :name, :image_url, :nickname
   has_one :auth
+  has_many :relationships
+  has_many :following, through: :relationships
 
   def self.create_with_omniauth(auth)
     if User.find_by_id(auth[:uid]) == nil
@@ -38,6 +40,20 @@ class User < ActiveRecord::Base
       user.save!
     end
     user
+  end
+
+  def follow(user)
+    self.relationships.create(user_id: self, following_id: user.id)
+  end
+
+  def followers
+    user_ids = Relationship.find_all_by_following_id(self.id)
+    u = user_ids.map { |rel| rel.user }
+  end
+
+  def following
+    user_ids = Relationship.find_all_by_user_id(self.id)
+    u = user_ids.map { |rel| rel.following }
   end
 
 end

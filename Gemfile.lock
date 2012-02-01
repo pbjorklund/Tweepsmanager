@@ -128,11 +128,11 @@ GEM
     omniauth-twitter (0.0.7)
       omniauth-oauth (~> 1.0)
     polyglot (0.3.3)
-    pry (0.9.8)
+    pry (0.9.8.1)
       coderay (~> 1.0.5)
       method_source (~> 0.7)
       slop (>= 2.4.3, < 3)
-    pry (0.9.8-x86-mingw32)
+    pry (0.9.8.1-x86-mingw32)
       coderay (~> 1.0.5)
       method_source (~> 0.7)
       slop (>= 2.4.3, < 3)
@@ -216,7 +216,7 @@ GEM
       multi_json (~> 1.0)
       simple_oauth (~> 0.1)
     tzinfo (0.3.31)
-    uglifier (1.2.2)
+    uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
     vcr (1.11.3)
@@ -241,7 +241,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.0)
   cucumber-rails
   database_cleaner
-  factory_girl_rails (~> 1.2)
+  factory_girl_rails
   fakeweb
   growl
   guard
@@ -260,7 +260,7 @@ DEPENDENCIES
   rb-fsevent
   rspec-rails
   sass-rails (~> 3.2.0)
-  spork (~> 0.9.0.rc)
+  spork
   sqlite3
   thin
   twitter

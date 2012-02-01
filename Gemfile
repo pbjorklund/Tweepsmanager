@@ -19,14 +19,14 @@ group :development, :test do
   gem "launchy"
   gem 'rspec-rails'
   gem 'cucumber-rails'
-  gem "factory_girl_rails", "~> 1.2"
+  gem "factory_girl_rails"
   gem "capybara"
   gem "guard"
   gem "guard-rspec"
   gem "guard-cucumber"
   gem "guard-bundler"
   gem "guard-spork"
-  gem 'spork', '~> 0.9.0.rc'
+  gem 'spork'
   if RUBY_PLATFORM.downcase.include?("darwin")
     gem 'rb-fsevent'
     gem 'growl' # also install growlnotify from the Extras/growlnotify/growlnotify.pkg in Growl disk image

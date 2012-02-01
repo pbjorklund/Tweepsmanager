@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @user = FactoryGirl.create(:user)
+      User.delete_all
+    @user = FactoryGirl.create(:pbjorklund)
   end
 
   describe "New user'" do
@@ -47,11 +48,13 @@ describe User do
 
     describe "#self.create_with_omniauth" do
       it "creates a new user given valid auth object" do
+        Auth.delete_all
         User.delete_all
         lambda { User.create_with_omniauth(@auth) }.should change(User, :count).by(1)
       end
 
       it "creates a user.auth instance given a valid auth" do
+        Auth.delete_all
         User.delete_all
         lambda { User.create_with_omniauth(@auth) }.should change(Auth, :count).by(1)
       end
@@ -71,7 +74,8 @@ describe User do
 
   describe "relationships" do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      User.delete_all
+      @user = FactoryGirl.create(:pbjorklund)
       @follower = FactoryGirl.create(:user)
     end
 
@@ -79,12 +83,49 @@ describe User do
       @user.should respond_to(:relationships)
     end
 
-    it "creates a new relationship when given a user" do
-      @user.follow(@follower)
+    it "creates a new relationship when given a user", :focus do
+      expect { @user.follow(@follower) }.to change(Relationship, :count).by(1)
     end
 
-    it "returns a list of followers" do
-      @user.followers.should_not be_nil
+    it "does not create a duplicate relationship" do
+      expect { @user.follow(@follower) }.to change(Relationship, :count).by(1)
+      expect { @user.follow(@follower) }.to change(Relationship, :count).by(0)
+      expect { @follower.follow(@user) }.to change(Relationship, :count).by(1)
+      expect { @follower.follow(@user) }.to change(Relationship, :count).by(0)
+    end
+  end
+
+  describe "#followers" do
+    before(:each) do
+      15.times do
+        u = FactoryGirl.create(:user)
+        u.follow(@user)
+      end
+    end
+
+    it "should return a list of followers" do
+      users = @user.followers
+      users.count.should == 15
+      users.first.name.should == "Mass User"
+      users.first.following.count.should == 1
+      users.first.following[0].name.should == "Patrik Bjorklund"
+    end
+  end
+
+  describe "#following" do
+    before(:each) do
+      12.times do
+        u = FactoryGirl.create(:user)
+        @user.follow(u)
+      end
+    end
+
+    it "returns a list of users" do
+      users = @user.following
+      users.count.should == 12
+      users.first.name.should == "Mass User"
+      users.first.followers.count.should == 1
+      users.first.followers[0].name.should == "Patrik Bjorklund"
     end
   end
 end
