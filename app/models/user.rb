@@ -22,9 +22,36 @@ class User < ActiveRecord::Base
 
       user
     else
-      find_and_update(auth)
+      user = find_and_update(auth)
     end
+  end
 
+  def refresh_followers
+    twitter = TwitterFollower.new(self)
+    twitter.get_followers.each do |follower|
+      create_user_from_twitter_user(follower).follow(self)
+    end
+  end
+
+  def refresh_following
+    twitter = TwitterFollower.new(self)
+    twitter.get_following.each do |following|
+      self.follow(create_user_from_twitter_user(following))
+    end
+  end
+
+  def create_user_from_twitter_user(user)
+      created_user = User.find_or_create_by_nickname(name: user.name,
+                  image_url: user.profile_image_url,
+                  nickname: user.screen_name,
+                  bio: user.description,
+                  )
+      if user.status == nil
+        created_user.last_tweet = "No last tweet"
+      else
+        created_user.last_tweet = user.status.text
+      end
+      created_user
   end
 
   def self.find_and_update(auth)
@@ -55,5 +82,4 @@ class User < ActiveRecord::Base
     user_ids = Relationship.find_all_by_user_id(self.id)
     u = user_ids.map { |rel| rel.following }
   end
-
 end

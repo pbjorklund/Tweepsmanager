@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-      User.delete_all
+    User.delete_all
     @user = FactoryGirl.create(:pbjorklund)
   end
 
@@ -68,6 +68,40 @@ describe User do
 
         lambda { User.find_and_update(@auth) }.should_not raise_error
 
+      end
+    end
+  end
+
+  describe "#refresh_followers" do
+    before(:each) do
+      User.delete_all
+      @user = FactoryGirl.create(:pbjorklund)
+      VCR.use_cassette('user/refresh_followers') do
+        @user.refresh_followers
+      end
+    end
+
+    it "assigns followers to user" do
+      @user.followers.count.should > 1
+    end
+
+    it "does not assign following" do
+      @user.following.count.should == 0
+    end
+
+    it "does not create duplicate followers" do
+      VCR.use_cassette('user/refresh_followers') do
+        lambda { @user.refresh_followers }.should_not change(User, :count)
+      end
+    end
+  end
+
+  describe "#refresh_following" do
+    it "assigns following to user" do
+      User.delete_all
+      user = FactoryGirl.create(:pbjorklund)
+      VCR.use_cassette('user/refresh_following') do
+        lambda { user.refresh_following }.should change(User, :count)
       end
     end
   end
