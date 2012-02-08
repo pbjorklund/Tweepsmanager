@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe TwitterFollower do
   before(:each) do
-    @client = TwitterFollower.new(FactoryGirl.create(:pbjorklund))
+    User.delete_all
+    user = FactoryGirl.create(:pbjorklund)
+    @client = TwitterFollower.new(user)
   end
 
   def returns_not_empty_user_list?(method)
