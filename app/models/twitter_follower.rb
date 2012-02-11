@@ -18,18 +18,26 @@ class TwitterFollower
     end
   end
 
-  def get_followers(limit = 100)
+  def get_followers(limit = 100, excluded_ids = [])
     rescue_twitter_unresponsive do
+
       follower_ids = twitter.follower_ids(current_user.nickname).ids
-      #Select users with a status to remove suspended accounts
-      twitter.users(follower_ids.first(limit)).select { |u| u.status != nil }
+
+      current_follower_ids = current_user.followers.map { |f| f.id }
+
+      follower_ids = follower_ids - current_follower_ids
+
+      #TODO Save suspended users somewhere, do not query twitter for them
+      followers = follower_ids.in_groups_of(limit, false).map { |fg| twitter.users(fg).select { |u| u.status != nil } }
+      followers.flatten
     end
   end
 
   def get_following(limit = 100)
     rescue_twitter_unresponsive do
       following_ids = twitter.friend_ids(current_user.nickname).ids
-      twitter.users(following_ids.first(limit))
+      following = following_ids.in_groups_of(limit, false).map { |fg| twitter.users(fg).select { |u| u.status != nil } }
+      following.flatten
     end
   end
 

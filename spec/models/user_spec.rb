@@ -72,7 +72,34 @@ describe User do
     end
   end
 
-  describe "#refresh_followers" do
+  context "no followers" do
+    describe "#refresh_followers" do
+      before(:each) do
+        User.delete_all
+        @user = FactoryGirl.create(:pbjorklund)
+        VCR.use_cassette('user/refresh_followers') do
+          @user.refresh_followers
+        end
+      end
+
+      it "assigns followers to user" do
+        @user.followers.count.should > 1
+      end
+
+      it "does not assign following" do
+        @user.following.count.should == 0
+      end
+
+      it "does not create duplicate followers" do
+        VCR.use_cassette('user/refresh_followers') do
+          lambda { @user.refresh_followers }.should_not change(User, :count)
+        end
+      end
+    end
+
+  end
+
+  context "with followers present" do
     before(:each) do
       User.delete_all
       @user = FactoryGirl.create(:pbjorklund)
@@ -81,17 +108,9 @@ describe User do
       end
     end
 
-    it "assigns followers to user" do
-      @user.followers.count.should > 1
-    end
-
-    it "does not assign following" do
-      @user.following.count.should == 0
-    end
-
-    it "does not create duplicate followers" do
-      VCR.use_cassette('user/refresh_followers') do
-        lambda { @user.refresh_followers }.should_not change(User, :count)
+    describe "#refresh_followers" do
+      it "should have followers" do
+        @user.followers.count.should > 10
       end
     end
   end

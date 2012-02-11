@@ -20,10 +20,6 @@ describe TwitterController do
       response.should be_success
     end
 
-    it "assings follower" do
-      assigns(:twitter_users).should_not be_nil
-    end
-
     it "assings api_calls_left" do
       assigns(:api_calls_left).should_not be_nil
     end

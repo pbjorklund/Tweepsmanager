@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   def self.create_with_omniauth(auth)
     if User.find_by_id(auth[:uid]) == nil
       user = create! do |user|
-        user.id       = auth[:uid]
+        user.id        = auth[:uid]
         user.name      = auth[:info][:name]
         user.image_url = auth[:info][:image]
         user.nickname  = auth[:info][:nickname]
@@ -28,8 +28,11 @@ class User < ActiveRecord::Base
 
   def refresh_followers
     twitter = TwitterFollower.new(self)
-    twitter.get_followers.each do |follower|
+    already_following = self.followers.map {|u| u.id }
+    twitter.get_followers(100, already_following).each do |follower|
+
       create_user_from_twitter_user(follower).follow(self)
+
     end
   end
 
@@ -41,16 +44,20 @@ class User < ActiveRecord::Base
   end
 
   def create_user_from_twitter_user(user)
-      created_user = User.find_or_create_by_nickname(name: user.name,
-                  image_url: user.profile_image_url,
-                  nickname: user.screen_name,
-                  bio: user.description,
-                  )
-      if user.status == nil
+      created_user = User.find_or_create_by_id(user.id) do |created_user|
+        created_user.id         = user.id
+        created_user.name       = user.name
+        created_user.image_url  = user.profile_image_url
+        created_user.nickname   = user.screen_name
+        created_user.bio        = user.description
         created_user.last_tweet = "No last tweet"
-      else
-        created_user.last_tweet = user.status.text
       end
+
+      if user.status != nil
+        created_user.last_tweet = user.status.text
+        created_user.save
+      end
+
       created_user
   end
 

@@ -2,7 +2,7 @@ class TwitterController < ApplicationController
   before_filter :signed_in?
 
   def followers
-    @twitter_users = twitter.get_followers
+    current_user.refresh_followers
     @api_calls_left = twitter.get_api_calls_left
   end
 

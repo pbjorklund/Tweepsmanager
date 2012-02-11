@@ -9,8 +9,13 @@ describe TwitterFollower do
 
   def returns_not_empty_user_list?(method)
     VCR.use_cassette("twitterfollower/#{method}") do
-      #TODO Safe? Wise?
       @client.send(method).count.should > 0
+    end
+  end
+
+  def run_with_recording(method)
+    VCR.use_cassette("twitterfollower/#{method}") do
+      re = @client.send(method)
     end
   end
 
@@ -41,11 +46,19 @@ describe TwitterFollower do
     it "should return a list of users" do
       returns_not_empty_user_list? :get_followers
     end
+
+    it "contains more than 101 users" do
+      run_with_recording(:get_followers).count.should > 100
+    end
   end
 
   describe "#get_following" do
     it "should return a list of users" do
       returns_not_empty_user_list? :get_following
+    end
+
+    it "contains more than 101 users" do
+      run_with_recording(:get_following).count.should > 100
     end
   end
 
