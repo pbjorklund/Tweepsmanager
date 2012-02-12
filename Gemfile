@@ -5,6 +5,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'json_pure'
 gem 'twitter'
+gem 'less-rails-bootstrap'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
