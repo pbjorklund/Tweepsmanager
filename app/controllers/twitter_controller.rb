@@ -2,43 +2,7 @@ class TwitterController < ApplicationController
   before_filter :signed_in?
 
   def followers
-    @api_calls_left = twitter.get_api_calls_left
-  end
-
-  #TODO Get users that I follow that follow me back, get users that I follow that don't follow me back
-  def following
-    current_user.refresh_following
-    @api_calls_left = twitter.get_api_calls_left
-  end
-
-  def friends
-    @twitter_users = twitter.get_friends
-    @friends_count = twitter.get_friends_count
-    @api_calls_left = twitter.get_api_calls_left
-  end
-
-  #TODO This is people that you don't follow. Make sure that you follow them, not unfollow them ;)
-  def stalkers
-    @twitter_users = twitter.get_stalkers
-    @api_calls_left = twitter.get_api_calls_left
-  end
-
-  def only_following
-    @twitter_users = twitter.get_users_not_following_back
-    @api_calls_left = twitter.get_api_calls_left
-  end
-
-  def settings
-    @user = twitter.twitter.user(current_user.nickname)
-  end
-
-  def tweet
-    begin
-      twitter.update(params[:tweet])
-      redirect_to :back, notice: "Posted tweet"
-    rescue Twitter::Error::Forbidden
-      redirect_to :back, :flash => { error: "No post" }
-    end
+    @twitter_users = twitter.get_followers
   end
 
   def unfollow
