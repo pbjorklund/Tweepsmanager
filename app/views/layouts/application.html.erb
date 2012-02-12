@@ -11,7 +11,6 @@
 
 		<% if current_user %>
 			<%= render :partial => "shared/navigation" %>
-			<%= render :partial => "shared/tweetdialog" %>
 		<% else %>
 			<%= render :partial => "shared/blank_navigation" %>
 		<% end -%>
@@ -28,7 +27,7 @@
 
 		<footer class="footer">
 		<div class="container">
-			<p>Copyright &copy; Patrik Björklund &amp; Erik Skoglund 2012 - <%= Time.new.year %></p>
+			<p>Copyright &copy; Tweepsmanager 2012 - <%= Time.new.year %></p>
 		</div>
 		</footer>
 	</body>
