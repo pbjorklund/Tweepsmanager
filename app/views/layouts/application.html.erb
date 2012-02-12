@@ -9,12 +9,7 @@
 	</head>
 	<body>
 
-		<% if current_user %>
-			<%= render :partial => "shared/navigation" %>
-		<% else %>
-			<%= render :partial => "shared/blank_navigation" %>
-		<% end -%>
-
+		<%= render :partial => "shared/navigation" %>
 		<div class="container">
 
 			<%= render :partial => "shared/flash", :locals => { flash: flash } %>

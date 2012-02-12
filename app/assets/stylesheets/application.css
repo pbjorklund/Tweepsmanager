@@ -4,4 +4,12 @@
 *= require_tree
 */
 
+.img-icon{
+	width:16px;
+	padding:0px;
+	margin:0px;
+}
 
+body{
+	padding-top:90px;
+}
