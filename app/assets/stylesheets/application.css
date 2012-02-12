@@ -1,7 +1,7 @@
-body{
-	margin-top: 60px
-}
+/*
+*= require 'twitter/bootstrap'
+*= require_self
+*= require_tree
+*/
 
-.img-icon{
-	width:16px;
-}
+
