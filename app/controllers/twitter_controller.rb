@@ -2,13 +2,12 @@ class TwitterController < ApplicationController
   before_filter :signed_in?
 
   def followers
-    current_user.refresh_followers
     @api_calls_left = twitter.get_api_calls_left
   end
 
   #TODO Get users that I follow that follow me back, get users that I follow that don't follow me back
   def following
-    @twitter_users = twitter.get_following.sort_by(&:screen_name)
+    current_user.refresh_following
     @api_calls_left = twitter.get_api_calls_left
   end
 

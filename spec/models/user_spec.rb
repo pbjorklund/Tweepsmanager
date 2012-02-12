@@ -96,7 +96,6 @@ describe User do
         end
       end
     end
-
   end
 
   context "with followers present" do
@@ -118,9 +117,9 @@ describe User do
   describe "#refresh_following" do
     it "assigns following to user" do
       User.delete_all
-      user = FactoryGirl.create(:pbjorklund)
+      @user = FactoryGirl.create(:pbjorklund)
       VCR.use_cassette('user/refresh_following') do
-        lambda { user.refresh_following }.should change(User, :count)
+        lambda { @user.refresh_following }.should change(User, :count)
       end
     end
   end
@@ -179,6 +178,23 @@ describe User do
       users.first.name.should == "Mass User"
       users.first.followers.count.should == 1
       users.first.followers[0].name.should == "Patrik Bjorklund"
+    end
+  end
+
+  describe "#following?" do
+    before(:each) do
+      User.delete_all
+      @user = FactoryGirl.create(:pbjorklund)
+      @following_user = FactoryGirl.create(:user)
+      @following_user.follow(@user)
+    end
+
+    it "should return true when asking for a valid relationship", :focus do
+      @following_user.following?(@user).should be_true
+    end
+
+    it "should return false when asking for a invalid relationship" do
+      @user.following?(@user).should be_false
     end
   end
 end

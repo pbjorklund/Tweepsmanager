@@ -4,7 +4,7 @@ describe TwitterController do
 
   before(:each) do
     User.delete_all
-    controller.stub(:current_user).and_return( FactoryGirl.build(:pbjorklund))
+    controller.stub(:current_user).and_return( FactoryGirl.create(:pbjorklund))
     controller.stub(:twitter).and_return(FactoryGirl.build(:twitter_follower))
   end
 
@@ -36,10 +36,6 @@ describe TwitterController do
       response.should be_success
     end
 
-    it "assings following" do
-      assigns(:twitter_users).should_not be_nil
-    end
-
     it "assings api_calls_left" do
       assigns(:api_calls_left).should_not be_nil
     end
@@ -55,10 +51,6 @@ describe TwitterController do
 
     it "returns http success" do
       response.should be_success
-    end
-
-    it "assings friends" do
-      assigns(:twitter_users).should_not be_nil
     end
 
     it "assings api_calls_left" do
@@ -77,10 +69,6 @@ describe TwitterController do
       response.should be_success
     end
 
-    it "assings stalkers" do
-      assigns(:twitter_users).should_not be_nil
-    end
-
     it "assings api_calls_left" do
       assigns(:api_calls_left).should_not be_nil
     end
@@ -97,10 +85,6 @@ describe TwitterController do
       response.should be_success
     end
 
-    it "assings only_following" do
-      assigns(:twitter_users).should_not be_nil
-    end
-
     it "assings api_calls_left" do
       assigns(:api_calls_left).should_not be_nil
     end
@@ -115,10 +99,6 @@ describe TwitterController do
 
     it "returns https success" do
       response.should be_success
-    end
-
-    it "assings user" do
-      assigns(:user).should_not be_nil
     end
   end
 

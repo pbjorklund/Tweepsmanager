@@ -38,8 +38,12 @@ class User < ActiveRecord::Base
 
   def refresh_following
     twitter = TwitterFollower.new(self)
-    twitter.get_following.each do |following|
-      self.follow(create_user_from_twitter_user(following))
+
+    already_followers = self.following.map {|u| u.id }
+
+    twitter.get_following(100, already_followers).each do |following|
+      user = create_user_from_twitter_user(following)
+      self.follow(user)
     end
   end
 
@@ -66,11 +70,11 @@ class User < ActiveRecord::Base
     if user.nil?
       return nil
     else
-      user.name      = auth[:info][:name]
-      user.image_url = auth[:info][:image]
-      user.nickname  = auth[:info][:nickname]
-      user.auth.token     = auth[:credentials][:token]
-      user.auth.secret    = auth[:credentials][:secret]
+      user.name        = auth[:info][:name]
+      user.image_url   = auth[:info][:image]
+      user.nickname    = auth[:info][:nickname]
+      user.auth.token  = auth[:credentials][:token]
+      user.auth.secret = auth[:credentials][:secret]
       user.save!
     end
     user
@@ -88,5 +92,9 @@ class User < ActiveRecord::Base
   def following
     user_ids = Relationship.find_all_by_user_id(self.id)
     u = user_ids.map { |rel| rel.following }
+  end
+
+  def following?(user)
+    self.following.include?(user)
   end
 end
