@@ -7,8 +7,11 @@ class TwitterController < ApplicationController
 
   def unfollow
     begin
-      twitter.unfollow(params[:id])
-      redirect_to :back, notice: "Stopped following #{params[:id]}"
+      @active_user = twitter.unfollow(params[:id])
+      respond_to do |format|
+        format.html { redirect_to :back, notice: "Stopped following #{params[:id]}" }
+        format.js
+      end
     rescue Twitter::Error::NotFound
       redirect_to :back, :flash => { error: "User #{params[:id]} not found, could not unfollow user" }
     rescue Twitter::Error::Forbidden
@@ -18,8 +21,12 @@ class TwitterController < ApplicationController
 
   def follow
     begin
-      twitter.follow(params[:id])
-      redirect_to :back, notice: "Followed #{params[:id]}"
+      @active_user = twitter.follow(params[:id])
+
+      respond_to do |format|
+        format.html { redirect_to :back, notice: "Followed #{params[:id]}" }
+        format.js
+      end
     rescue Twitter::Error::NotFound
       redirect_to :back, :flash => { error: "User #{params[:id]} not found, could not follow user" }
     rescue Twitter::Error::Forbidden
