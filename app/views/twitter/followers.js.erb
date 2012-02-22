@@ -1,0 +1,3 @@
+$(".hero-unit").append("<%= escape_javascript(render partial: "page") %>");
+$("#users").append("<%= escape_javascript(render :partial => "user", collection: @users ) %>");
+$("#loading").html("<p>These are the people following you:").attr("id","");

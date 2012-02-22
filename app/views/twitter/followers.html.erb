@@ -1,5 +1,9 @@
 <div class="hero-unit">
-	<p>These are the people following you.</p>
-
-  <%= render partial: "page", :locals => { collection: @twitter_users } %>
+	<h1 id="loading">Loading users...</h1>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    $.ajax({ url: '/followers', type: 'get', dataType:'script' });
+  });
+</script>

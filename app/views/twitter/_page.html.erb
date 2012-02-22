@@ -1,15 +1,14 @@
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th> </th>
-			<th>User</th>
-			<th>Bio</th>
-			<th> </th>
-		</tr>
-	</thead>
-	<tbody>
-		<%= render :partial => "user", :collection => collection  %>
-	</tbody>
+<table class="table table-striped" id="user-table">
+  <thead>
+    <tr>
+      <th> </th>
+      <th>User</th>
+      <th>Bio</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody id="users">
+  </tbody>
 </table>
 
 <%= @api_calls_left %> api calls left this hour

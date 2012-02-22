@@ -2,7 +2,10 @@ class TwitterController < ApplicationController
   before_filter :signed_in?
 
   def followers
-    @twitter_users = twitter.get_followers
+      respond_to do |format|
+        format.html
+        format.js { @users = twitter.get_followers }
+      end
   end
 
   def unfollow
