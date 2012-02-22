@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready(function(){
+	$('.dropdown-toggle').dropdown()
+});
+
+$(document).ready(function() {
+    $("a[rel=popover]")
+        .popover({
+            offset: 10
+        })
+        .click(function(e) {
+            e.preventDefault()
+        })
+});

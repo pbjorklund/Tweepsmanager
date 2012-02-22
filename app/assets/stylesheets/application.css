@@ -1,15 +1,18 @@
 /*
-*= require 'twitter/bootstrap'
+ *= require 'twitter/bootstrap'
+ *= require imports
+ *= require_self
 */
 
 .img-icon{
 	width:16px;
-	padding:0px;
-	margin:0px;
+  margin-right:10px;
 }
 
-body{
-	padding-top:90px;
+#img-profile {
+	width:47px;
+	padding:0px;
+	margin:0px;
 }
 
 footer{

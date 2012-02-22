@@ -2,6 +2,14 @@
 <html>
 	<head>
 		<title>Tweepsmanager</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Use the snippet below to work around bootstrap/responsive weirdness -->
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
 		<%= javascript_include_tag "application" %>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<link rel="shortcut icon" href="<%= image_path('hawk.png') %>" type="image/x-icon"></link>
@@ -10,6 +18,7 @@
 	<body>
 
 		<%= render :partial => "shared/navigation" %>
+
 		<div class="container">
 
 			<%= render :partial => "shared/flash", :locals => { flash: flash } %>
@@ -19,11 +28,11 @@
 				<%= render :partial => "shared/start" %>
 			<% end -%>
 		</div>
-		
+
 		<div class="container">
-		<footer class="footer">
+			<footer class="footer">
 			<p>Copyright &copy; Tweepsmanager 2012 - <%= Time.new.year %></p>
-		</footer>
+			</footer>
 		</div>
 	</body>
 </html>

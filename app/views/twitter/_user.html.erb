@@ -1,26 +1,23 @@
-<tr id="<%= user.screen_name %>" class="">
-  <td> <img style="width:32px;" src="<%= user.profile_image_url %>"></img> </td>
+<tr id="<%= user.screen_name %>">
+	<td> <img id="img-profile" src="<%= user.profile_image_url %>"></img> </td>
 
-  <td>
-    <a href="http://www.twitter.com/<%= user.screen_name %>"><%= user.screen_name %></a>
-    <br />
-    (<%= user.name %>)
-    <br /> <br />
+	<td>
+		<a rel="popover" title="Last tweet" href="http://www.twitter.com/<%= user.screen_name %>" data-content="<%= user.status.text || "No last tweet" %>"><%= user.screen_name %></a>
+		<br />
+		(<%= user.name %>)
+		<br />
+		<% if user.verified? %>
+			<span class="label notice">verified</span>
+		<% end %>
+	</td>
 
-    <% if user.verified? %>
-      <br />
-      <span class="label notice">verified</span>
-    <% end %>
-  </td>
-
-  <td> <%= user.description %> </td>
-  <td> <%= user.status.text unless user.status == nil %> </td>
+	<td> <%= user.description %> </td>
 
 	<td id="<%= "button-" + user.screen_name %>">
-    <% if user.following %>
+		<% if user.following %>
 			<%= render partial: "unfollow_button", object: user, as: :user %>
-    <% else %>
+		<% else %>
 			<%= render partial: "follow_button", object: user, as: :user %>
-    <% end %>
-  </td>
+		<% end %>
+	</td>
 </tr>
