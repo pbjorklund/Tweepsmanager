@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Tweepsmanager</title>
-		<%= stylesheet_link_tag    "bootstrap", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<link rel="shortcut icon" href="<%= image_path('hawk.png') %>" type="image/x-icon"></link>
@@ -10,12 +9,7 @@
 	</head>
 	<body>
 
-		<% if current_user %>
-			<%= render :partial => "shared/navigation" %>
-		<% else %>
-			<%= render :partial => "shared/blank_navigation" %>
-		<% end -%>
-
+		<%= render :partial => "shared/navigation" %>
 		<div class="container">
 
 			<%= render :partial => "shared/flash", :locals => { flash: flash } %>
@@ -25,11 +19,11 @@
 				<%= render :partial => "shared/start" %>
 			<% end -%>
 		</div>
-
-		<footer class="footer">
+		
 		<div class="container">
+		<footer class="footer">
 			<p>Copyright &copy; Tweepsmanager 2012 - <%= Time.new.year %></p>
-		</div>
 		</footer>
+		</div>
 	</body>
 </html>

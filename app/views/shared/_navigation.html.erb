@@ -1,20 +1,22 @@
 
-    <div class="topbar" data-dropdown="dropdown">
-      <div class="fill">
+    <div class="navbar navbar-fixed-top" data-dropdown="dropdown">
+      <div class="navbar-inner">
         <div class="container">
 			<a class="brand" href="/">Tweepsmanager<img src="<%= image_path('hawk.png') %>" style="width:20px;padding:0;margin:0;" ></img></a>
-		  <ul class="nav">
+		  
+		<% if current_user %>
+		<ul class="nav">
 			<li class="<%= request.fullpath.starts_with?("/twitter/followers")  ? "active" : "" %>"><%= link_to "Followers", controller: "twitter", action: "followers" %></li>
-		  </ul>
-		  <ul class="nav secondary-nav">
+		 </ul>
+		<% end %>
+		<ul class="nav pull-right">
 			<% if current_user %>
 				<li>
 					<a href="/"><img class="img-icon" src="<%= current_user.image_url %>"></img></a>
 				</li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle"><%= current_user.name %></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
 					<ul class="dropdown-menu">
-						<li class="divider"></li>
 						<li>
 							<a href="/signout/">Sign out</a>
 						</li>

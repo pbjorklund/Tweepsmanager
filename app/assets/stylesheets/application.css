@@ -1,7 +1,23 @@
-body{
-	margin-top: 60px
-}
+/*
+*= require 'twitter/bootstrap'
+*= require_self
+*= require_tree
+*/
 
 .img-icon{
 	width:16px;
+	padding:0px;
+	margin:0px;
+}
+
+body{
+	padding-top:90px;
+}
+
+footer{
+	border-top-color:#E5E5E5;
+	border-top-style:solid;
+	border-top-width:1px;
+	padding-top:10px;
+	text-align:center;
 }
