@@ -4,15 +4,7 @@ Tweepsmanager::Application.routes.draw do
 
   get "following" => 'twitter#following'
 
-  get "friends" => 'twitter#friends'
-
-  get "stalkers" => 'twitter#stalkers'
-
-  get "only_following" => 'twitter#only_following'
-
-  get "settings" => 'twitter#settings'
-
-  post "tweet" => 'twitter#tweet'
+  get "not_following_back" => 'twitter#not_following_back'
 
   delete "unfollow" => 'twitter#unfollow'
 

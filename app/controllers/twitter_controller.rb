@@ -8,6 +8,20 @@ class TwitterController < ApplicationController
       end
   end
 
+  def following
+    respond_to do |format|
+      format.html
+      format.js { @users = twitter.get_following }
+    end
+  end
+
+  def not_following_back
+    respond_to do |format|
+      format.html
+      format.js { @users = twitter.get_not_following_back }
+    end
+  end
+
   def unfollow
     begin
       @active_user = twitter.unfollow(params[:id])
