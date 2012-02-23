@@ -1,3 +1,7 @@
+<% if !current_user %>
+	<%= render :partial => "shared/start" %>
+<% else %>
+
 <div class="hero-unit">
 	<h1 class="">Hello there,</h1>
 	<p>We feel obligated to tell you that the site is currently in ALPHA. Not beta, not rc. Alpha. This means that anything can change or break at any time. But you knew that already didn't you? How else could you have stumbled upon this page?</p>
@@ -20,3 +24,5 @@
 		We will throw you right into the codebase! You will get rewarded by angry emails, frustrated users and the unbearable thought of having to work with us.
 	</div>
 </div>
+
+<% end -%>
