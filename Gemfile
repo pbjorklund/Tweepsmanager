@@ -9,10 +9,6 @@ gem 'less-rails-bootstrap'
 gem 'heroku'
 gem 'thin'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
 group :test do
   gem 'database_cleaner'
   gem 'rspec-rails'
