@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
         a.token = auth[:credentials][:token]
         a.secret = auth[:credentials][:secret]
       end
-
       user
     else
       user = find_and_update(auth)
@@ -52,8 +51,11 @@ class User < ActiveRecord::Base
       user.nickname    = auth[:info][:nickname]
       user.auth.token  = auth[:credentials][:token]
       user.auth.secret = auth[:credentials][:secret]
+
+      user.auth.save!
       user.save!
     end
+
     user
   end
 end

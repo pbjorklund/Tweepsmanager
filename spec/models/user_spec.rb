@@ -62,11 +62,16 @@ describe User do
 
     describe "#self.find_and_update" do
       it "updates a user when a new hash is sent" do
-        User.create_with_omniauth(@auth)
-
+        user = User.create_with_omniauth(@auth)
         @auth[:info][:description] = "New description"
+        lambda { updated_user = User.find_and_update(@auth) }.should_not raise_error
+      end
 
-        lambda { User.find_and_update(@auth) }.should_not raise_error
+      it "updates the users auth when new credentials is set" do
+        user = User.create_with_omniauth(@auth)
+        @auth[:credentials][:token] = "New"
+        updated_user = User.find_and_update(@auth)
+        user.auth.token.should_not == updated_user.auth.token
 
       end
     end
