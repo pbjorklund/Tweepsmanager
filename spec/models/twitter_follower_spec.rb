@@ -46,6 +46,26 @@ describe TwitterFollower do
     end
   end
 
+  describe "#get_following" do
+    it "should return a list of users" do
+      returns_not_empty_user_list? :get_following
+    end
+
+    it "contains more than 101 users" do
+      run_with_recording(:get_following).count.should > 100
+    end
+  end
+
+  describe "#get_not_following_back" do
+    it "returns a list of users" do
+      returns_not_empty_user_list? :get_not_following_back
+    end
+
+    it "contains more than 1 user" do
+      run_with_recording(:get_not_following_back).count.should > 0
+    end
+  end
+
   describe "#follow" do
     it "should follow a user" do
       VCR.use_cassette('twitterfollower/follow') do

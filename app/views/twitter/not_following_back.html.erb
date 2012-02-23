@@ -1,0 +1,9 @@
+<div class="hero-unit">
+	<h1 id="loading">Loading users...</h1>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $.ajax({ url: '/not_following_back', type: 'get', dataType:'script' });
+  });
+</script>

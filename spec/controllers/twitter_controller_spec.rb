@@ -19,7 +19,32 @@ describe TwitterController do
     it "returns http success" do
       response.should be_success
     end
+  end
 
+  describe "GET 'following'" do
+    #Perhaps not optimal, this get's run every time
+    before(:each) do
+      VCR.use_cassette('twitter_controller/following') do
+        get 'following'
+      end
+    end
+
+    it "returns http success" do
+      response.should be_success
+    end
+  end
+
+  describe "GET 'not_following_back'" do
+    #Perhaps not optimal, this get's run every time
+    before(:each) do
+      VCR.use_cassette('twitter_controller/not_following_back') do
+        get 'not_following_back'
+      end
+    end
+
+    it "returns http success" do
+      response.should be_success
+    end
   end
 
   describe "POST 'unfollow'" do
