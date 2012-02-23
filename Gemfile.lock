@@ -143,6 +143,8 @@ GEM
       omniauth-oauth (~> 1.0)
     pg (0.12.0)
       rake-compiler (~> 0.7)
+    pg (0.12.0-x86-mingw32)
+      rake-compiler (~> 0.7)
     polyglot (0.3.3)
     pry (0.9.8.2)
       coderay (~> 1.0.5)

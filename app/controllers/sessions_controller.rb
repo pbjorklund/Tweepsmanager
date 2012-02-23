@@ -14,6 +14,10 @@ class SessionsController < ApplicationController
     redirect_to root_url, notice: "Signed out!"
   end
 
+  def failure
+    redirect_to root_url, :flash => { error: "Something went wrong, you were not signed in. Please try again." }
+  end
+
   private
   def create_user(auth)
     user = User.create_with_omniauth(auth)

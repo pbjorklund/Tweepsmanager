@@ -14,6 +14,7 @@ Tweepsmanager::Application.routes.draw do
   match '/login', to: "home#login", as: :login
   match '/about', to: "home#about", as: :about
   match '/signout', to: "sessions#destroy", as: :signout
+  match '/auth/failure' => 'sessions#failure'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

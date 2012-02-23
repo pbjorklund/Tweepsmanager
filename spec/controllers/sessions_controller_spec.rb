@@ -31,4 +31,12 @@ describe SessionsController do
       response.should redirect_to(root_url)
     end
   end
+
+  describe "GET 'failure'" do
+    it "redirects to root with error message" do
+      get :failure
+      session[:flash][:error].should_not be_nil
+      response.should redirect_to(root_url)
+    end
+  end
 end
