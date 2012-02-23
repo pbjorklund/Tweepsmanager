@@ -6,11 +6,11 @@ gem 'omniauth-twitter'
 gem 'json_pure'
 gem 'twitter'
 gem 'less-rails-bootstrap'
+gem 'heroku'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 group :test do
   gem 'database_cleaner'
@@ -37,11 +37,16 @@ end
 
 group :development, :test do
   gem 'thin'
+  gem 'sqlite3'
 
   if RUBY_PLATFORM.downcase.include?("darwin")
     gem 'pry'
     gem 'pry-rails'
   end
+end
+
+group :production, :staging do
+  gem "pg"
 end
 
 # Gems used only for assets and not required
