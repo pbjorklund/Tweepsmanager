@@ -18,6 +18,8 @@
 				<% end %>
 
 				<ul class="nav pull-right">
+					<li><a href="http://satsuncoding.tumblr.com">Blog</a></li>
+					<li class="<%= request.fullpath.starts_with?("/about")  ? "active" : "" %>"><%= link_to "About", controller: "home", action: "about" %></li>
 
 					<% if current_user %>
 						<li class="dropdown" id="menu">
