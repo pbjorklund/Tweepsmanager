@@ -1,8 +1,12 @@
-<tr id="<%= user.screen_name %>">
-	<td> <img id="img-profile" src="<%= user.profile_image_url %>"></img> </td>
+<tr id="<%= user.screen_name %>" >
+	<td>
+		<a href="#" rel="popover" title="Last tweet" data-content="<%= user.status.text || "No last tweet" %>">
+			<img id="img-profile" src="<%= user.profile_image_url %>" ></img>
+		</a>
+	</td>
 
 	<td>
-		<a rel="popover" title="Last tweet" href="http://www.twitter.com/<%= user.screen_name %>" data-content="<%= user.status.text || "No last tweet" %>"><%= user.screen_name %></a>
+		<a href="http://www.twitter.com/<%= user.screen_name %>" ><%= user.screen_name %></a>
 		<br />
 		(<%= user.name %>)
 		<br />

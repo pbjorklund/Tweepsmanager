@@ -31,7 +31,7 @@
 
 		<%= render :partial => "shared/navigation" %>
 
-		<div class="container">
+		<div class="container" id="main">
 
 			<%= render :partial => "shared/flash", :locals => { flash: flash } %>
 			<% if current_user %>
@@ -43,7 +43,7 @@
 
 		<div class="container">
 			<footer class="footer">
-			<p>Copyright &copy; Tweepsmanager 2012 - <%= Time.new.year %></p>
+			<p>Copyright &copy; Tweepsmanager <%= Time.new.year %></p>
 			</footer>
 		</div>
 	</body>

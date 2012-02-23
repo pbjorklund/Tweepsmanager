@@ -19,12 +19,12 @@ $(document).ready(function(){
 	$('.dropdown-toggle').dropdown()
 });
 
-$(document).ready(function() {
+function initPopover() {
     $("a[rel=popover]")
         .popover({
-            offset: 10
+					offset: 10, live: true
         })
         .click(function(e) {
             e.preventDefault()
         })
-});
+};
