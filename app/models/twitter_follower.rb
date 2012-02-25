@@ -1,4 +1,6 @@
 class TwitterFollower
+extend ActiveModel::Naming
+
   def initialize(user)
     @current_user = user
   end

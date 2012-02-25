@@ -53,13 +53,12 @@ class TwitterController < ApplicationController
 
   private
   def twitter
-    @twitter_service ||= TwitterFollower.new(current_user)
+    twitter_service ||= TwitterFollower.new(current_user)
   end
 
   def signed_in?
     unless current_user
       redirect_to "/auth/twitter", notice: "Please sign in!"
     end
-
   end
 end

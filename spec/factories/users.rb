@@ -7,13 +7,16 @@ FactoryGirl.define do
     "pbjorklund#{n}"
   end
 
+  sequence :auth_secret
+  sequence :auth_token
+
   factory :user do
     id         { FactoryGirl.generate(:id) }
     name       "Mass User"
     bio        "Rocking and rolling"
     image_url  "http//www.twitter.com/image.jpg"
     nickname   { FactoryGirl.generate(:nickname) }
-    auth
+    association :auth, secret: FactoryGirl.generate(:auth_secret), token: FactoryGirl.generate(:auth_token)
   end
 
   factory :pbjorklund, :class => User do
@@ -22,6 +25,6 @@ FactoryGirl.define do
     bio        "Rocking and rolling"
     image_url  "http//www.twitter.com/image.jpg"
     nickname   "pbjorklund"
-    auth
+    association :auth, secret: FactoryGirl.generate(:auth_secret), token: FactoryGirl.generate(:auth_token)
   end
 end

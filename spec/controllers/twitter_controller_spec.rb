@@ -3,64 +3,50 @@ require 'spec_helper'
 describe TwitterController do
 
   before(:each) do
-    User.delete_all
-    controller.stub(:current_user).and_return( FactoryGirl.create(:pbjorklund))
-    controller.stub(:twitter).and_return(FactoryGirl.build(:twitter_follower))
+    controller.stub(:current_user).and_return(FactoryGirl.build(:pbjorklund))
+    controller.stub(:twitter).and_return(mock_model("TwitterFollower", unfollow: true, follow: true))
   end
 
   describe "GET 'followers'" do
-    #Perhaps not optimal, this get's run every time
-    before(:each) do
-      VCR.use_cassette('twitter_controller/followers') do
-        get 'followers'
-      end
+    it "should make sure that the user is signed in" do
+      controller.should_receive(:signed_in?)
+      get 'followers'
     end
 
     it "returns http success" do
+      get 'followers'
       response.should be_success
     end
   end
 
   describe "GET 'following'" do
-    #Perhaps not optimal, this get's run every time
-    before(:each) do
-      VCR.use_cassette('twitter_controller/following') do
-        get 'following'
-      end
-    end
-
     it "returns http success" do
+      get 'following'
       response.should be_success
     end
   end
 
   describe "GET 'not_following_back'" do
-    #Perhaps not optimal, this get's run every time
-    before(:each) do
-      VCR.use_cassette('twitter_controller/not_following_back') do
-        get 'not_following_back'
-      end
-    end
-
     it "returns http success" do
+      get 'not_following_back'
       response.should be_success
     end
   end
 
   describe "POST 'unfollow'" do
+
     it "unfollows a user when given a nickname" do
       @request.env['HTTP_REFERER'] = '/followers'
-      VCR.use_cassette('twitter_controller/unfollow') do
-        post 'unfollow', id: "tweepsmanager"
-      end
+      post 'unfollow', id: "existing_user"
       response.should redirect_to followers_path
     end
 
     it "does not unfollow a user that does not exist" do
+      controller.send(:twitter).stub(:unfollow).and_raise(Twitter::Error::NotFound.new("", {}))
+      controller.send(:twitter).should_receive(:unfollow).once
       @request.env['HTTP_REFERER'] = '/followers'
-      VCR.use_cassette('twitter_controller/unfollow_doesnt_exist') do
-        post 'unfollow', id: "jiofewijfeiowjfeowfjew"
-      end
+      post 'unfollow', id: "non_existing_user"
+
       flash[:error].should_not be_nil
       flash[:error].should have_content("not found, could not unfollow")
       response.should redirect_to followers_path
@@ -73,20 +59,18 @@ describe TwitterController do
     end
 
     it "follows a user when given a nickname" do
-      VCR.use_cassette('twitter_controller/follow') do
-        post 'follow', id: "tweepsmanager"
-      end
+      post 'follow', id: "tweepsmanager"
       flash[:notice].should_not be_nil
       response.should redirect_to followers_path
     end
 
     it "does not follow a user that does not exist" do
-        VCR.use_cassette('twitter_controller/follow_doesnt_exist') do
-        post 'follow', id: "jiofewijfeiowjfeowfjew"
-      end
+      controller.send(:twitter).stub(:follow).and_raise(Twitter::Error::NotFound.new("", {}))
+      post 'follow', id: "jiofewijfeiowjfeowfjew"
       flash[:error].should_not be_nil
       flash[:error].should have_content("not found, could not follow")
       response.should redirect_to followers_path
     end
   end
 end
+
