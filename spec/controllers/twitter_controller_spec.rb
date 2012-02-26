@@ -6,7 +6,6 @@ describe TwitterController do
     controller.stub(:current_user).and_return(FactoryGirl.build(:pbjorklund))
     @twitter = mock_model("TwitterFollower", unfollow: true, follow: true)
     controller.stub(:twitter).and_return(@twitter)
-    controller.stub(:get_api_calls).and_return(300)
   end
 
   describe "GET 'followers'" do
@@ -54,12 +53,6 @@ describe TwitterController do
       flash[:error].should have_content("Not found:")
       response.should redirect_to followers_path
     end
-
-    it "does not unfollow a user when api-calls are >0" do
-      controller.stub(:get_api_calls).and_return(0)
-      subject
-      flash[:error].should have_content("You are out of api-calls")
-    end
   end
 
   describe "POST 'follow'" do
@@ -81,12 +74,6 @@ describe TwitterController do
       flash[:error].should_not be_nil
       flash[:error].should have_content("Not found:")
       response.should redirect_to followers_path
-    end
-
-    it "does not follow a user when api-calls are >0" do
-      controller.stub(:get_api_calls).and_return(0)
-      subject
-      flash[:error].should have_content("You are out of api-calls")
     end
   end
 end

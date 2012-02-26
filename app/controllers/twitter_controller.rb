@@ -6,7 +6,6 @@ class TwitterController < ApplicationController
       format.html
       format.js do
         @users = twitter.get_followers
-        @api_calls_left = get_api_status
       end
     end
   end
@@ -26,17 +25,17 @@ class TwitterController < ApplicationController
   end
 
   def unfollow
-    check_api_limit do
-        @active_user = twitter.unfollow(params[:id])
-        respond_to do |format|
-          format.html { redirect_to :back, notice: "Stopped following #{params[:id]}" }
-          format.js
+    rescue_twitter_exceptions do
+      @active_user = twitter.unfollow(params[:id])
+      respond_to do |format|
+        format.html { redirect_to :back, notice: "Stopped following #{params[:id]}" }
+        format.js
       end
     end
   end
 
   def follow
-    check_api_limit do
+    rescue_twitter_exceptions do
       @active_user = twitter.follow(params[:id])
 
       respond_to do |format|
@@ -57,25 +56,15 @@ class TwitterController < ApplicationController
     end
   end
 
-  def get_api_calls
-    get_api_status.remaining_hits
-  end
-
-  def check_api_limit(&action)
-    @status ||= get_api_calls
-    if(@status > 0)
-      begin
-        yield
-      rescue Twitter::Error::NotFound => nf
-        redirect_to :back, :flash => { error: "Not found:" + nf.message }
-      rescue Twitter::Error::Forbidden => f
-        redirect_to :back, :flash => { error: f.message }
-      rescue Twitter::Error::ServiceUnavailable => ua
-        redirect_to :back, :flash => { error: ua.message }
-      end
-    else
-      redirect_to :back, :flash => { error: "You are out of api-calls. Please check the bottom of the page, you can see how long you have to wait there" }
+  def rescue_twitter_exceptions(&action)
+    begin
+      yield
+    rescue Twitter::Error::NotFound => nf
+      redirect_to :back, :flash => { error: "Not found:" + nf.message }
+    rescue Twitter::Error::Forbidden => f
+      redirect_to :back, :flash => { error: f.message }
+    rescue Twitter::Error::ServiceUnavailable => ua
+      redirect_to :back, :flash => { error: ua.message }
     end
   end
-
 end
