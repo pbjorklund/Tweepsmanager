@@ -1,5 +1,4 @@
-$("#main").html("<%= escape_javascript(render partial: "shared/flash", :locals => { flash: flash } ) %>");
-$("#main").html("<%= escape_javascript(render partial: "page") %>");
-$("#users").append("<%= escape_javascript(render :partial => "user", collection: @users ) %>");
+$("#main").html("<%=j render partial: "page" %>");
+$("#main").prepend("<%=j render partial: "shared/flash", :locals => { flash: flash } %>");
+$("#users").append("<%=j render :partial => "user", collection: @users %>");
 $("#loading").html("<p>These are the people following you:").attr("id","");
-initPopover();

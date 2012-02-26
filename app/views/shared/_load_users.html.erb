@@ -1,0 +1,16 @@
+<%= javascript_tag do %>
+	$(function(){
+		$.ajax({ url: '<%=j path %>',
+			type: 'get',
+			dataType:'script',
+			timeout: 10000,
+			error: function(){
+				$("#main").prepend("<div class=\"alert alert-error\">Request timed out after 10 seconds. Twitter is over capacity, <a href=\"<%=j path %>\">Please try again</div>");
+					$(".hero-unit").html("<h1 id=\"loading\">Could not load users</h1>");
+				},
+				success: function() {
+				initPopover();
+			 	}
+			});
+		});
+	<% end %>

@@ -1,12 +1,2 @@
 <%= render partial: "loading_users" %>
-
-<script type="text/javascript">
-  $(function(){
-    $.ajax({ url: '/not_following_back', type: 'get', dataType:'script', timeout: 10000,
-
-		error: function(){
-		$("#main").prepend("<div class=\"alert alert-error\">Request timed out. Twitter is over capacity, <a href=\"<%= not_following_back_path %>\">Please try again</div>");
-		$(".hero-unit").html("<h1 id=\"loading\">Could not load users</h1>");
-        }	});
-  });
-</script>
+<%= render :partial => "shared/load_users", locals: { path: not_following_back_path } %>
