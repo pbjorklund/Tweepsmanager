@@ -4,7 +4,9 @@ describe TwitterController do
 
   before(:each) do
     controller.stub(:current_user).and_return(FactoryGirl.build(:pbjorklund))
-    controller.stub(:twitter).and_return(mock_model("TwitterFollower", unfollow: true, follow: true))
+    @twitter = mock_model("TwitterFollower", unfollow: true, follow: true)
+    controller.stub(:twitter).and_return(@twitter)
+    controller.stub(:get_api_calls).and_return(300)
   end
 
   describe "GET 'followers'" do
@@ -34,42 +36,57 @@ describe TwitterController do
   end
 
   describe "POST 'unfollow'" do
-
-    it "unfollows a user when given a nickname" do
+    subject do
       @request.env['HTTP_REFERER'] = '/followers'
       post 'unfollow', id: "existing_user"
+    end
+
+    it "unfollows a user when given a nickname" do
+      @twitter.should_receive(:unfollow).once
+      subject
       response.should redirect_to followers_path
     end
 
     it "does not unfollow a user that does not exist" do
-      controller.send(:twitter).stub(:unfollow).and_raise(Twitter::Error::NotFound.new("", {}))
-      controller.send(:twitter).should_receive(:unfollow).once
-      @request.env['HTTP_REFERER'] = '/followers'
-      post 'unfollow', id: "non_existing_user"
-
-      flash[:error].should_not be_nil
-      flash[:error].should have_content("not found, could not unfollow")
+      @twitter.stub(:unfollow).and_raise(Twitter::Error::NotFound.new("", {}))
+      @twitter.should_receive(:unfollow).once
+      subject
+      flash[:error].should have_content("Not found:")
       response.should redirect_to followers_path
+    end
+
+    it "does not unfollow a user when api-calls are >0" do
+      controller.stub(:get_api_calls).and_return(0)
+      subject
+      flash[:error].should have_content("You are out of api-calls")
     end
   end
 
   describe "POST 'follow'" do
-    before(:each) do
+    subject do
       @request.env['HTTP_REFERER'] = '/followers'
+      post 'follow', id: "tweepsmanager"
     end
 
     it "follows a user when given a nickname" do
-      post 'follow', id: "tweepsmanager"
+      subject
       flash[:notice].should_not be_nil
       response.should redirect_to followers_path
     end
 
     it "does not follow a user that does not exist" do
       controller.send(:twitter).stub(:follow).and_raise(Twitter::Error::NotFound.new("", {}))
-      post 'follow', id: "jiofewijfeiowjfeowfjew"
+      subject
+
       flash[:error].should_not be_nil
-      flash[:error].should have_content("not found, could not follow")
+      flash[:error].should have_content("Not found:")
       response.should redirect_to followers_path
+    end
+
+    it "does not follow a user when api-calls are >0" do
+      controller.stub(:get_api_calls).and_return(0)
+      subject
+      flash[:error].should have_content("You are out of api-calls")
     end
   end
 end

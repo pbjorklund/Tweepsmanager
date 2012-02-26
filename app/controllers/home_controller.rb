@@ -5,9 +5,9 @@ class HomeController < ApplicationController
   def about
   end
 
-  def userstatus
+  def api_status
     respond_to do |format|
-      format.js { @status = get_api_status }
+      format.js { get_api_status }
     end
   end
 end

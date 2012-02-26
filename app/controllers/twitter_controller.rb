@@ -2,13 +2,13 @@ class TwitterController < ApplicationController
   before_filter :signed_in?
 
   def followers
-      respond_to do |format|
-        format.html
-        format.js do
-          @users = twitter.get_followers
-          @api_calls_left = get_api_status
-        end
+    respond_to do |format|
+      format.html
+      format.js do
+        @users = twitter.get_followers
+        @api_calls_left = get_api_status
       end
+    end
   end
 
   def following
@@ -26,31 +26,23 @@ class TwitterController < ApplicationController
   end
 
   def unfollow
-    begin
-      @active_user = twitter.unfollow(params[:id])
-      respond_to do |format|
-        format.html { redirect_to :back, notice: "Stopped following #{params[:id]}" }
-        format.js
+    check_api_limit do
+        @active_user = twitter.unfollow(params[:id])
+        respond_to do |format|
+          format.html { redirect_to :back, notice: "Stopped following #{params[:id]}" }
+          format.js
       end
-    rescue Twitter::Error::NotFound
-      redirect_to :back, :flash => { error: "User #{params[:id]} not found, could not unfollow user" }
-    rescue Twitter::Error::Forbidden
-      redirect_to :back, :flash => { error: "User #{params[:id]} could not be unfollowed" + $! }
     end
   end
 
   def follow
-    begin
+    check_api_limit do
       @active_user = twitter.follow(params[:id])
 
       respond_to do |format|
         format.html { redirect_to :back, notice: "Followed #{params[:id]}" }
         format.js
       end
-    rescue Twitter::Error::NotFound
-      redirect_to :back, :flash => { error: "User #{params[:id]} not found, could not follow user" }
-    rescue Twitter::Error::Forbidden
-      redirect_to :back, :flash => { error: "User #{params[:id]} has been suspended and could not be followed" }
     end
   end
 
@@ -64,4 +56,26 @@ class TwitterController < ApplicationController
       redirect_to "/auth/twitter", notice: "Please sign in!"
     end
   end
+
+  def get_api_calls
+    get_api_status.remaining_hits
+  end
+
+  def check_api_limit(&action)
+    @status ||= get_api_calls
+    if(@status > 0)
+      begin
+        yield
+      rescue Twitter::Error::NotFound => nf
+        redirect_to :back, :flash => { error: "Not found:" + nf.message }
+      rescue Twitter::Error::Forbidden => f
+        redirect_to :back, :flash => { error: f.message }
+      rescue Twitter::Error::ServiceUnavailable => ua
+        redirect_to :back, :flash => { error: ua.message }
+      end
+    else
+      redirect_to :back, :flash => { error: "You are out of api-calls. Please check the bottom of the page, you can see how long you have to wait there" }
+    end
+  end
+
 end

@@ -43,5 +43,5 @@ _gaq.push(['_trackPageview']);
 
 //Api calls
 $(function(){
-	$.ajax({ url: '/calls', type: 'get', dataType:'script' });
+	$.ajax({ url: '/api_status', type: 'get', dataType:'script' });
 });
