@@ -1,0 +1,1 @@
+$("#api_status").html("<%= escape_javascript(@status.remaining_hits.to_s) %>" + " api-calls left, more in " + "<%= escape_javascript(distance_of_time_in_words(Time.now, Time.at(@status.reset_time_in_seconds))) %>");

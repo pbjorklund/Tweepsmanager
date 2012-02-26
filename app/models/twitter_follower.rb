@@ -57,6 +57,10 @@ extend ActiveModel::Naming
     end
   end
 
+  def get_api_status
+    twitter.rate_limit_status
+  end
+
   private
   def rescue_twitter_unresponsive(&block)
     begin

@@ -4,7 +4,10 @@ class TwitterController < ApplicationController
   def followers
       respond_to do |format|
         format.html
-        format.js { @users = twitter.get_followers }
+        format.js do
+          @users = twitter.get_followers
+          @api_calls_left = get_api_status
+        end
       end
   end
 

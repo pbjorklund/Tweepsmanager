@@ -4,43 +4,33 @@
 		<title>Tweepsmanager</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Use the snippet below to work around bootstrap/responsive weirdness -->
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
+		<style type="text/css">
+			body {
+				padding-top: 60px;
+				padding-bottom: 40px;
+			}
+		</style>
+
 		<%= javascript_include_tag "application" %>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<link rel="shortcut icon" href="<%= image_path('hawk.png') %>" type="image/x-icon"></link>
-		<script type="text/javascript">
+		 <%= csrf_meta_tags %>
+	 </head>
+	 <body>
 
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-28190889-2']);
-			_gaq.push(['_trackPageview']);
+		 <%= render :partial => "shared/navigation" %>
 
-			(function() {
-			 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			 })();
+		 <div class="container" id="main">
 
-</script>	<%= csrf_meta_tags %>
-	</head>
-	<body>
+			 <%= render :partial => "shared/flash", :locals => { flash: flash } %>
+			 <%= yield %>
+		 </div>
 
-		<%= render :partial => "shared/navigation" %>
-
-		<div class="container" id="main">
-
-			<%= render :partial => "shared/flash", :locals => { flash: flash } %>
-			<%= yield %>
-		</div>
-
-		<div class="container">
-			<footer class="footer">
-			<p>Copyright &copy; Tweepsmanager <%= Time.new.year %></p>
-			</footer>
-		</div>
-	</body>
-</html>
+		 <div class="container">
+			 <footer class="footer">
+			 <span id="api_status">API Limit	Loading...</span>
+			 <p>Copyright &copy; Tweepsmanager <%= Time.new.year %></p>
+			 </footer>
+		 </div>
+	 </body>
+ </html>

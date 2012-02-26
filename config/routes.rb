@@ -6,6 +6,8 @@ Tweepsmanager::Application.routes.draw do
 
   get "not_following_back" => 'twitter#not_following_back'
 
+  get "api_status" => 'home#api_status'
+
   delete "unfollow" => 'twitter#unfollow'
 
   post "follow" => 'twitter#follow'
