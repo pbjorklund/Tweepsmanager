@@ -1,0 +1,79 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :delete
+    uri: https://api.twitter.com:443/1/friendships/destroy.json?screen_name=lady_gaga
+    body: 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.1.0
+      authorization:
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="615bcf1fbfa78c26f1d33d96071d87c0",
+        oauth_signature="MDfERt4qbXOC2kNqFtxI%2F%2BdRII4%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1330454843", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
+        oauth_version="1.0"
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 28 Feb 2012 18:47:25 GMT
+      status:
+      - 200 OK
+      last-modified:
+      - Tue, 28 Feb 2012 18:47:24 GMT
+      x-ratelimit-remaining:
+      - '299'
+      content-length:
+      - '1176'
+      x-runtime:
+      - '0.80319'
+      x-ratelimit-reset:
+      - '1330454868'
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114be84912b
+      x-revision:
+      - DEV
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      etag:
+      - ! '"0d873e1da0124b208c7a63d81d3424db"'
+      x-frame-options:
+      - SAMEORIGIN
+      x-transaction:
+      - 88a032a4cf3668d4
+      pragma:
+      - no-cache
+      content-type:
+      - application/json; charset=utf-8
+      x-mid:
+      - ef6100d31aee6f0456233ac72e7041beb1dba68b
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      x-ratelimit-class:
+      - api_identified
+      x-ratelimit-limit:
+      - '350'
+      x-access-level:
+      - read-write
+      set-cookie:
+      - k=10.34.122.104.1330454844912039; path=/; expires=Tue, 06-Mar-12 18:47:24
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A133045484491478906; domain=.twitter.com; path=/; expires=Fri,
+        28-Feb-2014 06:47:24 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=sv; path=/
+      - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
+        path=/; secure
+      - _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlODg2MmIyMDg0Y2VlNzNlYWUy%250AOWM1M2E4YWNhZmMyNTM6D2NyZWF0ZWRfYXRsKwj%252F1UnFNQE6B2lkIiU5NWI2%250ANmNlMDUxY2I0NWQ4YmUyNTA1NGUxNWMzMGI3MA%253D%253D--3cafe6ead1451e63c1af59615ff2e15202a96c10;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      server:
+      - tfe
+    body: ! '{"id":18911902,"profile_use_background_image":true,"lang":"en","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/70808178\/sun_normal.jpg","id_str":"18911902","profile_text_color":"3E4415","default_profile_image":false,"url":null,"is_translator":false,"favourites_count":1,"created_at":"Mon
+      Jan 12 19:32:00 +0000 2009","screen_name":"lady_gaga","utc_offset":null,"profile_sidebar_border_color":"24b620","contributors_enabled":false,"name":"lady_gaga","notifications":false,"follow_request_sent":false,"verified":false,"protected":false,"profile_background_tile":false,"following":false,"show_all_inline_media":false,"profile_sidebar_fill_color":"99CC33","profile_background_image_url_https":"https:\/\/si0.twimg.com\/images\/themes\/theme1\/bg.png","location":null,"default_profile":false,"description":null,"geo_enabled":false,"profile_image_url":"http:\/\/a1.twimg.com\/profile_images\/70808178\/sun_normal.jpg","profile_background_color":"352726","followers_count":0,"listed_count":0,"profile_background_image_url":"http:\/\/a0.twimg.com\/images\/themes\/theme1\/bg.png","friends_count":0,"profile_link_color":"D02B55","statuses_count":2,"time_zone":null}'
+    http_version: '1.1'

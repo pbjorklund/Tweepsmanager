@@ -41,11 +41,13 @@ describe TwitterFollower do
   end
 
   describe "#unfollow" do
-    it "should unfollow a user" do
-      VCR.use_cassette 'twitterfollower/unfollow' do
-        @client.unfollow("ladygaga").screen_name.should == "ladygaga"
-      end
-    end
+    specify { run_with_recording(:unfollow, "ladygaga").screen_name.should == "ladygaga" } # Valid user
+    
+    #You can unfollow whoever you want as long as they exist
+    specify { expect { run_with_recording(:unfollow, "lady_gaga") }.to_not raise_error } # Suspended user
+    specify { expect { run_with_recording(:unfollow, "Tweepsmanager") }.to_not raise_error } # current_user
+
+    specify { expect { run_with_recording(:unfollow, "j12ioewfjew22iof") }.to raise_error # not existing user
   end
 
   private
