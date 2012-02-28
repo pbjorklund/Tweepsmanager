@@ -1,0 +1,70 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://api.twitter.com:443/1/friendships/create.json
+    body: 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.1.0
+      authorization:
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="ddd05338066e7f0ecd08389b35ded162",
+        oauth_signature="qk0cCtJHkE2lxPVhWh9uDiklSS0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1330451493", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
+        oauth_version="1.0"
+      content-type:
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 403
+      message: Forbidden
+    headers:
+      date:
+      - Tue, 28 Feb 2012 17:51:35 GMT
+      status:
+      - 403 Forbidden
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114be84912b
+      x-frame-options:
+      - SAMEORIGIN
+      x-transaction:
+      - 421632cebc8fe3b8
+      content-type:
+      - application/json; charset=utf-8
+      x-runtime:
+      - '0.03019'
+      x-mid:
+      - 7ffdbcbd308bc88a9b0c716fa15e5a6b5e701383
+      content-length:
+      - '115'
+      x-access-level:
+      - read-write
+      pragma:
+      - no-cache
+      last-modified:
+      - Tue, 28 Feb 2012 17:51:35 GMT
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-revision:
+      - DEV
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      set-cookie:
+      - k=10.35.66.138.1330451495601231; path=/; expires=Tue, 06-Mar-12 17:51:35 GMT;
+        domain=.twitter.com
+      - guest_id=v1%3A133045149560545586; domain=.twitter.com; path=/; expires=Fri,
+        28-Feb-2014 05:51:35 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=sv; path=/
+      - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
+        path=/; secure
+      - _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWNlMDM0ZjM2ZGRlZGMyY2E0%250AYTA0OWRiYzA5NGI0ZWI6D2NyZWF0ZWRfYXRsKwjBuhbFNQE6B2lkIiViMTAy%250AZDgxYjllNTc4ZWMwNGE3YTMxMWYxNmMxNTQ3Mg%253D%253D--ae3e3cc0fe67b7acedddb344bdfffcf99936c17e;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      server:
+      - tfe
+    body: ! '{"error":"Could not follow user: Du kan inte f\u00f6lja dig sj\u00e4lv!","request":"\/1\/friendships\/create.json"}'
+    http_version: '1.1'
