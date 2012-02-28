@@ -44,10 +44,10 @@ describe TwitterFollower do
     specify { run_with_recording(:unfollow, "ladygaga").screen_name.should == "ladygaga" } # Valid user
     
     #You can unfollow whoever you want as long as they exist
-    specify { expect { run_with_recording(:unfollow, "lady_gaga") }.to_not raise_error } # Suspended user
+    specify { expect { run_with_recording(:unfollow, "lady_gaga") } .to_not raise_error } # Suspended user
     specify { expect { run_with_recording(:unfollow, "Tweepsmanager") }.to_not raise_error } # current_user
 
-    specify { expect { run_with_recording(:unfollow, "j12ioewfjew22iof") }.to raise_error # not existing user
+    specify { expect { run_with_recording(:unfollow, "j12ioewfjew22iof") }.to raise_error } # not existing user
   end
 
   private
