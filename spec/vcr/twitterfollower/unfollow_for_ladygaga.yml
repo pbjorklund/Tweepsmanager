@@ -1,0 +1,85 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :delete
+    uri: https://api.twitter.com:443/1/friendships/destroy.json?screen_name=ladygaga
+    body: 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.1.0
+      authorization:
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="86c9f7d5094cd4ce87dca47f5a20a6b1",
+        oauth_signature="nw5VynVTDStrRZhWN%2BvINfu1v1Q%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1330454836", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
+        oauth_version="1.0"
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 28 Feb 2012 18:47:18 GMT
+      status:
+      - 200 OK
+      x-ratelimit-reset:
+      - '1330454868'
+      x-revision:
+      - DEV
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114be84912b
+      x-access-level:
+      - read-write
+      x-ratelimit-limit:
+      - '350'
+      content-type:
+      - application/json; charset=utf-8
+      x-frame-options:
+      - SAMEORIGIN
+      x-mid:
+      - 80089d58dac088f011199b104e0c94c7d4c42837
+      x-transaction:
+      - 1247cef8eddbceb7
+      last-modified:
+      - Tue, 28 Feb 2012 18:47:17 GMT
+      etag:
+      - ! '"b88b21238f0df2b730c5d4275a6147f1"'
+      pragma:
+      - no-cache
+      x-ratelimit-class:
+      - api_identified
+      x-ratelimit-remaining:
+      - '300'
+      x-runtime:
+      - '0.45186'
+      content-length:
+      - '1960'
+      set-cookie:
+      - k=10.35.1.123.1330454837961528; path=/; expires=Tue, 06-Mar-12 18:47:17 GMT;
+        domain=.twitter.com
+      - guest_id=v1%3A133045483796579991; domain=.twitter.com; path=/; expires=Fri,
+        28-Feb-2014 06:47:17 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=sv; path=/
+      - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
+        path=/; secure
+      - _twitter_sess=BAh7CToMY3NyZl9pZCIlNzI4MWZjMmE5YWE1NzIzZjQ3Y2VlOGVlZWZjYTZl%250AMmY6D2NyZWF0ZWRfYXRsKwjauknFNQEiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%250Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6B2lkIiU1N2U0%250AZjU4OTczNTRjMGVmNTg4YjFjZTcxZTNlMmYwOA%253D%253D--1441a58362764aeca711163f36e4a20e151d5747;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      server:
+      - tfe
+    body: ! '{"id":14230524,"profile_use_background_image":true,"lang":"en","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1239447061\/Unnamed-1_normal.jpg","id_str":"14230524","profile_text_color":"333333","default_profile_image":false,"url":"http:\/\/www.ladygaga.com","is_translator":false,"favourites_count":2,"created_at":"Wed
+      Mar 26 22:37:48 +0000 2008","screen_name":"ladygaga","utc_offset":-18000,"profile_sidebar_border_color":"BDDCAD","contributors_enabled":false,"name":"Lady
+      Gaga","notifications":false,"follow_request_sent":false,"verified":true,"protected":false,"profile_background_tile":true,"following":false,"show_all_inline_media":false,"profile_sidebar_fill_color":"DDFFCC","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/203383875\/Unnamed-1.jpg","location":"New
+      York, NY","default_profile":false,"description":"mother mons\u2020er","geo_enabled":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1239447061\/Unnamed-1_normal.jpg","profile_background_color":"9AE4E8","followers_count":19746005,"listed_count":232172,"profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/203383875\/Unnamed-1.jpg","status":{"retweet_count":4709,"in_reply_to_status_id":null,"favorited":false,"in_reply_to_status_id_str":null,"truncated":false,"in_reply_to_user_id_str":null,"id_str":"173636516080402432","coordinates":null,"in_reply_to_screen_name":null,"retweeted":false,"contributors":null,"place":null,"source":"\u003Ca
+      href=\"http:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003EMobile Web\u003C\/a\u003E","created_at":"Sun
+      Feb 26 05:12:26 +0000 2012","geo":null,"in_reply_to_user_id":null,"id":173636516080402432,"text":"Me
+      steaming my vintage polyblend Halston with a teapot is a vision, should have
+      sprung for the ministeam on HSN. #KettlesAreForTeaNotFashion"},"friends_count":139731,"profile_link_color":"0084B4","statuses_count":1286,"time_zone":"Quito"}'
+    http_version: '1.1'

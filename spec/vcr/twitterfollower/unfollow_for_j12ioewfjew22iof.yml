@@ -1,0 +1,70 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :delete
+    uri: https://api.twitter.com:443/1/friendships/destroy.json?screen_name=j12ioewfjew22iof
+    body: 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.1.0
+      authorization:
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="b39e5dddeac617d39b8fe913aa4e91f0",
+        oauth_signature="LFio6obiKpFOocnNqUEUutivhoA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1330454912", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
+        oauth_version="1.0"
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Tue, 28 Feb 2012 18:48:34 GMT
+      status:
+      - 404 Not Found
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      x-ratelimit-reset:
+      - '1330458468'
+      x-frame-options:
+      - SAMEORIGIN
+      content-length:
+      - '93'
+      x-transaction:
+      - 3d998e883d56f85e
+      pragma:
+      - no-cache
+      x-ratelimit-class:
+      - api_identified
+      x-ratelimit-limit:
+      - '350'
+      content-type:
+      - application/json; charset=utf-8
+      x-access-level:
+      - read-write
+      last-modified:
+      - Tue, 28 Feb 2012 18:48:34 GMT
+      x-ratelimit-remaining:
+      - '348'
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-mid:
+      - 2b55ec532478dd670cd96fb88b382a1f7f265814
+      x-revision:
+      - DEV
+      set-cookie:
+      - k=10.34.231.112.1330454914052703; path=/; expires=Tue, 06-Mar-12 18:48:34
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A133045491405521676; domain=.twitter.com; path=/; expires=Fri,
+        28-Feb-2014 06:48:34 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=sv; path=/
+      - _twitter_sess=BAh7CToMY3NyZl9pZCIlZWMyYTNmZGMzZWYyOGRmOTNjNDQ4NzQzMTA2NWRm%250AYjE6D2NyZWF0ZWRfYXRsKwgS5ErFNQEiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%250Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6B2lkIiU3ZDZj%250AYWNjOTBkNTM1Njk2NjcyNzIzMTdkNWRlZWQwZg%253D%253D--5aaeab05b22002d588916cef8d75e9c36baed5b2;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      server:
+      - tfe
+    body: ! '{"error":"Not found","request":"\/1\/friendships\/destroy.json?screen_name=j12ioewfjew22iof"}'
+    http_version: '1.1'
