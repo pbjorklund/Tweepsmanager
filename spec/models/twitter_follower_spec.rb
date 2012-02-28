@@ -1,88 +1,58 @@
 require 'spec_helper'
 
 describe TwitterFollower do
-  before(:each) do
-    User.delete_all
-    user = FactoryGirl.create(:pbjorklund)
-    @client = TwitterFollower.new(user)
-  end
-
-  def returns_not_empty_user_list?(method)
-    VCR.use_cassette("twitterfollower/#{method}") do
-      @client.send(method).count.should > 0
-    end
-  end
-
-  def run_with_recording(method)
-    VCR.use_cassette("twitterfollower/#{method}") do
-      re = @client.send(method)
-    end
+  before :all do
+    @user ||= FactoryGirl.build :pbjorklund, auth: FactoryGirl.build(:real_auth)
+    @client ||= TwitterFollower.new(@user)
   end
 
   describe "New twitterfollower" do
-    it "requires a user parameter" do
-      lambda { TwitterFollower.new }.should raise_error(ArgumentError)
-    end
-
-    it "should get created given a user" do
-      lambda { TwitterFollower.new(FactoryGirl.create(:user)) }.should_not raise_error
-      @client.should_not be_nil
-    end
+    specify { lambda { TwitterFollower.new }.should raise_error ArgumentError }
+    specify { lambda { TwitterFollower.new(FactoryGirl.build :user) }.should_not raise_error }
   end
 
   describe "#twitter" do
-    it "should return a object" do
-      @client.twitter.should_not be_nil
-    end
+    specify { @client.twitter.should_not be_nil }
+    specify { @client.twitter.should == @client.twitter }
   end
 
   describe "#get_followers" do
-    it "should return a list of users" do
-      returns_not_empty_user_list? :get_followers
+    context "with no params" do
+      specify { run_with_recording(:get_followers).count.should > 0 }
     end
 
-    it "contains more than 101 users" do
-      run_with_recording(:get_followers).count.should > 100
+    context "with a username as param" do
+      specify { run_with_recording(:get_followers, "tweepsmanager").count.should > 0 }
     end
   end
 
   describe "#get_following" do
-    it "should return a list of users" do
-      returns_not_empty_user_list? :get_following
-    end
-
-    it "contains more than 101 users" do
-      run_with_recording(:get_following).count.should > 100
-    end
+    specify { run_with_recording(:get_following).count.should > 0 }
   end
 
   describe "#get_not_following_back" do
-    it "returns a list of users" do
-      returns_not_empty_user_list? :get_not_following_back
-    end
-
-    it "contains more than 1 user" do
-      run_with_recording(:get_not_following_back).count.should > 0
-    end
+    specify { run_with_recording(:get_not_following_back).count.should > 0 }
   end
 
   describe "#follow" do
-    it "should follow a user" do
-      VCR.use_cassette('twitterfollower/follow') do
-        #TODO Interesting way of doing stuff, perhaps not useful
-        followed_user = @client.follow("Tweepsmanager").instance_eval do
-          self.should_not == nil
-          screen_name.should == "Tweepsmanager"
-        end
-      end
-    end
+    specify { run_with_recording(:follow, "ladygaga").screen_name.should == "ladygaga" } # Valid user
+    specify { expect { run_with_recording(:follow, "lady_gaga") }.to raise_error } # Suspended user
+    specify { expect { run_with_recording(:follow, "Tweepsmanager") }.to raise_error } # current_user
   end
 
   describe "#unfollow" do
     it "should unfollow a user" do
-      VCR.use_cassette('twitterfollower/unfollow') do
+      VCR.use_cassette 'twitterfollower/unfollow' do
         @client.unfollow("ladygaga").screen_name.should == "ladygaga"
       end
+    end
+  end
+
+  private
+
+  def run_with_recording method, *params
+    VCR.use_cassette "twitterfollower/#{params.empty? ? method.to_s : method.to_s + "_for_" + params.join}" do
+      @client.send method, *params
     end
   end
 end
