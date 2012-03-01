@@ -8,6 +8,11 @@ Tweepsmanager::Application.routes.draw do
 
   post "follow" => 'twitter#follow'
 
+  match '/followers/(/:user)' => "twitter#followers"
+  match '/following/(/:user)' => "twitter#following"
+  match '/not_following_back/(/:user)' => "twitter#not_following_back"
+
+  match '/followers/(/:user)' => "twitter#followers"
   match '/auth/:provider/callback', to: 'sessions#create'
   match '/login', to: "home#login", as: :login
   match '/about', to: "home#about", as: :about

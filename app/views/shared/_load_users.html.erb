@@ -3,6 +3,7 @@
 		$.ajax({ url: '<%=j path %>',
 			type: 'get',
 			dataType:'script',
+      data: "user=<%=j user %>",
 			timeout: 15000,
 			error: function(){
 				$("#main").prepend("<div class=\"alert alert-error\">Request timed out after 15 seconds. Twitter is over capacity, <a href=\"<%=j path %>\">Please try again</div>");

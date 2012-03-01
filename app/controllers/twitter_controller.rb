@@ -4,23 +4,21 @@ class TwitterController < ApplicationController
   def followers
     respond_to do |format|
       format.html
-      format.js do
-        @users = twitter.get_followers
-      end
+      format.js { @users = twitter.get_followers params[:user] }
     end
   end
 
   def following
     respond_to do |format|
       format.html
-      format.js { @users = twitter.get_following }
+      format.js { @users = twitter.get_following params[:user] }
     end
   end
 
   def not_following_back
     respond_to do |format|
       format.html
-      format.js { @users = twitter.get_not_following_back }
+      format.js { @users = twitter.get_not_following_back params[:user] }
     end
   end
 

@@ -1,2 +1,2 @@
 <%= render partial: "loading_users" %>
-<%= render :partial => "shared/load_users", locals: { path: following_path } %>
+<%= render :partial => "shared/load_users", locals: { path: following_path, user: params[:user] } %>
