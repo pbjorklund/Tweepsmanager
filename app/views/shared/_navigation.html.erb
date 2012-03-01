@@ -11,9 +11,9 @@
 				<div class="nav-collapse">
 				<% if current_user %>
 					<ul class="nav">
-						<li class="<%= request.fullpath.starts_with?("/twitter/followers")  ? "active" : "" %>"><%= link_to "Followers", controller: "twitter", action: "followers" %></li>
-						<li class="<%= request.fullpath.starts_with?("/twitter/following")  ? "active" : "" %>"><%= link_to "Following", controller: "twitter", action: "following" %></li>
-						<li class="<%= request.fullpath.starts_with?("/twitter/not_following_back")  ? "active" : "" %>"><%= link_to "Not following back", controller: "twitter", action: "not_following_back" %></li>
+						<li class="<%= request.fullpath.starts_with?("/followers")  ? "active" : "" %>"><%= link_to "Followers", controller: "twitter", action: "followers" %></li>
+						<li class="<%= request.fullpath.starts_with?("/following")  ? "active" : "" %>"><%= link_to "Following", controller: "twitter", action: "following" %></li>
+						<li class="<%= request.fullpath.starts_with?("/not_following_back")  ? "active" : "" %>"><%= link_to "Not following back", controller: "twitter", action: "not_following_back" %></li>
 					</ul>
 				<% end %>
 

@@ -1,3 +1,4 @@
+#TODO Thinking about extracting this into a module perhaps
 class TwitterFollower
 extend ActiveModel::Naming
 
@@ -11,7 +12,7 @@ extend ActiveModel::Naming
   def twitter
     @twitter ||= Twitter::Client.new(:oauth_token => @current_user.auth.token, :oauth_token_secret => @current_user.auth.secret)
   end
-
+  
   def get_followers user = current_user.nickname
     rescue_twitter_unresponsive do
       user_ids = twitter.follower_ids(user).ids
@@ -53,6 +54,7 @@ extend ActiveModel::Naming
 
   private
 
+  #TODO this needs pagination, badly
   def get_users_from_twitter user_ids
       user_ids.in_groups_of(100, false).map { |group|
         twitter.users(group).select { |u| u.status != nil }
