@@ -4,9 +4,9 @@
 			type: 'get',
 			dataType:'script',
       data: "user=<%=j user %>",
-			timeout: 15000,
+			timeout: 1000,
 			error: function(){
-				$("#main").prepend("<div class=\"alert alert-error\">Request timed out after 15 seconds. Twitter is over capacity, <a href=\"<%=j path %>\">Please try again</div>");
+      $("#main").prepend('<div class="alert alert-error">Request timed out after 15 seconds. <a href="<%=j path %>">Please try again</a></div>');
 					$(".hero-unit").html("<h1 id=\"loading\">Could not load users</h1>");
 				},
 				success: function() {
