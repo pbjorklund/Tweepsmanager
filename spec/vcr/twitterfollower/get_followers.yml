@@ -3074,3 +3074,122 @@
       InItI39Mfvo8wAv/jcFC+lWGQ/XzAzi3gqwRjm+PXPkuGl/UAc4O/zazqSbb
       8yk4/N//HyvONYrcqQEA
     http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://api.twitter.com:443/1/users/lookup.json
+    body: 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.1.0
+      authorization:
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="481d746b6d500b6d302a17bef4bcd389",
+        oauth_signature="gj21GqBZpXWhx5xYTj87VXsgm%2Bo%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1330712037", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
+        oauth_version="1.0"
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: !binary |-
+        Tm90IEZvdW5k
+    headers:
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        RnJpLCAwMiBNYXIgMjAxMiAxODoxMzo1OSBHTVQ=
+      !binary "c3RhdHVz":
+      - !binary |-
+        NDA0IE5vdCBGb3VuZA==
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGUsIHByZS1jaGVj
+        az0wLCBwb3N0LWNoZWNrPTA=
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "eC10cmFuc2FjdGlvbi1tYXNr":
+      - !binary |-
+        YTYxODNmZmE1ZjhjYTk0M2ZmMWI1M2I1NjQ0ZWYxMTRmMmY2MDc4OQ==
+      !binary "eC1yYXRlbGltaXQtbGltaXQ=":
+      - !binary |-
+        MzUw
+      !binary "eC1hY2Nlc3MtbGV2ZWw=":
+      - !binary |-
+        cmVhZC13cml0ZQ==
+      !binary "cHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "eC1yYXRlbGltaXQtcmVtYWluaW5n":
+      - !binary |-
+        MzM3
+      !binary "eC1ydW50aW1l":
+      - !binary |-
+        MC4wMTgzOA==
+      !binary "eC1taWQ=":
+      - !binary |-
+        YzhjNWI4NjI0ZmFkNjIyOTAwNzZhY2IxNjQwMTQ0NjcwOWEyMmRiOQ==
+      !binary "ZXhwaXJlcw==":
+      - !binary |-
+        VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
+      !binary "eC1yYXRlbGltaXQtcmVzZXQ=":
+      - !binary |-
+        MTMzMDcxNTAzNg==
+      !binary "eC1yYXRlbGltaXQtY2xhc3M=":
+      - !binary |-
+        YXBpX2lkZW50aWZpZWQ=
+      !binary "eC10cmFuc2FjdGlvbg==":
+      - !binary |-
+        YjZmY2JiMzVhNzlhY2FkNw==
+      !binary "bGFzdC1tb2RpZmllZA==":
+      - !binary |-
+        RnJpLCAwMiBNYXIgMjAxMiAxODoxMzo1OSBHTVQ=
+      !binary "eC1mcmFtZS1vcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "eC1yZXZpc2lvbg==":
+      - !binary |-
+        REVW
+      !binary "c2V0LWNvb2tpZQ==":
+      - !binary |-
+        az0xMC4zNC4yMzIuMTIwLjEzMzA3MTIwMzk3MDQ4NjA7IHBhdGg9LzsgZXhw
+        aXJlcz1GcmksIDA5LU1hci0xMiAxODoxMzo1OSBHTVQ7IGRvbWFpbj0udHdp
+        dHRlci5jb20=
+      - !binary |-
+        Z3Vlc3RfaWQ9djElM0ExMzMwNzEyMDM5NzA5OTAwNTU7IGRvbWFpbj0udHdp
+        dHRlci5jb207IHBhdGg9LzsgZXhwaXJlcz1Nb24sIDAzLU1hci0yMDE0IDA2
+        OjEzOjU5IEdNVA==
+      - !binary |-
+        ZG50PTsgZG9tYWluPS50d2l0dGVyLmNvbTsgcGF0aD0vOyBleHBpcmVzPVRo
+        dSwgMDEtSmFuLTE5NzAgMDA6MDA6MDAgR01U
+      - !binary |-
+        bGFuZz1zdjsgcGF0aD0v
+      - !binary |-
+        dHdpZD11JTNENDU4Mjk4MjA1JTdDVE02NWxiSk5lZnVKczJJSlB0RjBza1Ul
+        MkJLMFElM0Q7IGRvbWFpbj0udHdpdHRlci5jb207IHBhdGg9Lzsgc2VjdXJl
+      - !binary |-
+        X3R3aXR0ZXJfc2Vzcz1CQWg3Q0RvUFkzSmxZWFJsWkY5aGRHd3JDQ2hSbnRR
+        MUFUb0hhV1FpSldFNE5tTTFaRFU0T0RZeE56STMlMjUwQU1tTTBNemcxTW1Z
+        MU1HRm1OekkyTlRoa0lncG1iR0Z6YUVsRE9pZEJZM1JwYjI1RGIyNTBjbTlz
+        YkdWeSUyNTBBT2pwR2JHRnphRG82Um14aGMyaElZWE5vZXdBR09ncEFkWE5s
+        WkhzQS0tNWQxMTE4YmU5NDYzNjI0YzdjNjNiOTkxMmY5ZTcwZWQ2ZmRiNzMw
+        NDsgZG9tYWluPS50d2l0dGVyLmNvbTsgcGF0aD0vOyBIdHRwT25seQ==
+      !binary "dmFyeQ==":
+      - !binary |-
+        QWNjZXB0LUVuY29kaW5n
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Y29udGVudC1sZW5ndGg=":
+      - !binary |-
+        OTA=
+      !binary "c2VydmVy":
+      - !binary |-
+        dGZl
+    body: !binary |-
+      H4sIAAAAAAAAA6tWSi0qyi8qVrKKrlZKzk9JVbIyNNdRyk0tLk5MB3KU/PIV
+      SotTixRyE0uSM1KLFdLyixSKC1KTM9MyU1MUSlKLcouVamNrAaOjt75IAAAA
+    http_version: !binary |-
+      MS4x
