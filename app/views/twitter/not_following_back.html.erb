@@ -1,2 +1,4 @@
 <%= render partial: "loading_users" %>
-<%= render :partial => "shared/load_users", locals: { path: not_following_back_path, user: params[:user] } %>
+<%= javascript_tag do %>
+  loadUsers("<%=j not_following_back_path %>", "<%=j params[:user] %>")
+<% end %>

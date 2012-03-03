@@ -1,2 +1,4 @@
 <%= render partial: "loading_users" %>
-<%= render :partial => "shared/load_users", locals: { path: followers_path, user: params[:user] } %>
+<%= javascript_tag do %>
+  loadUsers("<%=j followers_path %>", "<%=j params[:user] %>", "<%=j params[:page] || "0" %>")
+<% end %>

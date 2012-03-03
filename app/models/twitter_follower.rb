@@ -8,31 +8,35 @@ extend ActiveModel::Naming
 
   attr :current_user
 
-  #TODO Move this out to resque
   def twitter
     @twitter ||= Twitter::Client.new(:oauth_token => @current_user.auth.token, :oauth_token_secret => @current_user.auth.secret)
   end
+
+  def get_pages user = current_user.nickname
+    get_follower_ids(user).in_groups_of(100, false).count - 1
+  end
   
-  def get_followers user = current_user.nickname
+  def get_followers user = current_user.nickname, page
     rescue_twitter_unresponsive do
-      user_ids = twitter.follower_ids(user).ids
-      get_users_from_twitter(user_ids)
+      get_users_from_twitter(get_follower_ids(user), page.to_i)
     end
   end
 
   def get_following user = current_user.nickname
     rescue_twitter_unresponsive do
-      user_ids = twitter.friend_ids(user).ids
+      user_ids = get_ids_from_twitter :friend_ids, user
       get_users_from_twitter(user_ids)
     end
   end
 
 
   def get_not_following_back user = current_user.nickname
-      following_ids = twitter.friend_ids(user).ids
-      follower_ids = twitter.follower_ids(user).ids
-      only_following_ids = following_ids - follower_ids
-      get_users_from_twitter(only_following_ids)
+    following_ids = get_ids_from_twitter :friend_ids, user
+    follower_ids = get_ids_from_twitter :follower_ids, user
+
+    only_following_ids = following_ids - follower_ids
+
+    get_users_from_twitter(only_following_ids)
   end
 
 
@@ -54,11 +58,28 @@ extend ActiveModel::Naming
 
   private
 
+  def get_follower_ids user
+    rescue_twitter_unresponsive do
+      get_ids_from_twitter :follower_ids, user
+    end
+  end
+
+
+  def get_ids_from_twitter method, username
+    cursor = "-1"
+    follower_ids = []
+    while cursor != 0 do
+      twitter_response = twitter.send method, username, {cursor: cursor }
+      follower_ids += twitter_response.ids
+      cursor = twitter_response.next_cursor
+    end
+    follower_ids
+  end
+
   #TODO this needs pagination, badly
-  def get_users_from_twitter user_ids
-      user_ids.in_groups_of(100, false).map { |group|
-        twitter.users(group).select { |u| u.status != nil }
-      }.flatten
+  def get_users_from_twitter user_ids, page = 0
+    user_groups = user_ids.in_groups_of(100, false)
+    twitter.users(user_groups[page]).select { |u| u.status != nil }.flatten
   end
 
   def rescue_twitter_unresponsive(&block)

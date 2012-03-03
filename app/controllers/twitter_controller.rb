@@ -3,8 +3,11 @@ class TwitterController < ApplicationController
 
   def followers
     respond_to do |format|
-      format.html
-      format.js { @users = twitter.get_followers params[:user] }
+      format.html 
+      format.js do
+        @pages = twitter.get_pages params[:user]
+        @users = twitter.get_followers params[:user], (params[:page] || 0)
+      end
     end
   end
 
