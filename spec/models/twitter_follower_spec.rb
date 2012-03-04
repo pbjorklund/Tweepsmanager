@@ -16,13 +16,15 @@ describe TwitterFollower do
     specify { @client.twitter.should == @client.twitter }
   end
 
-  describe "#get_followers" do
-    context "with no params" do
-      specify { run_with_recording(:get_followers).count.should > 0 }
-    end
+  describe "#get_follower_ids" do
+    specify { run_with_recording_without_append(:get_follower_ids, "pbjorklund").count.should > 0 }
+  end
 
-    context "with a username as param" do
-      specify { run_with_recording(:get_followers, "tweepsmanager").count.should > 0 }
+  describe "#get_followers" do
+    let(:ids) { run_with_recording_without_append :get_follower_ids, "pbjorklund" }
+
+    context "with no params" do
+      specify { run_with_recording_without_append(:get_followers_for_page, ids, 0).count.should > 0 }
     end
   end
 
@@ -61,6 +63,12 @@ describe TwitterFollower do
 
   def run_with_recording method, *params
     VCR.use_cassette "twitterfollower/#{params.empty? ? method.to_s : method.to_s + "_for_" + params.join("-") }" do
+      @client.send method, *params
+    end
+  end
+
+  def run_with_recording_without_append method, *params
+    VCR.use_cassette "twitterfollower/#{method.to_s}" do
       @client.send method, *params
     end
   end

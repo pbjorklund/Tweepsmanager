@@ -1,28 +1,27 @@
 $("#main").html("<%=j render partial: "page" %>");
 $("#main").prepend("<%=j render partial: "shared/flash", :locals => { flash: flash } %>");
 $("#users").append("<%=j render :partial => "user", collection: @users %>");
-$("#main").prepend("<p>These are the people following you:</p>");
-
-if(<%= @pages %> > <%= params[:page].to_i %>) {
-  $("#main").prepend('<input id="button-next" class="btn-primary" type="button" value="Next page"> ');
-}
 
 if(<%= params[:page] %> > 0) {
-  $("#main").prepend('<input id="button-previous" class="btn-primary" type="button" value="Previous page"> ');
+  $("div .pagination ul").append('<li id="previous"><a href="#">Prev</a></li>');
 }
 
-$("#button-next").click( function () { 
+for (i = 0;i<<%= @pages %>;i++) { $("div .pagination ul").append('<li id="page"><a href="#">' + i + '</a></li>'); }
+
+if(<%= @pages %> > <%= params[:page].to_i %>) {
+  $("div .pagination ul").append('<li id="next"><a href="#">Next</a></li>');
+}
+
+$("#next").click( function () { 
   $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
 
   loadUsers("<%= request.path.strip %>", "<%= params[:user] %>", "<%= params[:page].to_i + 1 %>");
   $('input[type=button]').attr('disabled', true);
-  console.log(<%= params[:page].to_i %>);
 });
 
-$("#button-previous").click( function () { 
+$("#previous").click( function () { 
   $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
 
   loadUsers("<%= request.path.strip %>", "<%= params[:user] %>", "<%= params[:page].to_i - 1 %>");
   $('input[type=button]').attr('disabled', true);
-  console.log(<%= params[:page].to_i %>);
 });

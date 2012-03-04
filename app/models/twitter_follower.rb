@@ -12,13 +12,15 @@ extend ActiveModel::Naming
     @twitter ||= Twitter::Client.new(:oauth_token => @current_user.auth.token, :oauth_token_secret => @current_user.auth.secret)
   end
 
-  def get_pages user = current_user.nickname
-    get_follower_ids(user).in_groups_of(100, false).count - 1
-  end
-  
-  def get_followers user = current_user.nickname, page
+  def get_follower_ids user
     rescue_twitter_unresponsive do
-      get_users_from_twitter(get_follower_ids(user), page.to_i)
+      get_ids_from_twitter :follower_ids, user
+    end
+  end
+
+  def get_followers_for_page ids, page
+    rescue_twitter_unresponsive do
+      get_users_from_twitter(ids, page.to_i)
     end
   end
 
@@ -29,7 +31,6 @@ extend ActiveModel::Naming
     end
   end
 
-
   def get_not_following_back user = current_user.nickname
     following_ids = get_ids_from_twitter :friend_ids, user
     follower_ids = get_ids_from_twitter :follower_ids, user
@@ -38,7 +39,6 @@ extend ActiveModel::Naming
 
     get_users_from_twitter(only_following_ids)
   end
-
 
   def follow(nickname)
     rescue_twitter_unresponsive do
@@ -57,14 +57,6 @@ extend ActiveModel::Naming
   end
 
   private
-
-  def get_follower_ids user
-    rescue_twitter_unresponsive do
-      get_ids_from_twitter :follower_ids, user
-    end
-  end
-
-
   def get_ids_from_twitter method, username
     cursor = "-1"
     follower_ids = []

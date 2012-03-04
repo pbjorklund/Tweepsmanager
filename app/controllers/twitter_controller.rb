@@ -5,8 +5,9 @@ class TwitterController < ApplicationController
     respond_to do |format|
       format.html 
       format.js do
-        @pages = twitter.get_pages params[:user]
-        @users = twitter.get_followers params[:user], (params[:page] || 0)
+        follower_ids = twitter.get_follower_ids params[:user]
+        @users = twitter.get_followers_for_page follower_ids, (params[:page] || 0)
+        @pages = follower_ids.count / 100
       end
     end
   end
