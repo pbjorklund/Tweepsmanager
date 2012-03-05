@@ -8,9 +8,9 @@ if(<%= params[:page] %> > 0) {
 
 for (i = 0;i<=<%= @pages %>;i++) { 
   if(<%= params[:page].to_i %> === i) {
-    $("div .pagination ul").append('<li id="page" class="active" data-value="' + i + '"><a href="#">' + (i+1) + '</a></li>'); 
+    $("div .pagination ul").append('<li class="active page" data-value="' + i + '"><a href="#">' + (i+1) + '</a></li>'); 
   } else {
-    $("div .pagination ul").append('<li id="page" data-value="' + i + '"><a href="#">' + (i+1) + '</a></li>'); 
+    $("div .pagination ul").append('<li class="page" data-value="' + i + '"><a href="#">' + (i+1) + '</a></li>'); 
   }
 }
 
@@ -18,7 +18,7 @@ if(<%= @pages %> > <%= params[:page].to_i %>) {
   $("div .pagination ul").append('<li id="next"><a href="#">Next</a></li>');
 }
 
-$("#page").click( function () { 
+$(".page").click( function () { 
   $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
   loadUsers("<%= request.path.strip %>", "<%= params[:user] %>", $(this).data().value);
   $('input[type=button]').attr('disabled', true);
