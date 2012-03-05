@@ -57,3 +57,39 @@ function loadUsers(path, user, page) {
     }
   });
 };
+
+function addPagination(userPage, numOfPages, path, user) {
+  if(userPage > 0) {
+    $("div .pagination ul").append('<li id="previous"><a href="#">Prev</a></li>');
+  }
+
+  for (i = 0;i<= numOfPages;i++) { 
+    if(userPage === i) {
+      $("div .pagination ul").append('<li class="active page" data-value="' + i + '"><a href="#">' + (i+1) + '</a></li>'); 
+    } else {
+      $("div .pagination ul").append('<li class="page" data-value="' + i + '"><a href="#">' + (i+1) + '</a></li>'); 
+    }
+  }
+
+  if(numOfPages > userPage) {
+    $("div .pagination ul").append('<li id="next"><a href="#">Next</a></li>');
+  }
+
+  $(".page").click( function () { 
+    $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
+    loadUsers(path, user, $(this).data().value);
+    $('input[type=button]').attr('disabled', true);
+  });
+
+  $("#next").click( function () { 
+    $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
+    loadUsers(path, user, (userPage + 1));
+    $('input[type=button]').attr('disabled', true);
+  });
+
+  $("#previous").click( function () { 
+    $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
+    loadUsers(path, user, (userPage - 1));
+    $('input[type=button]').attr('disabled', true);
+  });
+};
