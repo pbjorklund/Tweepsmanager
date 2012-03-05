@@ -1,4 +1,0 @@
-<%= render partial: "loading_users" %>
-<%= javascript_tag do %>
-  loadUsers("<%=j followers_path %>", "<%=j params[:user] %>", "<%=j params[:page] || "0" %>")
-<% end %>

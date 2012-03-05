@@ -1,28 +1,40 @@
 class TwitterController < ApplicationController
   before_filter :signed_in?
+  #TODO - All controller could call the followers.js.erb file in theroy
 
   def followers
     respond_to do |format|
-      format.html 
+      format.html { render "shared/users" }
       format.js do
         follower_ids = twitter.get_follower_ids params[:user]
-        @users = twitter.get_followers_for_page follower_ids, (params[:page] || 0)
+        @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
         @pages = follower_ids.count / 100
+        render "shared/users"  
       end
     end
   end
 
   def following
     respond_to do |format|
-      format.html
-      format.js { @users = twitter.get_following params[:user] }
+      format.html { render "shared/users" }
+      format.js do 
+        follower_ids = twitter.get_following_ids params[:user]
+        @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
+        @pages = follower_ids.count / 100
+        render "shared/users"  
+      end
     end
   end
 
   def not_following_back
     respond_to do |format|
-      format.html
-      format.js { @users = twitter.get_not_following_back params[:user] }
+      format.html { render "shared/users" }
+      format.js do 
+        follower_ids = twitter.get_not_following_back_ids params[:user]
+        @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
+        @pages = follower_ids.count / 100
+        render "shared/users"  
+      end
     end
   end
 

@@ -1,4 +1,0 @@
-$("#main").html("<%=j render partial: "page" %>");
-$("#main").prepend("<%=j render partial: "shared/flash", :locals => { flash: flash } %>");
-$("#users").append("<%=j render :partial => "user", collection: @users %>");
-$("#loading").html("<p>These are the people you are following:").attr("id","");

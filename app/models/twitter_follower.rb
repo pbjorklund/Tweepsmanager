@@ -18,26 +18,25 @@ extend ActiveModel::Naming
     end
   end
 
-  def get_followers_for_page ids, page
+  def get_following_ids user
+    rescue_twitter_unresponsive do
+      get_ids_from_twitter :friend_ids, user
+    end
+  end
+
+  def get_not_following_back_ids user
+    rescue_twitter_unresponsive do
+      following_ids = get_ids_from_twitter :friend_ids, user
+      follower_ids = get_ids_from_twitter :follower_ids, user
+
+      only_following_ids = following_ids - follower_ids
+    end
+  end
+
+  def get_users_for_page ids, page
     rescue_twitter_unresponsive do
       get_users_from_twitter(ids, page.to_i)
     end
-  end
-
-  def get_following user = current_user.nickname
-    rescue_twitter_unresponsive do
-      user_ids = get_ids_from_twitter :friend_ids, user
-      get_users_from_twitter(user_ids)
-    end
-  end
-
-  def get_not_following_back user = current_user.nickname
-    following_ids = get_ids_from_twitter :friend_ids, user
-    follower_ids = get_ids_from_twitter :follower_ids, user
-
-    only_following_ids = following_ids - follower_ids
-
-    get_users_from_twitter(only_following_ids)
   end
 
   def follow(nickname)

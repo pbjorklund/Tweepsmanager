@@ -17,23 +17,22 @@ describe TwitterFollower do
   end
 
   describe "#get_follower_ids" do
-    specify { run_with_recording_without_append(:get_follower_ids, "pbjorklund").count.should > 0 }
+    specify { run_with_recording(:get_follower_ids, "pbjorklund").count.should > 0 }
   end
 
-  describe "#get_followers" do
-    let(:ids) { run_with_recording_without_append :get_follower_ids, "pbjorklund" }
+  describe "#get_following_ids" do
+    specify { run_with_recording(:get_following_ids, "pbjorklund").count.should > 0 }
+  end
 
-    context "with no params" do
-      specify { run_with_recording_without_append(:get_followers_for_page, ids, 0).count.should > 0 }
+  describe "#get_not_following_back_ids" do
+    specify { run_with_recording(:get_not_following_back_ids, "pbjorklund").count.should > 0 }
+  end
+
+  describe "#get_users_for_page" do
+    it "gets users from a specified set of ids" do
+      follower_ids = run_with_recording(:get_follower_ids, "pbjorklund")
+      run_with_recording_without_append(:get_users_for_page, follower_ids, 0).count.should < 100
     end
-  end
-
-  describe "#get_following" do
-    specify { run_with_recording(:get_following).count.should > 0 }
-  end
-
-  describe "#get_not_following_back" do
-    specify { run_with_recording(:get_not_following_back).count.should > 0 }
   end
 
   describe "#follow" do
