@@ -8,6 +8,7 @@ end
 When /^I click "([^"]*)"$/ do |link|
   VCR.use_cassette("#{link}") do
     click_link link
+    sleep(7)
   end
 end
 
@@ -20,4 +21,9 @@ end
 
 Given /^I am on the startpage$/ do
   visit root_path
+end
+
+#Not in use
+When /^I wait (\d+) seconds?$/ do |sec|
+  sleep(sec.to_i)
 end

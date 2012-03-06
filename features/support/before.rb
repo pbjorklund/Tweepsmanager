@@ -1,8 +1,10 @@
 VCR.config do |c|
   c.cassette_library_dir = Rails.root.join("features", "vcr")
   c.stub_with :fakeweb
-  c.default_cassette_options = { :record => :new_episodes }
+  c.default_cassette_options = { :record => :once }
   c.ignore_localhost = true
+
+  #c.allow_http_connections_when_no_cassette = true
   #TODO
   #c.filter_sensitive_data('<secret>') { 'key' }
 end
