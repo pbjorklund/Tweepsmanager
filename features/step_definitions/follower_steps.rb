@@ -1,7 +1,5 @@
-When /^I go to the "([^"]*)" page$/ do |page|
-  VCR.use_cassette("#{page}") do
-    visit "/#{page}"
-  end
+When /^I go to the "([^"]*)" page$/ do |target_page|
+  visit "/#{target_page}"
 end
 
 Then /^I should see a list of my followers$/ do
@@ -14,8 +12,19 @@ Given /^I am on the "([^"]*)" page$/ do |page|
   end
 end
 
-When /^I click the button "([^"]*)" for a user$/ do |button|
-  VCR.use_cassette("button_click/#{button}") do
-    click_button("#{button}")
+When /^I click the button "([^"]*)" for "([^"]*)"$/ do |button, user|
+  VCR.use_cassette("button_click/#{button}_for_#{user}") do
+    button = page.find("#button-#{user}").find("input")
+    button.click
+    sleep(5)
   end
+end
+
+Then /^the button text should be "([^"]*)"$/ do |text|
+  page.find("#button-Tweepsmanager").find("input").value.should == text
+end
+
+#Not in use
+When /^I wait (\d+) seconds?$/ do |sec|
+  sleep(sec.to_i)
 end

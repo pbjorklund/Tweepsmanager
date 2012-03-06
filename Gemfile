@@ -15,6 +15,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem "factory_girl_rails"
   gem "capybara"
+  gem "capybara-webkit"
   gem 'vcr'
   gem 'fakeweb'
   gem "launchy"
@@ -37,6 +38,7 @@ group :development, :test do
 
   if RUBY_PLATFORM.downcase.include?("darwin")
     gem 'pry'
+    gem 'pry-nav'
     gem 'pry-rails'
   end
 end

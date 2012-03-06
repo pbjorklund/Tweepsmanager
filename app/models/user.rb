@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
       token: auth[:credentials][:token],
       secret: auth[:credentials][:secret]
     })
-
     user
   end
 end

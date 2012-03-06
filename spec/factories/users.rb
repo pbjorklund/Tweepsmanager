@@ -20,7 +20,7 @@ FactoryGirl.define do
   end
 
   factory :pbjorklund, :class => User do
-    id         113456
+    id         19505451 
     name       "Patrik Bjorklund"
     bio        "Rocking and rolling"
     image_url  "http//www.twitter.com/image.jpg"

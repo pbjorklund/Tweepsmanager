@@ -1,0 +1,80 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://api.twitter.com:443/1/friendships/create.json
+    body: 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.1.0
+      authorization:
+      - OAuth oauth_consumer_key="SYxcRw70lHqqHplj4DLRZA", oauth_nonce="adf5b3781bf79dc75809ee641059a530",
+        oauth_signature="mhdD5ntJT0wgRDfWu4WL1AZ4WUE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331043809", oauth_token="19505451-5novK9ZlWAbTu6mNWY4fCIRgD6aq0TzXjDULWAwA",
+        oauth_version="1.0"
+      content-type:
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 06 Mar 2012 14:23:33 GMT
+      status:
+      - 200 OK
+      x-revision:
+      - DEV
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef1141f94e576
+      pragma:
+      - no-cache
+      last-modified:
+      - Tue, 06 Mar 2012 14:23:32 GMT
+      etag:
+      - ! '"f629901d3ecbbc5eb20fb41289a37a5a"'
+      x-transaction:
+      - 1a6be23484247002
+      x-frame-options:
+      - SAMEORIGIN
+      x-mid:
+      - adf6ab03f876ecf63d5fd44f79962b3434163133
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      x-runtime:
+      - '0.59580'
+      content-length:
+      - '2049'
+      x-access-level:
+      - read-write
+      content-type:
+      - application/json; charset=utf-8
+      set-cookie:
+      - k=10.34.234.116.1331043812906391; path=/; expires=Tue, 13-Mar-12 14:23:32
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A133104381291045033; domain=.twitter.com; path=/; expires=Fri,
+        07-Mar-2014 02:23:32 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=en; path=/
+      - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
+        path=/; secure
+      - _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlM2ExYTQzZTRlMDE2N2M1ZDM1%250AZmFlZmRkODM2ZTc1OWU6B2lkIiVmNjc2MTE4ZDlkMzNkNjE5NjU3OGM4MDRl%250AOTFmMmNhYzoPY3JlYXRlZF9hdGwrCDvGZOg1AQ%253D%253D--757aa1ade7b3292d3cae210306d1c1b7a5395ab5;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      server:
+      - tfe
+    body: ! '{"id":71723271,"profile_sidebar_border_color":"F2E195","screen_name":"fewlines4biju","lang":"en","profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1496072930\/Biju_normal.png","follow_request_sent":null,"followers_count":234,"listed_count":13,"profile_background_tile":false,"verified":false,"utc_offset":19800,"profile_sidebar_fill_color":"FFF7CC","friends_count":1277,"notifications":null,"name":"Bijay
+      Kumar","url":"http:\/\/www.fewlines4biju.com","created_at":"Sat Sep 05 04:10:06
+      +0000 2009","protected":false,"profile_background_color":"BADFCD","contributors_enabled":false,"profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1496072930\/Biju_normal.png","following":null,"geo_enabled":false,"default_profile_image":false,"statuses_count":2972,"is_translator":false,"favourites_count":1,"profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/387310063\/Fewlines4biju-Twitter.png","description":"A
+      SharePoint Consultant, Blogger & MCTS in SharePoint ...","show_all_inline_media":false,"profile_link_color":"FF0000","location":"@HP
+      Bangalore","profile_use_background_image":true,"id_str":"71723271","profile_text_color":"0C3E53","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/387310063\/Fewlines4biju-Twitter.png","status":{"id_str":"177034821342728192","in_reply_to_status_id_str":null,"retweeted":false,"in_reply_to_status_id":null,"geo":null,"in_reply_to_user_id_str":null,"truncated":false,"in_reply_to_screen_name":null,"possibly_sensitive":false,"contributors":null,"favorited":false,"possibly_sensitive_editable":true,"place":null,"source":"\u003Ca
+      href=\"http:\/\/bufferapp.com\" rel=\"nofollow\"\u003EBuffer\u003C\/a\u003E","in_reply_to_user_id":null,"id":177034821342728192,"coordinates":null,"retweet_count":0,"text":"Reassigning
+      Option in Sharepoint Issue Tracking list http:\/\/t.co\/DCfu2NiJ #list #sp2010
+      #SharePoint #in @EnjoySharePoint","created_at":"Tue Mar 06 14:16:05 +0000 2012"},"default_profile":false,"time_zone":"New
+      Delhi"}'
+    http_version: '1.1'

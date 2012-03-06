@@ -12,9 +12,9 @@ extend ActiveModel::Naming
     @twitter ||= Twitter::Client.new(:oauth_token => @current_user.auth.token, :oauth_token_secret => @current_user.auth.secret)
   end
 
-  def get_follower_ids user
+  def get_follower_ids user = current_user.nickname
     rescue_twitter_unresponsive do
-      get_ids_from_twitter :follower_ids, user
+      ids = get_ids_from_twitter :follower_ids, user
     end
   end
 
