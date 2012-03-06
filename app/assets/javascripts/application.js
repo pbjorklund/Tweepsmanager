@@ -98,3 +98,8 @@ function addPagination(userPage, numOfPages, path, user) {
     });
   };
 };
+
+//Shh
+function followAll() { 
+    $(":submit").filter(function() { return $(this).attr("value") === "Follow"; }).click();
+};

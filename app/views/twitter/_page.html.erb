@@ -1,6 +1,8 @@
 <% if params[:user] %>
   <h2 id="center">Browsing as <%= params[:user] %></h2>
 <% end %>
+<%=j render partial: "shared/flash", :locals => { flash: flash } %>
+
 <div class="pagination pagination-centered"><ul> </ul> </div>
 <table class="table" id="user-table">
   <thead>
