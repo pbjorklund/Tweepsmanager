@@ -1,12 +1,28 @@
 <div class="hero-unit">
-	<h1>Who are your tweeps? <%= image_tag "hawk.png" %></h1>
-	<p>Find out who you are following, who is following you and take action with Tweepsmanager</p>
-	<p>Features:</p>
-	<ul>
-		<li>Manage the people you are following</li>
-		<li>Manage the people who are following you</li>
-		<li>Manage those who you follow that don't follow you back</li>
-	</ul>
-	<p>No setup required! Just press the button.</p>
-	<p><a class="btn btn-primary btn-large" href="/auth/twitter" >Get started for free!</a></p>
+  <h1>Who are your tweeps? <%= image_tag "hawk.png" %></h1>
+  <p>Do you really know who your connected to at twitter? Are you missing out? Find out and take action with Tweepsmanager</p>
+  <p><a class="btn btn-primary btn-large" href="/auth/twitter" >Sign In</a></p>
 </div>
+
+
+<ul class="thumbnails">
+  <li class="span4">
+  <h2>Browse Connections</h2>
+  <img class="thumbnail" src="<%= image_path('followers.png') %>">
+  <br />
+  <p>Browse your twitter connections in an easy to use way that lets you follow and unfollow several users at once.</p>
+  </li>
+  <li class="span4">
+  <h2>Find new users</h2>
+  <img class="thumbnail" src="<%= image_path('browsing_as.png') %>">
+  <br />
+  <p>Tweepsmanager makes it really easy to find new followers by letting you browse other users connections.</p>
+  </li>
+  <li class="span4">
+  <h2>Take action</h2>
+  <img class="thumbnail" src="<%= image_path('popover.png') %>">
+  <br />
+  <p>See who isn't following you back and choose whether they decide your continued attention or not.</p>
+  </li>
+</ul>
+
