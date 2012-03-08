@@ -16,6 +16,8 @@
 //= require_tree .
 
 //Bootstrap
+//TODO Is it a good idea to write javascript this way?
+// See app/views/shared/users.js.erb and app/views/shared/users.html.erb
 
 $(document).ready(function () {
   $('.dropdown-toggle').dropdown();

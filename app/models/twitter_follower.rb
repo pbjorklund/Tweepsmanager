@@ -1,3 +1,4 @@
+#TODO Rename TwitterFollower to something better. Twitter, TwitterProxy, TwitterWrapper, TwitterGateway?
 class TwitterFollower
 extend ActiveModel::Naming
 
@@ -32,7 +33,7 @@ extend ActiveModel::Naming
     end
   end
 
-  def get_users_for_page ids, page
+  def get_users_for_page ids, page = 0
     rescue_twitter_unresponsive do
       get_users_from_twitter(ids, page.to_i)
     end
@@ -66,11 +67,12 @@ extend ActiveModel::Naming
     follower_ids
   end
 
-  def get_users_from_twitter user_ids, page = 0
+  def get_users_from_twitter user_ids, page
     user_groups = user_ids.in_groups_of(100, false)
     twitter.users(user_groups[page]).select { |u| u.status != nil }.flatten
   end
 
+  #TODO Caught exceptions should be handled in ajax call in loadUsers, how?
   def rescue_twitter_unresponsive(&block)
     begin
       yield

@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe TwitterController do
 
+  #TODO Review with Laust if time
   before(:each) do
     controller.stub(:current_user).and_return(FactoryGirl.build(:pbjorklund))
     @twitter = mock_model("TwitterFollower", unfollow: true, follow: true)

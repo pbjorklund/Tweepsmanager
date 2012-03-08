@@ -5,7 +5,7 @@ VCR.config do |c|
   c.ignore_localhost = true
 
   #c.allow_http_connections_when_no_cassette = true
-  #TODO
+  #TODO - Remove all api keys from solution
   #c.filter_sensitive_data('<secret>') { 'key' }
 end
 

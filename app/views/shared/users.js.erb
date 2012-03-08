@@ -1,5 +1,4 @@
 $("#main").html("<%=j render partial: "page" %>");
 $("#users").append("<%=j render :partial => "user", collection: @users %>");
-
-addPagination(<%= params[:page].to_i %>, <%= @pages %>, "<%= request.path.strip %>", "<%= params[:user] %>")
+addPagination(<%= params[:page].to_i %>, <%= @pages %>, "<%= request.path.strip %>", "<%= params[:user] %>");
 
