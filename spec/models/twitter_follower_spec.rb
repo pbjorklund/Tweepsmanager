@@ -51,7 +51,6 @@ describe TwitterFollower do
     specify { expect { run_with_recording(:unfollow, "j12ioewfjew22iof") }.to raise_error } # not existing user
   end
 
-  #private
   describe "#get_follower_ids_from_twitter" do
     it "gets several batches from twitter when a user is following more than 5000 users" do
       run_with_recording(:get_ids_from_twitter, :follower_ids, "svartling").count.should > 5001

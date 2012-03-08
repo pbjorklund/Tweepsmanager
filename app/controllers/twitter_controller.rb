@@ -1,6 +1,5 @@
 class TwitterController < ApplicationController
   before_filter :signed_in?
-  #TODO - All controller could call the followers.js.erb file in theroy
 
   def followers
     respond_to do |format|

@@ -1,4 +1,3 @@
-#TODO Thinking about extracting this into a module perhaps
 class TwitterFollower
 extend ActiveModel::Naming
 
@@ -67,7 +66,6 @@ extend ActiveModel::Naming
     follower_ids
   end
 
-  #TODO this needs pagination, badly
   def get_users_from_twitter user_ids, page = 0
     user_groups = user_ids.in_groups_of(100, false)
     twitter.users(user_groups[page]).select { |u| u.status != nil }.flatten
