@@ -17,6 +17,10 @@
 	</td>
 
 	<td> <%= user.description %> </td>
+  <td><%= user.statuses_count  %></td>
+  <td><%= user.followers_count %></td>
+  <td><%= user.friends_count %></td>
+  <td><%= time_ago_in_words(user.status.created_at) %> ago</td>
 
 	<td id="<%= "button-" + user.screen_name %>">
 		<% if user.following %>
