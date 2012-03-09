@@ -7,7 +7,7 @@ Feature: Following / unfollowing of users
 	@logged_in @javascript
 	Scenario:
 		Given I am on the "followers" page
-		Then I should see a list of my followers
+		Then I should see a list of users
 
 	@logged_in @javascript
 	Scenario:

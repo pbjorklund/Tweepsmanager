@@ -17,8 +17,3 @@ Feature: Pagination of users
     And I should see a link to "Prev"
     And I should see a link to "Next"
 
-    #TODO
-    #Given I am on the "followers/2" page
-    #When I click "Prev"
-    #Then page "1" should be active in the page-selector
-    #And I should not see a link to "Prev"

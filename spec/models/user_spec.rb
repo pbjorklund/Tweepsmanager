@@ -32,25 +32,31 @@ describe User do
   end
 
   describe "when using omniauth" do
-    let(:auth) { {
-      uid: "123456",
-      :info => { name: "The Name", image: "http://fj.com/image.jpg", nickname: "pbjorklund", description: "rocking it" },
-      :credentials => { token: "tokentoken", secret:"secretsecret" }
-    } }
+    let(:auth) { 
+      { 
+        uid: "123456", 
+        :info => { 
+          name: "The Name", 
+          image: "http://fj.com/image.jpg",
+          nickname: "pbjorklund",
+          description:  "rocking it" 
+        },
+        :credentials => { 
+          token: "tokentoken", 
+          secret:"secretsecret" 
+        } 
+      } 
+    } 
 
-    subject { User.create_with_omniauth(auth) }
+    let(:instance) { User.create_with_omniauth(auth) }
 
     describe "#self.create_with_omniauth" do
       context "when creating new user" do
-        specify { expect { subject }.to change(User, :count).by(1) }
-        specify { expect { subject }.to change(Auth, :count).by(1) }
+        specify { expect { instance }.to change(User, :count).by(1) }
+        specify { expect { instance }.to change(Auth, :count).by(1) }
       end
 
       context "when updating a user" do
-        before(:each) do
-          subject
-        end
-
         it "updates a user when a new hash is sent" do
           auth[:info][:description] = "New description"
           lambda { User.create_with_omniauth(auth) }.should_not raise_error
