@@ -16,8 +16,6 @@
 //= require_tree .
 
 //Bootstrap
-//TODO Is it a good idea to write javascript this way?
-// See app/views/shared/users.js.erb and app/views/shared/users.html.erb
 
 $(document).ready(function () {
   $('.dropdown-toggle').dropdown();
@@ -28,7 +26,7 @@ function initPopover() {
     popover({ offset: 10, live: true }).
     click(function (e) {
       e.preventDefault();
-    })
+    });
 }
 
 //Google analytics
@@ -47,12 +45,15 @@ _gaq.push(['_trackPageview']);
 }());
 
 function loadUsers(path, user, page) {
+  $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
+  $('input[type=button]').attr('disabled', true);
   $.ajax({
     url: path,
     type: 'get',
     dataType: 'script',
     data: "user=" + user + "&page=" + page,
     timeout: 15000,
+    //TODO Check Error/success takes params
     error: function () {
       $("#main").prepend('<div class="alert alert-error">Something went wrong.</div>');
       $(".hero-unit").html("<h1 id=\"loading\">Could not load users</h1>");
@@ -66,42 +67,48 @@ function loadUsers(path, user, page) {
 //Pagination
 //Adds a pagination div
 //userPage = current page, numOfPages = total number of pages, path = current path, user = username
-function addPagination(userPage, numOfPages, path, user) {
+function addPagination(el, userPage, numOfPages, path, user) {
   var i;
 
+  function insertPageLink(pageNumber, active) {
+    if(active) {
+        el.append('<li class="active page" data-value="' + i + '"><a href="#">' + (i + 1) + '</a></li>');
+    } else {
+        el.append('<li class="page" data-value="' + i + '"><a href="#">' + (i + 1) + '</a></li>');
+    };
+  }
+
   if (numOfPages > 0) {
+
     if (userPage > 0) {
-      $("div .pagination ul").append('<li id="previous"><a href="#">Prev</a></li>');
+      el.append('<li id="previous"><a href="#">Prev</a></li>');
     }
 
-    for (i = 0; i <= numOfPages; i += 1) {
-      if (userPage === i) {
-        $("div .pagination ul").append('<li class="active page" data-value="' + i + '"><a href="#">' + (i + 1) + '</a></li>');
-      } else {
-        $("div .pagination ul").append('<li class="page" data-value="' + i + '"><a href="#">' + (i + 1) + '</a></li>');
+    if(numOfPages < 10) {
+      for (i = 0; i <= numOfPages; i += 1) {
+        if (userPage === i) {
+          insertPageLink(i+1, true);
+        } else {
+          insertPageLink(i+1, false);
+        }
       }
     }
 
     if (numOfPages > userPage) {
-      $("div .pagination ul").append('<li id="next"><a href="#">Next</a></li>');
+      el.append('<li id="next"><a href="#">Next</a></li>');
     }
 
-    $(".page").click(function () {
-      $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
+    $(".container").on("click", ".page", function (event) {
       loadUsers(path, user, $(this).data().value);
-      $('input[type=button]').attr('disabled', true);
     });
 
     $("#next").click(function () {
-      $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
-      loadUsers(path, user, (userPage + 1));
-      $('input[type=button]').attr('disabled', true);
+      var newPage = userPage + 1;
+      loadUsers(path, user, newPage);
     });
 
     $("#previous").click(function () {
-      $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
       loadUsers(path, user, (userPage - 1));
-      $('input[type=button]').attr('disabled', true);
     });
   }
 }

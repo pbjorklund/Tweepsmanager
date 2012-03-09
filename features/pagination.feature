@@ -12,7 +12,7 @@ Feature: Pagination of users
 	@logged_in @javascript
 	Scenario:
 		Given I am on the "followers" page
-    When I click "Next"
+    When I click "Next" on a page with a user table
 		Then page "2" should be active in the page-selector
     And I should see a link to "Prev"
     And I should see a link to "Next"
