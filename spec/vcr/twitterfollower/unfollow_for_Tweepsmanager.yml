@@ -10,9 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="db0f55320fbafc52722fbd4469959bec",
-        oauth_signature="rHriLi7wX1gHmI6k%2By5KbxrCyRg%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1330454938", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="49db8f716cd079e0fdf21766ffaf87c5",
+        oauth_signature="HJM01iPxKzMCPGsdt0uURZ23H74%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331398928", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
         oauth_version="1.0"
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
@@ -20,66 +20,65 @@
       message: OK
     headers:
       date:
-      - Tue, 28 Feb 2012 18:49:00 GMT
+      - Sat, 10 Mar 2012 17:02:10 GMT
       status:
       - 200 OK
-      x-ratelimit-reset:
-      - '1330458468'
-      content-length:
-      - '1979'
-      x-revision:
-      - DEV
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
       x-ratelimit-class:
       - api_identified
-      x-ratelimit-remaining:
-      - '347'
-      x-runtime:
-      - '0.41039'
-      x-access-level:
-      - read-write
-      x-frame-options:
-      - SAMEORIGIN
+      x-revision:
+      - DEV
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      last-modified:
+      - Sat, 10 Mar 2012 17:02:10 GMT
+      content-length:
+      - '1948'
+      x-frame-options:
+      - SAMEORIGIN
+      x-mid:
+      - 7a4a33f639a9fe717744290267f528daeffaf2db
       content-type:
       - application/json; charset=utf-8
+      x-access-level:
+      - read-write
       pragma:
       - no-cache
+      x-ratelimit-remaining:
+      - '317'
+      etag:
+      - ! '"8d40542275d317f3e58fa35284c82bbe"'
+      x-ratelimit-reset:
+      - '1331400768'
       x-ratelimit-limit:
       - '350'
+      x-runtime:
+      - '0.37101'
       x-transaction:
-      - d1414f42844d7fd9
-      etag:
-      - ! '"481a118a15d9aa3e5d3a2de583cd537e"'
-      x-transaction-mask:
-      - a6183ffa5f8ca943ff1b53b5644ef114be84912b
+      - ce2241a074dc0c34
       expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
-      - Tue, 28 Feb 2012 18:48:59 GMT
-      x-mid:
-      - dfec989aba8d990c0ca366cd4e8c5826f35b8f0e
       set-cookie:
-      - k=10.34.231.112.1330454939922002; path=/; expires=Tue, 06-Mar-12 18:48:59
-        GMT; domain=.twitter.com
-      - guest_id=v1%3A133045493992618695; domain=.twitter.com; path=/; expires=Fri,
-        28-Feb-2014 06:48:59 GMT
+      - k=10.35.55.138.1331398930112551; path=/; expires=Sat, 17-Mar-12 17:02:10 GMT;
+        domain=.twitter.com
+      - guest_id=v1%3A133139893011686831; domain=.twitter.com; path=/; expires=Tue,
+        11-Mar-2014 05:02:10 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=sv; path=/
       - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
         path=/; secure
-      - _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlY2JmOGU3ZjdkMzk1NGE4OTQz%250AODBkYmVkNDRmZGIwZGU6D2NyZWF0ZWRfYXRsKwgiSUvFNQE6B2lkIiU3Mjgy%250AMDlkNmFmNDNkZjFlNDI1M2U1ZjFkN2U1ZjZmYg%253D%253D--7c7e34541b5d34c402f7af9a929c65a7e17c6ea7;
+      - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCM5uj%252F01ASIKZmxhc2hJQzonQWN0aW9uQ29u%250AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHaWQiJWJm%250AZmI3MGJmMGIzN2NmODZmY2JlYWIzYWY0OGU1Mzg4Ogxjc3JmX2lkIiVmMzdi%250ANzhhNzhkZmM5ZTFjOGVlYjYxN2ZmNTc3ZGVlNw%253D%253D--3c3974278b8f9fa366b3e95f812e41a72108e71d;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
       server:
       - tfe
-    body: ! '{"is_translator":false,"id":458298205,"favourites_count":0,"profile_sidebar_border_color":"C0DEED","lang":"sv","contributors_enabled":false,"follow_request_sent":false,"verified":false,"url":"http:\/\/www.tweepsmanager.com","created_at":"Sun
-      Jan 08 11:57:41 +0000 2012","profile_background_tile":false,"screen_name":"Tweepsmanager","utc_offset":null,"show_all_inline_media":false,"profile_sidebar_fill_color":"DDEEF6","profile_background_image_url_https":"https:\/\/si0.twimg.com\/images\/themes\/theme1\/bg.png","name":"Tweepsmanager","notifications":false,"default_profile":true,"protected":false,"following":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1741282608\/hawk_normal.png","profile_background_color":"C0DEED","geo_enabled":false,"location":"Bor\u00e5s","followers_count":4,"listed_count":0,"description":"Do
+    body: ! '{"id":458298205,"notifications":false,"profile_sidebar_fill_color":"DDEEF6","statuses_count":7,"lang":"sv","url":"http:\/\/www.tweepsmanager.com","time_zone":null,"created_at":"Sun
+      Jan 08 11:57:41 +0000 2012","profile_background_image_url_https":"https:\/\/si0.twimg.com\/images\/themes\/theme1\/bg.png","utc_offset":null,"profile_background_color":"C0DEED","default_profile":true,"name":"Tweepsmanager","verified":false,"contributors_enabled":false,"profile_background_image_url":"http:\/\/a0.twimg.com\/images\/themes\/theme1\/bg.png","location":"Bor\u00e5s","protected":false,"geo_enabled":false,"profile_link_color":"0084B4","following":false,"listed_count":0,"show_all_inline_media":false,"profile_use_background_image":true,"description":"Do
       you know who you are following? Perhaps it''s time to clean up or make sure
-      that you are following interesting people back?","profile_background_image_url":"http:\/\/a0.twimg.com\/images\/themes\/theme1\/bg.png","profile_link_color":"0084B4","friends_count":5,"statuses_count":5,"time_zone":null,"profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1741282608\/hawk_normal.png","profile_use_background_image":true,"id_str":"458298205","status":{"in_reply_to_user_id":197384390,"retweet_count":0,"in_reply_to_status_id":null,"favorited":false,"in_reply_to_status_id_str":null,"truncated":false,"coordinates":null,"in_reply_to_user_id_str":"197384390","id_str":"174090615502536704","place":null,"in_reply_to_screen_name":"tmjohansson","source":"\u003Ca
-      href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E","created_at":"Mon
-      Feb 27 11:16:51 +0000 2012","geo":null,"retweeted":false,"id":174090615502536704,"contributors":null,"text":"@tmjohansson
-      fungerade saker och ting f\u00f6r dig? Vad skulle du vlja ha f\u00f6r funktionalitet?
-      :)"},"profile_text_color":"333333","default_profile_image":false}'
+      that you are following interesting people back?","friends_count":6,"id_str":"458298205","profile_text_color":"333333","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1741282608\/hawk_normal.png","screen_name":"Tweepsmanager","profile_sidebar_border_color":"C0DEED","follow_request_sent":false,"default_profile_image":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1741282608\/hawk_normal.png","status":{"coordinates":null,"created_at":"Tue
+      Mar 06 09:53:03 +0000 2012","id_str":"176968629382950913","in_reply_to_status_id":null,"favorited":false,"geo":null,"truncated":false,"in_reply_to_status_id_str":null,"retweet_count":0,"in_reply_to_user_id_str":"3748631","place":null,"retweeted":false,"source":"\u003Ca
+      href=\"http:\/\/www.echofon.com\/\" rel=\"nofollow\"\u003EEchofon\u003C\/a\u003E","contributors":null,"id":176968629382950913,"in_reply_to_screen_name":"jugyo","in_reply_to_user_id":3748631,"text":"@jugyo
+      hi there. Any feedback to share on the alpha version of Tweepsmanager? :)"},"is_translator":false,"followers_count":3,"favourites_count":0,"profile_background_tile":false}'
     http_version: '1.1'
