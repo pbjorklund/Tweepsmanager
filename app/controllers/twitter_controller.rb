@@ -5,10 +5,15 @@ class TwitterController < ApplicationController
     respond_to do |format|
       format.html { render "shared/users" }
       format.js do
-        follower_ids = twitter.get_follower_ids params[:user]
-        @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
-        @pages = follower_ids.count / 100
-        render "shared/users"  
+        begin
+          follower_ids = twitter.get_follower_ids params[:user]
+          @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
+          @pages = follower_ids.count / 100
+          render "shared/users"  
+        rescue Twitter::Error => e
+          @error = e.message
+          render "shared/error"
+        end
       end
     end
   end

@@ -15,6 +15,9 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+
+var loadUserRequest;
+
 //Bootstrap
 
 $(document).ready(function () {
@@ -45,70 +48,88 @@ _gaq.push(['_trackPageview']);
 }());
 
 function loadUsers(path, user, page) {
+  if(loadUserRequest !== undefined) {
+    if(loadUserRequest.hasOwnProperty("abort")) {
+      loadUserRequest.abort();
+      loadUserRequest = null;
+    }
+  }
+
   $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
   $('input[type=button]').attr('disabled', true);
-  $.ajax({
-    url: path,
-    type: 'get',
-    dataType: 'script',
-    data: "user=" + user + "&page=" + page,
-    timeout: 15000,
-    //TODO Check Error/success takes params
-    error: function () {
-      $("#main").prepend('<div class="alert alert-error">Something went wrong.</div>');
-      $(".hero-unit").html("<h1 id=\"loading\">Could not load users</h1>");
-    },
-    success: function () {
-      initPopover();
-    }
+  loadUserRequest = $.ajax({
+                            url: path,
+                            type: 'get',
+                            dataType: 'script',
+                            data: "user=" + user + "&page=" + page,
+                            timeout: 15000,
+                            //TODO Check Error/success takes params
+                            error: function (xhr, ajaxOptions, thrownError) {
+                              $(".hero-unit").html("<h1 id=\"loading\">Could not load users</h1>");
+                            },
+                            success: function () {
+                              initPopover();
+                            }
   });
 }
 
 //Pagination
 //Adds a pagination div
 //userPage = current page, numOfPages = total number of pages, path = current path, user = username
-function addPagination(el, userPage, numOfPages, path, user) {
-  var i;
+function addPagination(el, currentPage, totalPages, path, user) {
+  var i, x, z;
+  var interval = 2;
 
-  function insertPageLink(pageNumber, active) {
-    if(active) {
-        el.append('<li class="active page" data-value="' + i + '"><a href="#">' + (i + 1) + '</a></li>');
-    } else {
-        el.append('<li class="page" data-value="' + i + '"><a href="#">' + (i + 1) + '</a></li>');
-    };
+  function insertPageLink(pageNumber) {
+    if(pageNumber >= 0 && pageNumber <= totalPages) {
+      if(currentPage === pageNumber) {
+        el.append('<li class="active page" data-value="' + pageNumber + '"><a href="#">' + (pageNumber + 1) + '</a></li>');
+      } else {
+        el.append('<li class="page" data-value="' + pageNumber + '"><a href="#">' + (pageNumber + 1) + '</a></li>');
+      }
+    }
   }
 
-  if (numOfPages > 0) {
+  function insertBlankPageLink() { 
+        el.append('<li class="active page"><a href="#">...</a></li>');
+  }
 
-    if (userPage > 0) {
-      el.append('<li id="previous"><a href="#">Prev</a></li>');
+  if (totalPages > 0) {
+
+    if (currentPage > 0) {
+        el.append('<li class="page" data-value="' + (currentPage - 1) + '"><a href="#">' + "Previous" + '</a></li>');
     }
 
-    if(numOfPages < 10) {
-      for (i = 0; i <= numOfPages; i += 1) {
-        if (userPage === i) {
-          insertPageLink(i+1, true);
-        } else {
-          insertPageLink(i+1, false);
-        }
+    if(totalPages < 10) {
+      for (i = 0; i <= totalPages; i += 1) {
+          insertPageLink(i);
+      }
+    }
+    else {
+      console.log("Current page is" + currentPage);
+      if(currentPage > interval) {
+        insertPageLink(0);
+        insertBlankPageLink();
+      }
+      for(x = currentPage - interval; x < currentPage; x += 1) {
+        insertPageLink(x);
+      }
+      insertPageLink(currentPage);
+      for(z = currentPage + 1; z<= currentPage + interval; z += 1) {
+        insertPageLink(z);
+      }
+      if(totalPages - currentPage > interval) {
+        insertBlankPageLink();
+        insertPageLink(totalPages);
       }
     }
 
-    if (numOfPages > userPage) {
-      el.append('<li id="next"><a href="#">Next</a></li>');
+    if (totalPages > currentPage) {
+        el.append('<li class="page" data-value="' + (currentPage + 1) + '"><a href="#">' + "Next" + '</a></li>');
     }
 
     $(".container").on("click", ".page", function (event) {
       loadUsers(path, user, $(this).data().value);
-    });
-
-    $("#next").click(function () {
-      var newPage = userPage + 1;
-      loadUsers(path, user, newPage);
-    });
-
-    $("#previous").click(function () {
-      loadUsers(path, user, (userPage - 1));
     });
   }
 }
