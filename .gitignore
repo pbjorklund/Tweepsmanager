@@ -19,3 +19,4 @@ Gemfile.lock
 /public/assets/*
 .rvmrc
 /doc/*
+/config/keys.yml
