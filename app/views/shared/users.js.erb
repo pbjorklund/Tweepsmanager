@@ -1,5 +1,7 @@
 $("#main").html("<%=j render partial: "page" %>");
 $("#users").append("<%=j render :partial => "user", collection: @users %>");
 
-addPagination($(".pagination ul"), <%= params[:page].to_i %>, <%= @pages %>, "<%= request.path.strip %>", "<%= params[:user] %>");
+var paginator = new Paginator($(".pagination ul"), <%= params[:page].to_i %>, <%= @pages %>);
+paginator.addPagination();
+bindClickEvents($(".container"), "<%= request.path.strip %>", "<%= params[:user] %>");
 

@@ -1,1 +1,2 @@
 $("#main").prepend('<div class="alert alert-error"><%= @error %></div><a class="close" data-dismiss="alert" href="#">&times;</a>');
+$("#api_status").html("<%=j @status.remaining_hits.to_s %>" + " api-calls left, more in " + "<%=j distance_of_time_in_words(Time.now, Time.at(@status.reset_time_in_seconds)) %>");

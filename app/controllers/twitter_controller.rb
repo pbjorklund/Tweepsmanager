@@ -11,6 +11,8 @@ class TwitterController < ApplicationController
           @pages = follower_ids.count / 100
           render "shared/users"  
         rescue Twitter::Error => e
+          @api_status = twitter.get_api_status
+          binding.pry
           @error = e.message
           render "shared/error"
         end
