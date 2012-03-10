@@ -10,10 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="cbc1e4004c901d765bc91fc5ea7b0b8f",
-        oauth_signature="RsmS38DxNF53PPqsVNYBMbI0DvU%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1331398932", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="040e736a41554fbf434be7530215c99b",
+        oauth_signature="txvRFXtqzTK0vsYHOP62pFAbrQU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331400120", oauth_token="<USER_TOKEN>", oauth_version="1.0"
       accept-encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response: !ruby/struct:VCR::Response
@@ -22,53 +21,53 @@
       message: OK
     headers:
       date:
-      - Sat, 10 Mar 2012 17:02:13 GMT
+      - Sat, 10 Mar 2012 17:22:02 GMT
       status:
       - 200 OK
       x-transaction-mask:
       - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
-      x-access-level:
-      - read-write
       etag:
       - ! '"3def7e8dfa02ceba5db1065ebfc9f776"'
-      x-mid:
-      - 1a79f94e896400e53d7e506004cba335539e7307
-      x-transaction:
-      - 346037b539325a52
-      x-revision:
-      - DEV
-      x-ratelimit-reset:
-      - '1331400768'
-      x-ratelimit-remaining:
-      - '315'
-      last-modified:
-      - Sat, 10 Mar 2012 17:02:13 GMT
-      x-ratelimit-class:
-      - api_identified
-      cache-control:
-      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      x-runtime:
-      - '0.17409'
       x-frame-options:
       - SAMEORIGIN
       pragma:
       - no-cache
       expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
-      x-ratelimit-limit:
-      - '350'
+      x-transaction:
+      - 2ce3436596729885
       content-type:
       - application/json; charset=utf-8
+      x-ratelimit-reset:
+      - '1331400768'
+      x-access-level:
+      - read-write
+      x-runtime:
+      - '0.06311'
+      x-mid:
+      - 179ca35b9bdae8e33db3307fa2a5ec11af3c5df2
+      x-ratelimit-remaining:
+      - '285'
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-revision:
+      - DEV
+      x-ratelimit-class:
+      - api_identified
+      last-modified:
+      - Sat, 10 Mar 2012 17:22:02 GMT
+      x-ratelimit-limit:
+      - '350'
       set-cookie:
-      - k=10.35.49.113.1331398933807877; path=/; expires=Sat, 17-Mar-12 17:02:13 GMT;
+      - k=10.35.30.123.1331400122670788; path=/; expires=Sat, 17-Mar-12 17:22:02 GMT;
         domain=.twitter.com
-      - guest_id=v1%3A133139893381093772; domain=.twitter.com; path=/; expires=Tue,
-        11-Mar-2014 05:02:13 GMT
+      - guest_id=v1%3A133140012267412800; domain=.twitter.com; path=/; expires=Tue,
+        11-Mar-2014 05:22:02 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=sv; path=/
       - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
         path=/; secure
-      - _twitter_sess=BAh7CDoPY3JlYXRlZF9hdGwrCD19j%252F01AToHaWQiJTE0NTVmNDFkZTlkMjUw%250AMzAzYzUzNjdhZTEzMzcwMzY5IgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVy%250AOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--3d80e18bbb9b915039579aad9d0603d8878d95fa;
+      - _twitter_sess=BAh7CDoPY3JlYXRlZF9hdGwrCEmhof01ASIKZmxhc2hJQzonQWN0aW9uQ29u%250AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHaWQiJWU4%250AM2I5MmI5ZjhkMGVhMmE3MWJiNzVkZTM1MzI2ZDU2--1e0744bc7d7c9d88cceef58fc19cb2ee4d1c4811;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
@@ -619,10 +618,9 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="42f68edcb1e1f4cff1b0854cbd876bfc",
-        oauth_signature="Pall6fNp3X%2Fql3pnOkcwVM62QD0%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1331398934", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="f926c60ba4f0b677e56dfb8cf4aab21b",
+        oauth_signature="ao0IiRlBG6ZaHKV%2BcfYpI039Jj4%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331400123", oauth_token="<USER_TOKEN>", oauth_version="1.0"
       accept-encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response: !ruby/struct:VCR::Response
@@ -631,53 +629,53 @@
       message: OK
     headers:
       date:
-      - Sat, 10 Mar 2012 17:02:15 GMT
+      - Sat, 10 Mar 2012 17:22:04 GMT
       status:
       - 200 OK
+      x-runtime:
+      - '0.04879'
+      x-transaction:
+      - aafe712cdaf0580c
+      pragma:
+      - no-cache
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-ratelimit-limit:
+      - '350'
       x-transaction-mask:
       - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
+      last-modified:
+      - Sat, 10 Mar 2012 17:22:04 GMT
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      content-type:
+      - application/json; charset=utf-8
       x-access-level:
       - read-write
       x-mid:
-      - 287818c511ce9f752bd046f13354b98ce27ae992
+      - 7b01abef95a1056a18aba9f1e049ff39302455e5
       x-revision:
       - DEV
-      etag:
-      - ! '"1977c0367a3068f5e53c9f8ad338edfe"'
-      x-ratelimit-class:
-      - api_identified
-      x-ratelimit-limit:
-      - '350'
-      x-ratelimit-remaining:
-      - '314'
       x-ratelimit-reset:
       - '1331400768'
-      cache-control:
-      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      x-runtime:
-      - '0.26352'
-      x-transaction:
-      - 827d61567b3722fc
-      pragma:
-      - no-cache
-      content-type:
-      - application/json; charset=utf-8
+      etag:
+      - ! '"1977c0367a3068f5e53c9f8ad338edfe"'
       x-frame-options:
       - SAMEORIGIN
-      last-modified:
-      - Sat, 10 Mar 2012 17:02:15 GMT
-      expires:
-      - Tue, 31 Mar 1981 05:00:00 GMT
+      x-ratelimit-class:
+      - api_identified
+      x-ratelimit-remaining:
+      - '284'
       set-cookie:
-      - k=10.35.49.113.1331398935705102; path=/; expires=Sat, 17-Mar-12 17:02:15 GMT;
+      - k=10.35.30.123.1331400124727519; path=/; expires=Sat, 17-Mar-12 17:22:04 GMT;
         domain=.twitter.com
-      - guest_id=v1%3A133139893570985539; domain=.twitter.com; path=/; expires=Tue,
-        11-Mar-2014 05:02:15 GMT
+      - guest_id=v1%3A13314001247325526; domain=.twitter.com; path=/; expires=Tue,
+        11-Mar-2014 05:22:04 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=sv; path=/
       - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
         path=/; secure
-      - _twitter_sess=BAh7CDoPY3JlYXRlZF9hdGwrCLCEj%252F01ASIKZmxhc2hJQzonQWN0aW9uQ29u%250AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHaWQiJWNi%250AN2NkY2UzYzk2YzczMTFlOGVlZjUwODEzODkxMWUz--f0ee4dc16f23e1d3868fc7ff0016f149080e1718;
+      - _twitter_sess=BAh7CDoPY3JlYXRlZF9hdGwrCEqpof01ASIKZmxhc2hJQzonQWN0aW9uQ29u%250AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHaWQiJTQy%250AZDRiYWUzNjI5NjRkMWYyZTc0MWJhYmJiN2E5MGY4--f9cf47ae55bbd29737ed9322e7fec6f63789cb41;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
@@ -1210,10 +1208,9 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="16c237666bbd49ddd3b970851de8df19",
-        oauth_signature="k7hWVuKNsk8ZFeuBe94WmuZp56A%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1331398936", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="7b186ef6215490423bd6286fe88d8489",
+        oauth_signature="wLrzydfDg8ciMpEduKKsKmPxxng%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331400125", oauth_token="<USER_TOKEN>", oauth_version="1.0"
       accept-encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response: !ruby/struct:VCR::Response
@@ -1224,22 +1221,22 @@
     headers:
       !binary "ZGF0ZQ==":
       - !binary |-
-        U2F0LCAxMCBNYXIgMjAxMiAxNzowMjoxOCBHTVQ=
+        U2F0LCAxMCBNYXIgMjAxMiAxNzoyMjowNyBHTVQ=
       !binary "c3RhdHVz":
       - !binary |-
         MjAwIE9L
-      !binary "eC1ydW50aW1l":
+      !binary "cHJhZ21h":
       - !binary |-
-        MC4wNDkxMA==
-      !binary "eC1yYXRlbGltaXQtY2xhc3M=":
-      - !binary |-
-        YXBpX2lkZW50aWZpZWQ=
+        bm8tY2FjaGU=
       !binary "eC1yYXRlbGltaXQtcmVtYWluaW5n":
       - !binary |-
-        MzEz
-      !binary "ZXhwaXJlcw==":
+        Mjgz
+      !binary "eC1ydW50aW1l":
       - !binary |-
-        VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
+        MC4xMDc4MA==
+      !binary "eC1yYXRlbGltaXQtbGltaXQ=":
+      - !binary |-
+        MzUw
       !binary "eC1hY2Nlc3MtbGV2ZWw=":
       - !binary |-
         cmVhZC13cml0ZQ==
@@ -1248,47 +1245,47 @@
         U0FNRU9SSUdJTg==
       !binary "eC1taWQ=":
       - !binary |-
-        NTgxZWM4MzdiNDhjM2JlM2MxY2FmOGVhNjJmMDE5MTg0NjI5NTU3Ng==
-      !binary "eC10cmFuc2FjdGlvbg==":
-      - !binary |-
-        YjE2Njc0ODg1NDVkOGQyNQ==
-      !binary "eC1yZXZpc2lvbg==":
-      - !binary |-
-        REVW
-      !binary "eC10cmFuc2FjdGlvbi1tYXNr":
-      - !binary |-
-        YTYxODNmZmE1ZjhjYTk0M2ZmMWI1M2I1NjQ0ZWYxMTRlMmI2MTlmYQ==
-      !binary "bGFzdC1tb2RpZmllZA==":
-      - !binary |-
-        U2F0LCAxMCBNYXIgMjAxMiAxNzowMjoxOCBHTVQ=
-      !binary "eC1yYXRlbGltaXQtbGltaXQ=":
-      - !binary |-
-        MzUw
-      !binary "ZXRhZw==":
-      - !binary |-
-        ImNjYjA5MDFjNWM2NDA3ZWZmMmYwYjA5NjgwYmM5OTQ2Ig==
-      !binary "cHJhZ21h":
-      - !binary |-
-        bm8tY2FjaGU=
+        NWY5MDdjZDc0NDM1NGRjM2NlYTg3MDNlNjJlMWEzMWI2NjhiMDk5OQ==
       !binary "Y29udGVudC10eXBl":
       - !binary |-
         YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
-      !binary "eC1yYXRlbGltaXQtcmVzZXQ=":
+      !binary "ZXRhZw==":
       - !binary |-
-        MTMzMTQwMDc2OA==
+        ImNjYjA5MDFjNWM2NDA3ZWZmMmYwYjA5NjgwYmM5OTQ2Ig==
+      !binary "bGFzdC1tb2RpZmllZA==":
+      - !binary |-
+        U2F0LCAxMCBNYXIgMjAxMiAxNzoyMjowNiBHTVQ=
+      !binary "eC10cmFuc2FjdGlvbi1tYXNr":
+      - !binary |-
+        YTYxODNmZmE1ZjhjYTk0M2ZmMWI1M2I1NjQ0ZWYxMTRlMmI2MTlmYQ==
+      !binary "eC10cmFuc2FjdGlvbg==":
+      - !binary |-
+        NjYyNzk2ZDg4MmMzMjA0Ng==
       !binary "Y2FjaGUtY29udHJvbA==":
       - !binary |-
         bm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGUsIHByZS1jaGVj
         az0wLCBwb3N0LWNoZWNrPTA=
+      !binary "eC1yYXRlbGltaXQtcmVzZXQ=":
+      - !binary |-
+        MTMzMTQwMDc2OA==
+      !binary "eC1yZXZpc2lvbg==":
+      - !binary |-
+        REVW
+      !binary "ZXhwaXJlcw==":
+      - !binary |-
+        VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
+      !binary "eC1yYXRlbGltaXQtY2xhc3M=":
+      - !binary |-
+        YXBpX2lkZW50aWZpZWQ=
       !binary "c2V0LWNvb2tpZQ==":
       - !binary |-
-        az0xMC4zNS40OS4xMTMuMTMzMTM5ODkzODA5MTAzOTsgcGF0aD0vOyBleHBp
-        cmVzPVNhdCwgMTctTWFyLTEyIDE3OjAyOjE4IEdNVDsgZG9tYWluPS50d2l0
+        az0xMC4zNS4zMC4xMjMuMTMzMTQwMDEyNjk2MTgxMzsgcGF0aD0vOyBleHBp
+        cmVzPVNhdCwgMTctTWFyLTEyIDE3OjIyOjA2IEdNVDsgZG9tYWluPS50d2l0
         dGVyLmNvbQ==
       - !binary |-
-        Z3Vlc3RfaWQ9djElM0ExMzMxMzk4OTM4MDk1Mjg5Mjg7IGRvbWFpbj0udHdp
+        Z3Vlc3RfaWQ9djElM0ExMzMxNDAwMTI2OTY1NjY2NDM7IGRvbWFpbj0udHdp
         dHRlci5jb207IHBhdGg9LzsgZXhwaXJlcz1UdWUsIDExLU1hci0yMDE0IDA1
-        OjAyOjE4IEdNVA==
+        OjIyOjA2IEdNVA==
       - !binary |-
         ZG50PTsgZG9tYWluPS50d2l0dGVyLmNvbTsgcGF0aD0vOyBleHBpcmVzPVRo
         dSwgMDEtSmFuLTE5NzAgMDA6MDA6MDAgR01U
@@ -1298,12 +1295,12 @@
         dHdpZD11JTNENDU4Mjk4MjA1JTdDVE02NWxiSk5lZnVKczJJSlB0RjBza1Ul
         MkJLMFElM0Q7IGRvbWFpbj0udHdpdHRlci5jb207IHBhdGg9Lzsgc2VjdXJl
       - !binary |-
-        X3R3aXR0ZXJfc2Vzcz1CQWg3Q0RvUFkzSmxZWFJsWkY5aGRHd3JDUDJOaiUy
-        NTJGMDFBU0lLWm14aGMyaEpRem9uUVdOMGFXOXVRMjl1JTI1MEFkSEp2Ykd4
-        bGNqbzZSbXhoYzJnNk9rWnNZWE5vU0dGemFIc0FCam9LUUhWelpXUjdBRG9I
-        YVdRaUpUZ3glMjUwQVpqQTFabVkwT0dKbU1tUXpNV1k1WlRoa05HRmxZemt6
-        TkdKaVpqTTEtLTg1YTM0M2QyOGVhYjk1ZjQ0YThjNGY2NDMyNjdmZDNhNGZi
-        YTlhYTQ7IGRvbWFpbj0udHdpdHRlci5jb207IHBhdGg9LzsgSHR0cE9ubHk=
+        X3R3aXR0ZXJfc2Vzcz1CQWg3Q0RvUFkzSmxZWFJsWkY5aGRHd3JDQUt5b2Yw
+        MUFTSUtabXhoYzJoSlF6b25RV04wYVc5dVEyOXUlMjUwQWRISnZiR3hsY2pv
+        NlJteGhjMmc2T2tac1lYTm9TR0Z6YUhzQUJqb0tRSFZ6WldSN0FEb0hhV1Fp
+        SldOaCUyNTBBT1dGbE9UazRaRGc1WVRZek1UazFPVGMzWm1NeE9EVTBNV0kw
+        Tm1SbS0tYmNjNTgxNDc5Njc4NTkxZmFiYzcwYjNmNDVlZDUyMTY1ZmQ3ZWY1
+        MzsgZG9tYWluPS50d2l0dGVyLmNvbTsgcGF0aD0vOyBIdHRwT25seQ==
       !binary "dmFyeQ==":
       - !binary |-
         QWNjZXB0LUVuY29kaW5n

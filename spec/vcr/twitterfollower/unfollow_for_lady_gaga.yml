@@ -10,65 +10,64 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="2507cf0fd50c3bfe19e9043a4947ef49",
-        oauth_signature="SgVfG6ob7RkZ7kRO1BXizkUe3IM%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1331398925", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="fc793641cc34ffa36b97ec62483ef0cc",
+        oauth_signature="sKqD%2F%2BLYUKCDc9jahHEqRfy1OYE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331400223", oauth_token="<USER_TOKEN>", oauth_version="1.0"
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
     headers:
       date:
-      - Sat, 10 Mar 2012 17:02:07 GMT
+      - Sat, 10 Mar 2012 17:23:44 GMT
       status:
       - 200 OK
+      x-runtime:
+      - '0.23598'
       x-revision:
       - DEV
-      x-ratelimit-remaining:
-      - '318'
+      last-modified:
+      - Sat, 10 Mar 2012 17:23:44 GMT
+      content-type:
+      - application/json; charset=utf-8
       content-length:
       - '1176'
-      x-access-level:
-      - read-write
       expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
-      x-runtime:
-      - '0.28717'
+      x-ratelimit-reset:
+      - '1331401658'
+      x-frame-options:
+      - SAMEORIGIN
+      x-transaction:
+      - a4d21275f317cc48
+      etag:
+      - ! '"7ead9ff861b5204917d58b31661eb2f8"'
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
+      x-access-level:
+      - read-write
+      x-ratelimit-remaining:
+      - '307'
+      x-ratelimit-class:
+      - api_identified
+      x-ratelimit-limit:
+      - '350'
       pragma:
       - no-cache
       x-mid:
-      - 4f6820b70289980c2d8470d01367427a2c5180c9
-      x-transaction-mask:
-      - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
-      etag:
-      - ! '"7ead9ff861b5204917d58b31661eb2f8"'
-      x-frame-options:
-      - SAMEORIGIN
-      x-ratelimit-limit:
-      - '350'
-      x-transaction:
-      - 03c4df60882d4845
-      x-ratelimit-reset:
-      - '1331400768'
-      x-ratelimit-class:
-      - api_identified
-      content-type:
-      - application/json; charset=utf-8
-      last-modified:
-      - Sat, 10 Mar 2012 17:02:07 GMT
+      - 71c2e7a81dd434194fe48652b8983487204db6ee
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       set-cookie:
-      - k=10.35.21.120.1331398927583043; path=/; expires=Sat, 17-Mar-12 17:02:07 GMT;
+      - k=10.35.40.138.1331400224708212; path=/; expires=Sat, 17-Mar-12 17:23:44 GMT;
         domain=.twitter.com
-      - guest_id=v1%3A133139892758667363; domain=.twitter.com; path=/; expires=Tue,
-        11-Mar-2014 05:02:07 GMT
+      - guest_id=v1%3A133140022471110176; domain=.twitter.com; path=/; expires=Tue,
+        11-Mar-2014 05:23:44 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      - lang=sv; path=/
-      - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
+      - lang=en; path=/
+      - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
         path=/; secure
-      - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCPBkj%252F01ASIKZmxhc2hJQzonQWN0aW9uQ29u%250AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHaWQiJTQw%250AODk0NTI2NjA0YmZmMzI4Y2M3NDU3MWQwOTM2OTZjOgxjc3JmX2lkIiVmNWYz%250AODg0OTZkOTE5ZGY1Yjg3MTExMjg2Njg4MDgwYg%253D%253D--a67e3e9506b98e5334881da600e19665b1e132ca;
+      - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCNIvo%252F01AToHaWQiJTczZGUzZTZlZDY2MjE3%250AMzFjMDBmMDAwMjY2ZWI2NzQ0IgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVy%250AOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiVmNWFk%250AZjQyZTZiMzJjOTgyM2FlZDhiZDI1ZTQzMWE4NQ%253D%253D--550120ef6927109990c8e759b0b1c1a7467be3c3;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding

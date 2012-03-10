@@ -10,10 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="6a4e787ca7ef2e8d1413403dfc759892",
-        oauth_signature="x8onj%2B66fsgl4vLDguMX3g3YCkc%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1331398915", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="732b3cf05656f1ea95ea0ddd535086e8",
+        oauth_signature="59Ax9ioZxAskwbR%2BUbVQmXFtpsw%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331400064", oauth_token="<USER_TOKEN>", oauth_version="1.0"
       content-type:
       - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
@@ -22,47 +21,47 @@
       message: OK
     headers:
       date:
-      - Sat, 10 Mar 2012 17:01:58 GMT
+      - Sat, 10 Mar 2012 17:21:07 GMT
       status:
       - 200 OK
-      x-mid:
-      - ce23a9a82c6ca3dc6c76561dfca021356dcdccce
+      x-runtime:
+      - '0.59215'
+      x-transaction:
+      - 3117d7cc4af23d81
+      pragma:
+      - no-cache
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       x-transaction-mask:
       - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
-      x-transaction:
-      - 8bbfdb0bc54e1716
+      last-modified:
+      - Sat, 10 Mar 2012 17:21:06 GMT
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      content-type:
+      - application/json; charset=utf-8
+      x-access-level:
+      - read-write
+      x-mid:
+      - 5e79366314765f3538cc2ddf4f708ab7bd94b47a
+      x-revision:
+      - DEV
       content-length:
       - '1960'
       etag:
-      - ! '"11b961816a5fa3f1772f595ac02c78a2"'
-      x-runtime:
-      - '0.61049'
-      x-access-level:
-      - read-write
-      x-revision:
-      - DEV
-      expires:
-      - Tue, 31 Mar 1981 05:00:00 GMT
-      pragma:
-      - no-cache
+      - ! '"1260a2d7aad8d4e4d2f15ea3f75df586"'
       x-frame-options:
       - SAMEORIGIN
-      content-type:
-      - application/json; charset=utf-8
-      last-modified:
-      - Sat, 10 Mar 2012 17:01:58 GMT
-      cache-control:
-      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       set-cookie:
-      - k=10.35.21.120.1331398917995083; path=/; expires=Sat, 17-Mar-12 17:01:57 GMT;
+      - k=10.35.30.123.1331400066561582; path=/; expires=Sat, 17-Mar-12 17:21:06 GMT;
         domain=.twitter.com
-      - guest_id=v1%3A133139891799821898; domain=.twitter.com; path=/; expires=Tue,
-        11-Mar-2014 05:01:57 GMT
+      - guest_id=v1%3A133140006656562046; domain=.twitter.com; path=/; expires=Tue,
+        11-Mar-2014 05:21:06 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=sv; path=/
       - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
         path=/; secure
-      - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCH0%252Fj%252F01ASIKZmxhc2hJQzonQWN0aW9uQ29u%250AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHaWQiJTFi%250AMjliZjUyNGNkNzk4ZTYyZjI2ZWI1ZDE3YjhlNWU4Ogxjc3JmX2lkIiUwMjM0%250AMjA0MzYxOGY0ZWExOTEwMTRjODFiMzQ2NmNjNw%253D%253D--7e1cbd08e17acb61a65f0cf3f3019e395ed5b2d0;
+      - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCBLGoP01ASIKZmxhc2hJQzonQWN0aW9uQ29u%250AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHaWQiJTY3%250AM2FlZDZiZTE1NDkwMWM5NjAyNzZmYTJhYjFkMzBkOgxjc3JmX2lkIiUwNmZm%250ANzRlYmY5OTVhNTZkNjlkY2MwODdiYTA5ODkzOQ%253D%253D--1dfad2ddbcc5d507f50926862093bf59bab29307;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
@@ -71,10 +70,10 @@
     body: ! '{"id":14230524,"notifications":false,"profile_sidebar_fill_color":"DDFFCC","statuses_count":1300,"lang":"en","url":"http:\/\/www.ladygaga.com","time_zone":"Quito","created_at":"Wed
       Mar 26 22:37:48 +0000 2008","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/203383875\/Unnamed-1.jpg","utc_offset":-18000,"profile_background_color":"9AE4E8","default_profile":false,"name":"Lady
       Gaga","verified":true,"contributors_enabled":false,"profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/203383875\/Unnamed-1.jpg","location":"New
-      York, NY","protected":false,"geo_enabled":false,"profile_link_color":"0084B4","following":false,"listed_count":232751,"show_all_inline_media":false,"profile_use_background_image":true,"description":"mother
+      York, NY","protected":false,"geo_enabled":false,"profile_link_color":"0084B4","following":false,"listed_count":232750,"show_all_inline_media":false,"profile_use_background_image":true,"description":"mother
       mons\u2020er","friends_count":139611,"id_str":"14230524","profile_text_color":"333333","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1239447061\/Unnamed-1_normal.jpg","screen_name":"ladygaga","profile_sidebar_border_color":"BDDCAD","follow_request_sent":false,"default_profile_image":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1239447061\/Unnamed-1_normal.jpg","status":{"coordinates":null,"created_at":"Sat
-      Mar 10 06:39:37 +0000 2012","id_str":"178369500218007552","in_reply_to_status_id":null,"favorited":false,"geo":null,"truncated":false,"in_reply_to_status_id_str":null,"retweet_count":3027,"in_reply_to_user_id_str":null,"place":null,"retweeted":false,"source":"\u003Ca
+      Mar 10 06:39:37 +0000 2012","id_str":"178369500218007552","in_reply_to_status_id":null,"favorited":false,"geo":null,"truncated":false,"in_reply_to_status_id_str":null,"retweet_count":3488,"in_reply_to_user_id_str":null,"place":null,"retweeted":false,"source":"\u003Ca
       href=\"http:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003EMobile Web\u003C\/a\u003E","contributors":null,"id":178369500218007552,"in_reply_to_screen_name":null,"in_reply_to_user_id":null,"text":"Love
       getting my ass kicked in rehearsal. Everything hurts and I love it. Broke every
-      nail and tangled every hair this week. Bad to the Bone."},"is_translator":false,"followers_count":20480557,"favourites_count":2,"profile_background_tile":true}'
+      nail and tangled every hair this week. Bad to the Bone."},"is_translator":false,"followers_count":20481828,"favourites_count":2,"profile_background_tile":true}'
     http_version: '1.1'

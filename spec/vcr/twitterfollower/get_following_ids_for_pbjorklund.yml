@@ -10,10 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="2ff1164b644ea561f60099d9acc8334d",
-        oauth_signature="JGDXz82JLVHq4A7apT7QzsXWhIc%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1331398907", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="bb6b5fcb6a56fe50a447618a409aa26e",
+        oauth_signature="77DjdItO0N5WXr%2B%2B6OtmbUMG9S4%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331400056", oauth_token="<USER_TOKEN>", oauth_version="1.0"
       accept-encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response: !ruby/struct:VCR::Response
@@ -24,71 +23,71 @@
     headers:
       !binary "ZGF0ZQ==":
       - !binary |-
-        U2F0LCAxMCBNYXIgMjAxMiAxNzowMTo0OSBHTVQ=
+        U2F0LCAxMCBNYXIgMjAxMiAxNzoyMDo1OCBHTVQ=
       !binary "c3RhdHVz":
       - !binary |-
         MjAwIE9L
-      !binary "eC1hY2Nlc3MtbGV2ZWw=":
-      - !binary |-
-        cmVhZC13cml0ZQ==
-      !binary "eC1taWQ=":
-      - !binary |-
-        MjQ0YzdkOGJkOWVjNjdkZTRhMWE3OWQ0YmZlNzM0OTQ3MTk1YWY3Nw==
-      !binary "eC1yYXRlbGltaXQtcmVtYWluaW5n":
-      - !binary |-
-        MzIz
-      !binary "ZXRhZw==":
-      - !binary |-
-        ImE1MjE4NTQxZmEwODgyOTBmMzVmMWY3ZGNiZGI5OTlmIg==
       !binary "eC10cmFuc2FjdGlvbi1tYXNr":
       - !binary |-
         YTYxODNmZmE1ZjhjYTk0M2ZmMWI1M2I1NjQ0ZWYxMTRlMmI2MTlmYQ==
-      !binary "eC10cmFuc2FjdGlvbg==":
+      !binary "Y2FjaGUtY29udHJvbA==":
       - !binary |-
-        NDFlNmJhNTIzYmMzYTU1NQ==
+        bm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGUsIHByZS1jaGVj
+        az0wLCBwb3N0LWNoZWNrPTA=
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "ZXRhZw==":
+      - !binary |-
+        ImE1MjE4NTQxZmEwODgyOTBmMzVmMWY3ZGNiZGI5OTlmIg==
+      !binary "bGFzdC1tb2RpZmllZA==":
+      - !binary |-
+        U2F0LCAxMCBNYXIgMjAxMiAxNzoyMDo1OCBHTVQ=
+      !binary "eC1yYXRlbGltaXQtcmVtYWluaW5n":
+      - !binary |-
+        Mjk0
+      !binary "eC1mcmFtZS1vcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "eC1hY2Nlc3MtbGV2ZWw=":
+      - !binary |-
+        cmVhZC13cml0ZQ==
+      !binary "cHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "eC1ydW50aW1l":
+      - !binary |-
+        MC4wNDI0MA==
+      !binary "eC1taWQ=":
+      - !binary |-
+        YmQ3NzYxYjM1NzM2ZWE4ZWZhYTYzZjlkNTkxY2MyNTcwOTkyOWM5Yg==
+      !binary "eC1yZXZpc2lvbg==":
+      - !binary |-
+        REVW
       !binary "ZXhwaXJlcw==":
       - !binary |-
         VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
       !binary "eC1yYXRlbGltaXQtcmVzZXQ=":
       - !binary |-
         MTMzMTQwMDc2OA==
-      !binary "cHJhZ21h":
+      !binary "eC10cmFuc2FjdGlvbg==":
       - !binary |-
-        bm8tY2FjaGU=
-      !binary "eC1yYXRlbGltaXQtbGltaXQ=":
-      - !binary |-
-        MzUw
-      !binary "eC1ydW50aW1l":
-      - !binary |-
-        MC4wMjc2MQ==
-      !binary "eC1mcmFtZS1vcHRpb25z":
-      - !binary |-
-        U0FNRU9SSUdJTg==
+        M2UyMzAwZTY2YTNkODEyOQ==
       !binary "eC1yYXRlbGltaXQtY2xhc3M=":
       - !binary |-
         YXBpX2lkZW50aWZpZWQ=
-      !binary "bGFzdC1tb2RpZmllZA==":
+      !binary "eC1yYXRlbGltaXQtbGltaXQ=":
       - !binary |-
-        U2F0LCAxMCBNYXIgMjAxMiAxNzowMTo0OSBHTVQ=
-      !binary "Y29udGVudC10eXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
-      !binary "Y2FjaGUtY29udHJvbA==":
-      - !binary |-
-        bm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGUsIHByZS1jaGVj
-        az0wLCBwb3N0LWNoZWNrPTA=
-      !binary "eC1yZXZpc2lvbg==":
-      - !binary |-
-        REVW
+        MzUw
       !binary "c2V0LWNvb2tpZQ==":
       - !binary |-
-        az0xMC4zNS4yMS4xMjAuMTMzMTM5ODkwOTAxODMyNjsgcGF0aD0vOyBleHBp
-        cmVzPVNhdCwgMTctTWFyLTEyIDE3OjAxOjQ5IEdNVDsgZG9tYWluPS50d2l0
+        az0xMC4zNS4zMC4xMjMuMTMzMTQwMDA1ODE1Njc5NTsgcGF0aD0vOyBleHBp
+        cmVzPVNhdCwgMTctTWFyLTEyIDE3OjIwOjU4IEdNVDsgZG9tYWluPS50d2l0
         dGVyLmNvbQ==
       - !binary |-
-        Z3Vlc3RfaWQ9djElM0ExMzMxMzk4OTA5MDIxMjMwOTsgZG9tYWluPS50d2l0
-        dGVyLmNvbTsgcGF0aD0vOyBleHBpcmVzPVR1ZSwgMTEtTWFyLTIwMTQgMDU6
-        MDE6NDkgR01U
+        Z3Vlc3RfaWQ9djElM0ExMzMxNDAwMDU4MTYxNjk0MDU7IGRvbWFpbj0udHdp
+        dHRlci5jb207IHBhdGg9LzsgZXhwaXJlcz1UdWUsIDExLU1hci0yMDE0IDA1
+        OjIwOjU4IEdNVA==
       - !binary |-
         ZG50PTsgZG9tYWluPS50d2l0dGVyLmNvbTsgcGF0aD0vOyBleHBpcmVzPVRo
         dSwgMDEtSmFuLTE5NzAgMDA6MDA6MDAgR01U
@@ -98,12 +97,12 @@
         dHdpZD11JTNENDU4Mjk4MjA1JTdDVE02NWxiSk5lZnVKczJJSlB0RjBza1Ul
         MkJLMFElM0Q7IGRvbWFpbj0udHdpdHRlci5jb207IHBhdGg9Lzsgc2VjdXJl
       - !binary |-
-        X3R3aXR0ZXJfc2Vzcz1CQWg3Q0RvUFkzSmxZWFJsWkY5aGRHd3JDR2djaiUy
-        NTJGMDFBVG9IYVdRaUpUUXpaR1l5TmpneE1XTXdaVFExJTI1MEFaamRsT1RF
-        d05UTTNNamxpTmpFMk1qSXpJZ3BtYkdGemFFbERPaWRCWTNScGIyNURiMjUw
-        Y205c2JHVnklMjUwQU9qcEdiR0Z6YURvNlJteGhjMmhJWVhOb2V3QUdPZ3BB
-        ZFhObFpIc0EtLWUzNTcwMzgyNjYzYjZmZmNiN2Q4MGQyZjdiOTdhMjZmNTQ2
-        NDlmZTE7IGRvbWFpbj0udHdpdHRlci5jb207IHBhdGg9LzsgSHR0cE9ubHk=
+        X3R3aXR0ZXJfc2Vzcz1CQWg3Q0RvUFkzSmxZWFJsWkY5aGRHd3JDRCUyNTJC
+        bG9QMDFBU0lLWm14aGMyaEpRem9uUVdOMGFXOXVRMjl1JTI1MEFkSEp2Ykd4
+        bGNqbzZSbXhoYzJnNk9rWnNZWE5vU0dGemFIc0FCam9LUUhWelpXUjdBRG9I
+        YVdRaUpUbGglMjUwQVpUTXdNbVUyTURjek1HSXdOakUwTUdRMU5Ea3pPVGd4
+        WldFell6WmwtLTc5NGRmNTFjN2FjMGU4MWE4OTJmNzA5YmU0ZDMzYmM3NTM4
+        MjFkODg7IGRvbWFpbj0udHdpdHRlci5jb207IHBhdGg9LzsgSHR0cE9ubHk=
       !binary "dmFyeQ==":
       - !binary |-
         QWNjZXB0LUVuY29kaW5n

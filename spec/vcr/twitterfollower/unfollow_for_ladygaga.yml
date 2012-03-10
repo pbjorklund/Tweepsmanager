@@ -10,65 +10,64 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="d5a41bb45c7e916bf892a53cdbf6b4d8",
-        oauth_signature="Mr8Qc0bKS0e7tQXaQmgXyHE0A4U%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1331398923", oauth_token="458298205-Pm0TQtBrKOI2aHOT0AXKQEP5JZzyWngSmNunXHzc",
-        oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="ece3d7a7a4858bc0a131a35bd6cd33b4",
+        oauth_signature="xbbWIED2MBggf4XRnc%2FOXjoEntI%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331400071", oauth_token="<USER_TOKEN>", oauth_version="1.0"
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
     headers:
       date:
-      - Sat, 10 Mar 2012 17:02:04 GMT
+      - Sat, 10 Mar 2012 17:21:13 GMT
       status:
       - 200 OK
-      x-transaction:
-      - e307c2a30682372d
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
+      x-ratelimit-reset:
+      - '1331400768'
+      x-access-level:
+      - read-write
+      x-ratelimit-class:
+      - api_identified
+      x-runtime:
+      - '0.31007'
+      last-modified:
+      - Sat, 10 Mar 2012 17:21:13 GMT
       content-length:
       - '1959'
       x-frame-options:
       - SAMEORIGIN
-      expires:
-      - Tue, 31 Mar 1981 05:00:00 GMT
-      x-ratelimit-reset:
-      - '1331400768'
-      content-type:
-      - application/json; charset=utf-8
-      etag:
-      - ! '"060a0972c627b6a166bf1400980c610b"'
       x-mid:
-      - ce58b9c56e4eb6a4d0cd0955dd4f508374179ee7
-      x-runtime:
-      - '0.35389'
-      x-revision:
-      - DEV
-      x-ratelimit-remaining:
-      - '319'
-      x-transaction-mask:
-      - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
-      cache-control:
-      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      x-access-level:
-      - read-write
-      last-modified:
-      - Sat, 10 Mar 2012 17:02:04 GMT
-      x-ratelimit-class:
-      - api_identified
-      pragma:
-      - no-cache
+      - 3513d06a66ca6906dba655d52dd42190d068da17
+      x-transaction:
+      - b9aa01c6176aca8d
+      etag:
+      - ! '"1d1f31b100129ee0d583043b818019b5"'
       x-ratelimit-limit:
       - '350'
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      content-type:
+      - application/json; charset=utf-8
+      x-ratelimit-remaining:
+      - '290'
+      x-revision:
+      - DEV
+      pragma:
+      - no-cache
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
       set-cookie:
-      - k=10.35.21.120.1331398924584660; path=/; expires=Sat, 17-Mar-12 17:02:04 GMT;
+      - k=10.35.30.123.1331400073006639; path=/; expires=Sat, 17-Mar-12 17:21:13 GMT;
         domain=.twitter.com
-      - guest_id=v1%3A133139892458984729; domain=.twitter.com; path=/; expires=Tue,
-        11-Mar-2014 05:02:04 GMT
+      - guest_id=v1%3A13314000730105486; domain=.twitter.com; path=/; expires=Tue,
+        11-Mar-2014 05:21:13 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=sv; path=/
       - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
         path=/; secure
-      - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCD5Zj%252F01AToHaWQiJTA3YWQwOGMwMjY1ZjYw%250AOTRhNzcyYmYzOTMxYTM4YjNmOgxjc3JmX2lkIiVlNDM4YTA3YWVhYjc5Mjli%250ANmI1ZmU1MzNjOTg2MmUyMyIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%250ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%253D%253D--836dde548bd892e62321bc100445333d1d6c1738;
+      - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCD%252FfoP01AToHaWQiJTNiNWI4YzgwYjUyMWVi%250AYWE4Njc4MTAyMjZlMGNkMzhkOgxjc3JmX2lkIiViYmYwZDg1NzhhYWM4MjQ5%250AY2E1ZTBhN2RlNjIyNGYxYyIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%250ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%253D%253D--194b3f19db0563c2458bd39d53329e573e03e506;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
@@ -77,10 +76,10 @@
     body: ! '{"id":14230524,"notifications":false,"profile_sidebar_fill_color":"DDFFCC","statuses_count":1300,"lang":"en","url":"http:\/\/www.ladygaga.com","time_zone":"Quito","created_at":"Wed
       Mar 26 22:37:48 +0000 2008","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/203383875\/Unnamed-1.jpg","utc_offset":-18000,"profile_background_color":"9AE4E8","default_profile":false,"name":"Lady
       Gaga","verified":true,"contributors_enabled":false,"profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/203383875\/Unnamed-1.jpg","location":"New
-      York, NY","protected":false,"geo_enabled":false,"profile_link_color":"0084B4","following":true,"listed_count":232753,"show_all_inline_media":false,"profile_use_background_image":true,"description":"mother
+      York, NY","protected":false,"geo_enabled":false,"profile_link_color":"0084B4","following":true,"listed_count":232751,"show_all_inline_media":false,"profile_use_background_image":true,"description":"mother
       mons\u2020er","friends_count":139611,"id_str":"14230524","profile_text_color":"333333","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1239447061\/Unnamed-1_normal.jpg","screen_name":"ladygaga","profile_sidebar_border_color":"BDDCAD","follow_request_sent":false,"default_profile_image":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1239447061\/Unnamed-1_normal.jpg","status":{"coordinates":null,"created_at":"Sat
-      Mar 10 06:39:37 +0000 2012","id_str":"178369500218007552","in_reply_to_status_id":null,"favorited":false,"geo":null,"truncated":false,"in_reply_to_status_id_str":null,"retweet_count":3027,"in_reply_to_user_id_str":null,"place":null,"retweeted":false,"source":"\u003Ca
+      Mar 10 06:39:37 +0000 2012","id_str":"178369500218007552","in_reply_to_status_id":null,"favorited":false,"geo":null,"truncated":false,"in_reply_to_status_id_str":null,"retweet_count":3480,"in_reply_to_user_id_str":null,"place":null,"retweeted":false,"source":"\u003Ca
       href=\"http:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003EMobile Web\u003C\/a\u003E","contributors":null,"id":178369500218007552,"in_reply_to_screen_name":null,"in_reply_to_user_id":null,"text":"Love
       getting my ass kicked in rehearsal. Everything hurts and I love it. Broke every
-      nail and tangled every hair this week. Bad to the Bone."},"is_translator":false,"followers_count":20480524,"favourites_count":2,"profile_background_tile":true}'
+      nail and tangled every hair this week. Bad to the Bone."},"is_translator":false,"followers_count":20481804,"favourites_count":2,"profile_background_tile":true}'
     http_version: '1.1'
