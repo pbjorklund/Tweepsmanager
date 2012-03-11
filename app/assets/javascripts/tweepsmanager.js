@@ -3,11 +3,6 @@ $(document).ready(function () {
   $('.dropdown-toggle').dropdown();
 });
 
-function initPopover() {
-  $("a[rel=popover]").popover({ offset: 10, live: true, placement: "bottom" });
-  $("span[rel=popover]").popover({ offset: 10, live: true, placement: "bottom" });
-}
-
 //Google analytics
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-28190889-2']);
@@ -32,7 +27,7 @@ function loadUsers(path, user, page) {
     }
   }
 
-  $("#user-table").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
+  $("#main").html('<div class="hero-unit"> <h1 id="loading">Loading users...</h1> </div>');
   $('input[type=button]').attr('disabled', true);
   loadUserRequest = $.ajax({
     url: path,

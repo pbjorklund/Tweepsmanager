@@ -12,7 +12,7 @@ Given /^I am on the "([^"]*)" page$/ do |target_page|
     visit "/#{target_page}"
 
     wait_until do
-      find(:xpath, '//table/tbody/tr/td/a')
+      find(:css, 'div.caption')
     end
   end
 end
@@ -32,7 +32,7 @@ When /^I click "([^"]*)" on a page with a user table$/ do |link|
   VCR.use_cassette("#{link}") do
     click_link link
 
-    wait_until { has_css?(".user-row") }
+    wait_until { has_css?(".row") }
   end
 end
 
@@ -43,7 +43,7 @@ When /^I click "([^"]*)"$/ do |link|
 end
 
 Then /^I should see a list of users$/ do
-  page.should have_xpath('//table/tbody/tr/td/a')
+  page.should have_css('div.caption')
 end
 
 Then /^I should see "([^"]*)"$/ do |message|
