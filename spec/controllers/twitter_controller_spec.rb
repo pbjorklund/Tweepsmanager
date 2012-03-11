@@ -21,17 +21,12 @@ describe TwitterController do
     end
 
     it "renders error partial on twitter exceptions with js response" do
-      controller.send(:twitter).
-        stub(:get_follower_ids).
-        and_raise(Twitter::Error::NotFound.new("Not found:", {}))
-
-      controller.send(:twitter).
-        stub(:get_api_status).
-        and_return("ok")
+      @twitter.stub(:get_follower_ids).and_raise(Twitter::Error::NotFound.new("Not found", {}))
+      @twitter.stub(:get_api_status).and_return("ok")
 
       get 'followers', format: :js 
-      assigns[:error].should == "Not found:"
-      response.should render_template("shared/error", format: :js)
+      assigns[:error].should_not be_blank
+      response.should render_template("shared/error")
     end
   end
 
@@ -50,45 +45,36 @@ describe TwitterController do
   end
 
   describe "POST 'unfollow'" do
-    subject do
-      @request.env['HTTP_REFERER'] = '/followers'
-      post 'unfollow', id: "existing_user"
-    end
-
     it "unfollows a user when given a nickname" do
       @twitter.should_receive(:unfollow).once
-      subject
-      response.should redirect_to followers_path
+      post 'unfollow', id: "existing_user", format: :js
+      response.should be_success
     end
 
-    it "does not unfollow a user that does not exist" do
+    it "renders the error screen when exceptions are caught" do
       @twitter.stub(:unfollow).and_raise(Twitter::Error::NotFound.new("Not found:", {}))
-      @twitter.should_receive(:unfollow).once
-      subject
-      flash[:error].should have_content("Not found:")
-      response.should redirect_to followers_path
+      @twitter.stub(:get_api_status).and_return("ok")
+
+      post 'unfollow', id: "existing_user", format: :js
+      assigns[:error].should_not be_blank
+      response.should render_template("shared/error")
     end
   end
 
   describe "POST 'follow'" do
-    subject do
-      @request.env['HTTP_REFERER'] = '/followers'
-      post 'follow', id: "tweepsmanager"
-    end
-
     it "follows a user when given a nickname" do
-      subject
-      flash[:notice].should_not be_nil
-      response.should redirect_to followers_path
+      @twitter.should_receive(:follow).once
+      post 'follow', id: "existing_user", format: :js
+      response.should be_success
     end
 
-    it "does not follow a user that does not exist" do
-      controller.send(:twitter).stub(:follow).and_raise(Twitter::Error::NotFound.new("Not found:", {}))
-      subject
+    it "renders the error screen when exceptions are caught" do
+      @twitter.stub(:follow).and_raise(Twitter::Error::NotFound.new("Not found:", {}))
+      @twitter.stub(:get_api_status).and_return("ok")
 
-      flash[:error].should_not be_nil
-      flash[:error].should have_content("Not found:")
-      response.should redirect_to followers_path
+      post 'follow', id: "existing_user", format: :js
+      assigns[:error].should_not be_blank
+      response.should render_template("shared/error")
     end
   end
 end
