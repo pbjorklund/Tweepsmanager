@@ -12,8 +12,8 @@
 #img-profile {
 	width:47px;
   max-width: none;
-	padding:0px;
-	margin:0px;
+  float:left; 
+  margin: 0 15px 15px 0;
 }
 
 #fixed-btn {
@@ -30,6 +30,7 @@
   text-align: center;
 }
 
+/* TODO Should be class */
 #center {
   text-align: center;
 }
@@ -41,4 +42,8 @@ footer{
 	padding-top:10px;
   margin-top:100px;
 	text-align:center;
+}
+
+form {
+  margin: 0 0 0px;
 }

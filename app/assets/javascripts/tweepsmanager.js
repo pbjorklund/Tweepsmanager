@@ -4,11 +4,8 @@ $(document).ready(function () {
 });
 
 function initPopover() {
-  $("a[rel=popover]").
-    popover({ offset: 10, live: true }).
-    click(function (e) {
-      e.preventDefault();
-    });
+  $("a[rel=popover]").popover({ offset: 10, live: true, placement: "bottom" });
+  $("span[rel=popover]").popover({ offset: 10, live: true, placement: "bottom" });
 }
 
 //Google analytics
