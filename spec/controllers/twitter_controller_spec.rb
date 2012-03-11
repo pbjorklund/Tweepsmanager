@@ -19,6 +19,20 @@ describe TwitterController do
       get 'followers'
       response.should be_success
     end
+
+    it "renders error partial on twitter exceptions with js response" do
+      controller.send(:twitter).
+        stub(:get_follower_ids).
+        and_raise(Twitter::Error::NotFound.new("Not found:", {}))
+
+      controller.send(:twitter).
+        stub(:get_api_status).
+        and_return("ok")
+
+      get 'followers', format: :js 
+      assigns[:error].should == "Not found:"
+      response.should render_template("shared/error", format: :js)
+    end
   end
 
   describe "GET 'following'" do
@@ -48,7 +62,7 @@ describe TwitterController do
     end
 
     it "does not unfollow a user that does not exist" do
-      @twitter.stub(:unfollow).and_raise(Twitter::Error::NotFound.new("", {}))
+      @twitter.stub(:unfollow).and_raise(Twitter::Error::NotFound.new("Not found:", {}))
       @twitter.should_receive(:unfollow).once
       subject
       flash[:error].should have_content("Not found:")
@@ -69,7 +83,7 @@ describe TwitterController do
     end
 
     it "does not follow a user that does not exist" do
-      controller.send(:twitter).stub(:follow).and_raise(Twitter::Error::NotFound.new("", {}))
+      controller.send(:twitter).stub(:follow).and_raise(Twitter::Error::NotFound.new("Not found:", {}))
       subject
 
       flash[:error].should_not be_nil

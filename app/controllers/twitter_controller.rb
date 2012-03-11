@@ -5,16 +5,11 @@ class TwitterController < ApplicationController
     respond_to do |format|
       format.html { render "shared/users" }
       format.js do
-        begin
+        render_error_on_twitter_rescue do
           follower_ids = twitter.get_follower_ids params[:user]
           @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
           @pages = follower_ids.count / 100
           render "shared/users"  
-        rescue Twitter::Error => e
-          @api_status = twitter.get_api_status
-          binding.pry
-          @error = e.message
-          render "shared/error"
         end
       end
     end
@@ -24,10 +19,12 @@ class TwitterController < ApplicationController
     respond_to do |format|
       format.html { render "shared/users" }
       format.js do 
-        follower_ids = twitter.get_following_ids params[:user]
-        @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
-        @pages = follower_ids.count / 100
-        render "shared/users"  
+        render_error_on_twitter_rescue do
+          follower_ids = twitter.get_following_ids params[:user]
+          @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
+          @pages = follower_ids.count / 100
+          render "shared/users"  
+        end
       end
     end
   end
@@ -36,10 +33,12 @@ class TwitterController < ApplicationController
     respond_to do |format|
       format.html { render "shared/users" }
       format.js do 
-        follower_ids = twitter.get_not_following_back_ids params[:user]
-        @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
-        @pages = follower_ids.count / 100
-        render "shared/users"  
+        render_error_on_twitter_rescue do
+          follower_ids = twitter.get_not_following_back_ids params[:user]
+          @users = twitter.get_users_for_page follower_ids, (params[:page] || 0)
+          @pages = follower_ids.count / 100
+          render "shared/users"  
+        end
       end
     end
   end
@@ -76,15 +75,21 @@ class TwitterController < ApplicationController
     end
   end
 
-  def rescue_twitter_exceptions(&action)
+  def render_error_on_twitter_rescue &block
     begin
       yield
-    rescue Twitter::Error::NotFound => nf
-      redirect_to :back, :flash => { error: "Not found:" + nf.message }
-    rescue Twitter::Error::Forbidden => f
-      redirect_to :back, :flash => { error: f.message }
-    rescue Twitter::Error::ServiceUnavailable => ua
-      redirect_to :back, :flash => { error: ua.message }
+    rescue Twitter::Error => e
+      @api_status = twitter.get_api_status
+      @error = e.message
+      render "shared/error"
+    end
+  end
+
+  def rescue_twitter_exceptions &block
+    begin
+      yield
+    rescue Twitter::Error => e
+      redirect_to :back, :flash => { error: e.message }
     end
   end
 end
