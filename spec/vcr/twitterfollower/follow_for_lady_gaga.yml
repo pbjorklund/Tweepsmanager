@@ -10,9 +10,9 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="ccd44740c20e11c7ce8a408eb968ecd2",
-        oauth_signature="nYF5syQff1xOZ0HevTjdxv7QEOY%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1331400067", oauth_token="<USER_TOKEN>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="2761d30c8aa3c312fc8a51a786748030",
+        oauth_signature="vPa2AFBiYGljCerI2MUxoML3h0A%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331886472", oauth_token="<USER_TOKEN>", oauth_version="1.0"
       content-type:
       - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
@@ -21,50 +21,47 @@
       message: Forbidden
     headers:
       date:
-      - Sat, 10 Mar 2012 17:21:09 GMT
+      - Fri, 16 Mar 2012 08:27:55 GMT
       status:
       - 403 Forbidden
-      x-runtime:
-      - '0.02663'
-      x-transaction-mask:
-      - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
       expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
-      x-frame-options:
-      - SAMEORIGIN
-      x-revision:
-      - DEV
-      x-mid:
-      - eb5388badfd17ef5e83f0d2803a7092a3a00a8d1
+      x-runtime:
+      - '0.02627'
       content-type:
       - application/json; charset=utf-8
       content-length:
-      - '128'
-      pragma:
-      - no-cache
+      - '116'
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114fd7b66ab
+      x-mid:
+      - 0e2432d7b4ddbe51a7b5468adcdad83ea1dead01
       last-modified:
-      - Sat, 10 Mar 2012 17:21:09 GMT
+      - Fri, 16 Mar 2012 08:27:55 GMT
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-frame-options:
+      - SAMEORIGIN
+      pragma:
+      - no-cache
       x-access-level:
       - read-write
       x-transaction:
-      - 480906c766088b9e
+      - 2a73808e8a2b8540
       set-cookie:
-      - k=10.35.30.123.1331400069051851; path=/; expires=Sat, 17-Mar-12 17:21:09 GMT;
-        domain=.twitter.com
-      - guest_id=v1%3A133140006905529650; domain=.twitter.com; path=/; expires=Tue,
-        11-Mar-2014 05:21:09 GMT
+      - k=10.34.127.108.1331886475073731; path=/; expires=Fri, 23-Mar-12 08:27:55
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A133188647507752070; domain=.twitter.com; path=/; expires=Sun,
+        16-Mar-2014 20:27:55 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      - lang=sv; path=/
-      - twid=u%3D458298205%7CTM65lbJNefuJs2IJPtF0skU%2BK0Q%3D; domain=.twitter.com;
+      - lang=en; path=/
+      - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
         path=/; secure
-      - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCMnPoP01ASIKZmxhc2hJQzonQWN0aW9uQ29u%250AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHaWQiJWEx%250AYjI1NTYwM2IzYzEyNzc3NGIzYTc0NzkxMzgxODNmOgxjc3JmX2lkIiVmOTE5%250AMjlhNmI0ZjY4MWE0ZjVjZTBiNDBhMjE3ZmY1Nw%253D%253D--55603f63ca3ee34b2dfb32063c4b21707d6d14bc;
+      - _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNzZhZmJhMWZkYTJhYmFmMzFh%250AMDdmMGNhYjY5OTc3ZWU6D2NyZWF0ZWRfYXRsKwhQx54aNgE6B2lkIiU5ZWY0%250AMzFkN2ExMjI1NzRhYzNlZGIzMjRlNzlmYTliMw%253D%253D--420af250b1477bc10d52745c4bc646e72b030669;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
       server:
       - tfe
-    body: ! '{"error":"Could not follow user: Tyv\u00e4rr, detta kontot har blivit
-      avst\u00e4ngt.","request":"\/1\/friendships\/create.json"}'
+    body: ! '{"error":"Could not follow user: Sorry, this account has been suspended.","request":"\/1\/friendships\/create.json"}'
     http_version: '1.1'

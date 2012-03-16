@@ -39,7 +39,6 @@ function loadUsers(path, user, page) {
                     $(".hero-unit").html("<h1 id=\"loading\">Could not load users</h1>");
                   },
                   success: function () {
-                    initPopover();
                   }
   });
 }

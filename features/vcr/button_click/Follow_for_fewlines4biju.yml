@@ -1,8 +1,8 @@
 ---
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
-    method: :delete
-    uri: https://api.twitter.com:443/1/friendships/destroy.json?screen_name=fewlines4biju
+    method: :post
+    uri: https://api.twitter.com:443/1/friendships/create.json
     body: 
     headers:
       accept:
@@ -10,76 +10,66 @@
       user-agent:
       - Twitter Ruby Gem 2.1.0
       authorization:
-      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="f8017ee7bc4cac5cfbb92f1f8a7031b0",
-        oauth_signature="20Z06U%2BDI6PNHS3AKWz8Zb8Ba5A%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1331398807", oauth_token="<USER_TOKEN>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<CONSUMER_KEY>", oauth_nonce="020648ab4430f50d2666d96a8ab0abba",
+        oauth_signature="13bdH192fjyDIXRDJSDK99HFm%2Fk%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1331886878", oauth_token="<USER_TOKEN>", oauth_version="1.0"
+      content-type:
+      - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
     headers:
       date:
-      - Sat, 10 Mar 2012 17:00:09 GMT
+      - Fri, 16 Mar 2012 08:34:41 GMT
       status:
       - 200 OK
-      x-revision:
-      - DEV
-      pragma:
-      - no-cache
+      content-length:
+      - '2020'
       x-runtime:
-      - '0.46008'
-      x-transaction:
-      - cbc28b17ea53a75f
-      x-access-level:
-      - read-write
-      x-ratelimit-reset:
-      - '1331401658'
-      x-ratelimit-class:
-      - api_identified
+      - '0.38591'
       cache-control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-length:
-      - '2072'
-      x-ratelimit-remaining:
-      - '325'
-      etag:
-      - ! '"a5e86000fbe53f12198eca8bfa8e0efb"'
-      x-ratelimit-limit:
-      - '350'
-      expires:
-      - Tue, 31 Mar 1981 05:00:00 GMT
-      content-type:
-      - application/json; charset=utf-8
       x-mid:
-      - 629c554ad4e206a947a30a8f22e96650a6ae8add
-      x-transaction-mask:
-      - a6183ffa5f8ca943ff1b53b5644ef114e2b619fa
+      - 72a91b643385c372a7225d3056daf1341df150cd
+      pragma:
+      - no-cache
       x-frame-options:
       - SAMEORIGIN
+      etag:
+      - ! '"e4a892d41849c5666cd7e0f69bf3e30f"'
+      x-access-level:
+      - read-write
+      x-transaction:
+      - 3c745dd028c9cbad
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
       last-modified:
-      - Sat, 10 Mar 2012 17:00:09 GMT
+      - Fri, 16 Mar 2012 08:34:41 GMT
+      content-type:
+      - application/json; charset=utf-8
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114fd7b66ab
       set-cookie:
-      - k=10.35.21.120.1331398809079414; path=/; expires=Sat, 17-Mar-12 17:00:09 GMT;
-        domain=.twitter.com
-      - guest_id=v1%3A133139880908359327; domain=.twitter.com; path=/; expires=Tue,
-        11-Mar-2014 05:00:09 GMT
+      - k=10.34.253.111.1331886881201601; path=/; expires=Fri, 23-Mar-12 08:34:41
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A133188688120567017; domain=.twitter.com; path=/; expires=Sun,
+        16-Mar-2014 20:34:41 GMT
       - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=en; path=/
       - twid=u%3D19505451%7CwQJeAzkJd8gEmh%2BfieUdKs7WDEM%3D; domain=.twitter.com;
         path=/; secure
-      - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCAiWjf01ASIKZmxhc2hJQzonQWN0aW9uQ29u%250AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHaWQiJTE1%250AM2VkMTI1MjMwYjUyNTI0YTIyMjEzNTcyY2ZkOGYxOgxjc3JmX2lkIiVjNWFi%250ANGI5MjU4YzM5MzdjODkwMGNjY2Q5ZGMzZGZkOA%253D%253D--771624d1b9e9b99db353a1fec8699122cb4ed4ff;
+      - _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNTY0MzdiYjlkYWIxNGJjMmIy%250AYzVmNTQyODQ1MTAzN2M6D2NyZWF0ZWRfYXRsKwjE%252BaQaNgE6B2lkIiU2MTE0%250ANDM2ZDc4MGYxNGQwY2VmZmIwMDU1NjEwZGZkMg%253D%253D--e5ff47051ba498b747e88f7d14c7e992aaf4e183;
         domain=.twitter.com; path=/; HttpOnly
       vary:
       - Accept-Encoding
       server:
       - tfe
-    body: ! '{"id":71723271,"notifications":false,"profile_sidebar_fill_color":"FFF7CC","statuses_count":3018,"lang":"en","url":"http:\/\/www.fewlines4biju.com","time_zone":"New
-      Delhi","created_at":"Sat Sep 05 04:10:06 +0000 2009","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/387310063\/Fewlines4biju-Twitter.png","utc_offset":19800,"profile_background_color":"BADFCD","default_profile":false,"name":"Bijay
-      Kumar","verified":false,"contributors_enabled":false,"profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/387310063\/Fewlines4biju-Twitter.png","location":"@HP
-      Bangalore","protected":false,"geo_enabled":false,"profile_link_color":"FF0000","following":false,"listed_count":13,"show_all_inline_media":false,"profile_use_background_image":true,"description":"A
-      SharePoint Consultant, Blogger & MCTS in SharePoint ...","friends_count":1280,"id_str":"71723271","profile_text_color":"0C3E53","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1496072930\/Biju_normal.png","screen_name":"fewlines4biju","profile_sidebar_border_color":"F2E195","follow_request_sent":false,"default_profile_image":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1496072930\/Biju_normal.png","status":{"coordinates":null,"created_at":"Fri
-      Mar 09 12:28:38 +0000 2012","id_str":"178094944005787648","in_reply_to_status_id":null,"favorited":false,"possibly_sensitive_editable":true,"possibly_sensitive":false,"geo":null,"truncated":false,"in_reply_to_status_id_str":null,"retweet_count":0,"in_reply_to_user_id_str":null,"place":null,"retweeted":false,"source":"\u003Ca
-      href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E","contributors":null,"id":178094944005787648,"in_reply_to_screen_name":null,"in_reply_to_user_id":null,"text":"Error
-      occurred in deployment step ''Recycle IIS Application Pool'' SharePoint http:\/\/t.co\/leQX6qui
-      #error #sharepoint #sp2010"},"is_translator":false,"followers_count":233,"favourites_count":1,"profile_background_tile":false}'
+    body: ! '{"id":71723271,"created_at":"Sat Sep 05 04:10:06 +0000 2009","statuses_count":3124,"listed_count":13,"screen_name":"fewlines4biju","show_all_inline_media":false,"profile_sidebar_border_color":"F2E195","friends_count":1314,"utc_offset":19800,"following":false,"profile_background_tile":false,"profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/1496072930\/Biju_normal.png","profile_sidebar_fill_color":"FFF7CC","name":"Bijay
+      Kumar","location":"@HP Bangalore","follow_request_sent":false,"default_profile_image":false,"protected":false,"is_translator":false,"favourites_count":1,"profile_background_color":"BADFCD","description":"A
+      SharePoint Consultant, Blogger & MCTS in SharePoint ...","profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/387310063\/Fewlines4biju-Twitter.png","profile_link_color":"FF0000","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/387310063\/Fewlines4biju-Twitter.png","notifications":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1496072930\/Biju_normal.png","default_profile":false,"followers_count":240,"time_zone":"New
+      Delhi","lang":"en","contributors_enabled":false,"profile_use_background_image":true,"id_str":"71723271","status":{"in_reply_to_user_id":null,"in_reply_to_status_id_str":null,"retweet_count":0,"id_str":"180565643232419840","in_reply_to_user_id_str":null,"geo":null,"favorited":false,"in_reply_to_status_id":null,"in_reply_to_screen_name":null,"truncated":false,"contributors":null,"source":"\u003Ca
+      href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E","coordinates":null,"retweeted":false,"id":180565643232419840,"created_at":"Fri
+      Mar 16 08:06:18 +0000 2012","possibly_sensitive_editable":true,"possibly_sensitive":false,"place":null,"text":"How
+      to export #gridview data to excel in #asp.net? http:\/\/t.co\/eE1pWLax"},"geo_enabled":false,"profile_text_color":"0C3E53","verified":false,"url":"http:\/\/www.fewlines4biju.com"}'
     http_version: '1.1'
