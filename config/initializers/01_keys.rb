@@ -1,4 +1,7 @@
-APP_CONFIG = YAML.load_file("#{Rails.root}/config/keys.yml")
+keys_file = "#{Rails.root}/config/keys.yml"
+if(File.exists? keys_file)
+  APP_CONFIG = YAML.load_file(keys_file)
+end
 
 def twitter_api_key
   ENV['TWITTER_API_KEY'] || APP_CONFIG['consumer_key']
@@ -13,5 +16,5 @@ def twitter_user_token
 end
 
 def twitter_user_secret
-  ENV['TWITTER_USER_SECRET'] || APP_CONFIG['user_secret']
+  ENV['TWITTER_USER_SECRET'] || APP_CONFIG['user_secret'] 
 end
