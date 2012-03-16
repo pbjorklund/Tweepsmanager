@@ -1,4 +1,4 @@
 Twitter.configure do |config|
-  config.consumer_key = APP_CONFIG['consumer_key']
-  config.consumer_secret = APP_CONFIG['consumer_secret']
+  config.consumer_key = twitter_api_key
+  config.consumer_secret = twitter_api_secret
 end

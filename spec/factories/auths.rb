@@ -13,7 +13,7 @@ FactoryGirl.define do
 
   factory :real_auth, class: Auth do
     provider   "twitter"
-    token  APP_CONFIG['user_token']
-    secret APP_CONFIG['user_secret']
+    token  twitter_user_token
+    secret twitter_user_secret
   end
 end
