@@ -6,8 +6,6 @@ gem 'omniauth-twitter'
 gem 'json_pure'
 gem 'twitter'
 gem 'less-rails-bootstrap'
-gem 'heroku', '~> 2.22.0'
-gem 'taps', '0.3.23'
 gem 'thin'
 gem 'activeadmin'
 gem "pg"
@@ -37,6 +35,8 @@ group :test do
 end
 
 group :development, :test do
+  gem 'heroku', '~> 2.22.0'
+  gem 'taps', '0.3.23'
   if RUBY_PLATFORM.downcase.include?("darwin")
     gem 'pry'
     gem 'pry-nav'
