@@ -347,7 +347,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 3.2.0)
   spork
-  sqlite3
   taps (= 0.3.23)
   thin
   twitter
