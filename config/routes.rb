@@ -1,5 +1,9 @@
 Tweepsmanager::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   get 'followers' => 'twitter#followers'
   get "following" => 'twitter#following'
   get "not_following_back" => 'twitter#not_following_back'

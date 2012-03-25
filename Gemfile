@@ -6,8 +6,10 @@ gem 'omniauth-twitter'
 gem 'json_pure'
 gem 'twitter'
 gem 'less-rails-bootstrap'
-gem 'heroku'
+gem 'heroku', '~> 2.22.0'
+gem 'taps', '0.3.23'
 gem 'thin'
+gem 'activeadmin'
 
 group :test do
   gem 'database_cleaner'
