@@ -47,3 +47,7 @@ footer{
 form {
   margin: 0 0 0px;
 }
+
+.right-align {
+  float: right;
+}

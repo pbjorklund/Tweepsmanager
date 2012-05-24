@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :get_api_status
+  helper_method :current_user
 
   private
   def current_user
