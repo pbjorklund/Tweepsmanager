@@ -9,7 +9,8 @@ gem 'less-rails-bootstrap'
 gem 'thin'
 gem 'activeadmin'
 gem "pg"
-  gem 'sass-rails',   '~> 3.2.0'
+gem 'sass-rails',   '~> 3.2.0'
+gem 'therubyracer'
 
 group :test do
   gem 'database_cleaner'
