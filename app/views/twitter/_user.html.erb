@@ -1,39 +1,41 @@
-<div class="thumbnail">
-  <div class="caption"> 
-    <img id="img-profile" src="<%= user.profile_image_url %>" ></img>
-    <h3>
-      <a href="<%= root_url %><%= request.path.gsub("/","") %>/<%= user.screen_name %>"><%= user.screen_name %></a>
-    </h3>
-    <div >
-      <p>
-      (<%=j user.name %>)
-      <% if user.verified? %>
-        <span class="label label-info">verified</span>
-      <% end %>
-    </div>
-    <table class="table">
-      <tr>
-        <td> <strong>Bio:</strong> <%= user.description || "No bio for user" %></td>
-      </tr>
-      <tr>
-        <td><strong> Last tweet:</strong> <%= user.status.text || "No last tweet" %> </td>
-      </tr>
-      <tr>
-        <td>
-            <strong> Tweets:</strong> <%= user.statuses_count  %>
-            <strong> Followers:</strong> <%= user.followers_count %>
-            <strong> Following:</strong> <%= user.friends_count %>
-            <span rel="popover" title="Last tweet" data-content="<%= user.status.text || "No last tweet" %>">Last tweeted <%= time_ago_in_words(user.status.created_at) %> ago</span> 
-        </td>
-      </tr>
-    </table>
-    </p>
-    <div id="<%= "button-" + user.screen_name %>" class="right-align">
-      <% if user.following %>
-        <%= render partial: "unfollow_button", object: user, as: :user %>
-      <% else %>
-        <%= render partial: "follow_button", object: user, as: :user %>
-      <% end %>
-    </div>
-  </div>
+<% unless user.nil? %>
+<div class="caption">
+  <img id="img-profile" class="img-rounded" src="<%= user.profile_image_url %>" ></img>
+  <h3>
+    <a href="<%= root_url %><%= request.path.gsub("/","") %>/<%= user.screen_name %>"><%= user.screen_name %></a>
+    <% if user.verified? %>
+      <span class="label label-info">verified</span>
+    <% end %>
+<div id="<%= "button-" + user.screen_name %>" class="right-align">
+  <% if user.following %>
+    <%= render partial: "unfollow_button", object: user, as: :user %>
+  <% else %>
+    <%= render partial: "follow_button", object: user, as: :user %>
+  <% end %>
 </div>
+  </h3>
+<div>
+
+  <br />
+
+<div>
+  <p>
+  <strong>Bio:</strong> <%= user.description || "No bio for user" %>
+  </p>
+  <p>
+  <strong> Last tweet:</strong> <%= user.status.text || "No last tweet" %>
+  </p>
+  <p>
+  <strong>Tweets:</strong> <%= user.statuses_count  %>
+  </p>
+  <p>
+  <strong> Followers:</strong> <%= user.followers_count %>
+  </p>
+  <p>
+  <strong> Following:</strong> <%= user.friends_count %>
+  </p>
+
+  <span rel="popover" title="Last tweet" data-content="<%= user.status.text || "No last tweet" %>">Last tweeted <%= time_ago_in_words(user.status.created_at) %> ago</span>
+</div>
+
+<% end %>

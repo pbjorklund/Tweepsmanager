@@ -24,12 +24,12 @@ class TwitterController < ApplicationController
 
   respond_to :js
   def unfollow
-    render_error_on_twitter_rescue { @active_user = twitter.unfollow(params[:id]) }
+    render_error_on_twitter_rescue { @active_user = twitter.unfollow(params[:id]).first }
   end
 
   respond_to :js
   def follow
-    render_error_on_twitter_rescue { @active_user = twitter.follow(params[:id]) }
+    render_error_on_twitter_rescue { @active_user = twitter.follow(params[:id]).first }
   end
 
   private
@@ -48,7 +48,7 @@ class TwitterController < ApplicationController
       ids = twitter.send(method, params[:user])
       @users = twitter.get_users_for_page ids, (params[:page] || 0)
       @pages = ids.count / 100
-      render "shared/users"  
+      render "shared/users"
     end
   end
 

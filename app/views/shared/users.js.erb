@@ -1,7 +1,9 @@
 $("#main").html("<%=j render partial: "page" %>");
 
-<% @users.each do |user| %>
-  $("#main").append('<div class="row"> <%=j render partial: "user", object: user %></div><br />');
+<% @users.in_groups_of(2) do |group| %>
+  <% group.each do |user| %>
+    $("#main").append('<div class="span5"> <%=j render partial: "user", object: user %></div><br />');
+  <% end %>
 <% end %>
 
 var paginator = new Paginator($(".pagination ul"), <%= params[:page].to_i %>, <%= @pages %>);
